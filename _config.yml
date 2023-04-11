@@ -1,172 +1,211 @@
-###########################################################
-### Welcome to Beautiful Jekyll!
-### This config file is meant for settings that affect your entire website. When you first
-### set up your website you should go through all these settings and edit them, but after
-### the initial set up you won't need to come back to this file often.
-###########################################################
-
-############################
-# --- Required options --- #
-############################
+# --- Basic options --- #
 
 # Name of website
-title: My Website
+title: 鲸析数据
+# Short description of your site
+description: 关注鲸析，给你惊喜！
 
 # Your name to show in the footer
-author: Some Person
+author: Whalysis
 
-###############################################
 # --- List of links in the navigation bar --- #
-###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+    
+#  👉关于鲸析🐋: "aboutme"
+  # remember to unlock it if needed
+#  Resume:
+#   - English_Resume: 'e_cv'
+#    - Chinese_Resume: 'c_cv'
 
-################
+#   鲸析:
+#     - 鲸析项目: 
+#     - Python学习:
+#     - R学习:
+#     - 数据分析:
+#     - 统计:
+    
+    
+#   DATA3888: 
+#     - Week1 KNN & CV: 'DATA3888_2021_Week1_cv'
+#     - Week1 Clustering: 'DATA3888_2021_Week1_clustering'
+
+#   数据库: 
+#     - 简单: "sql"
+#     - 中等: "sql_medium"
+
+#  👉鲸析DA&DS求职1月小班课🐋: "https://mp.weixin.qq.com/s/CPTpmXLkui0kTC40R94oaA"
+#     - 汇总: "https://mp.weixin.qq.com/s/CEl7xg1Wi09iz8ZVHgfmBw"
+#     - 小班课: "https://mp.weixin.qq.com/s/VWovPLfvOT5baHUr3vQtcA"
+   
+  
+  👉机器学习👨‍💻: 
+    - 汇总: "https://ex661wn4s4.feishu.cn/docx/doxcnCBSwVaFG3tDvoDdFobjCDb"
+    - 线性算法面经: "https://ex661wn4s4.feishu.cn/docx/YffKdkTLlo9772xHPMFc0sAWnbc"
+    - 树型算法面经: "https://ex661wn4s4.feishu.cn/docx/IypTdEjX6ojAp1xtJx3cQVyBnub"
+    
+  👉鲸析课堂👨‍🏫: 
+    - 数据源: "datasource"
+    - 数学统计: "https://zg104.github.io/DSCrashCourse#math--stats-%E6%95%B0%E5%AD%A6%E7%BB%9F%E8%AE%A1"
+    - SQL笔记: "https://docs.qq.com/doc/DRU5Pa0pManNvSXJH"
+    - SQL刷题: "https://docs.qq.com/sheet/DRUtTaE5wUHVLcVNN?tab=BB08J2"
+    - HiveQL: "HiveQLSparQL"
+    - Python: "https://zg104.github.io/DSCrashCourse#python"
+    - Numpy: "numpy"
+    - Pandas: "Pandas"
+    - AB实验: "https://ex661wn4s4.feishu.cn/docx/QSeRdCR0BovRkrxOvb4ctyk0nfc"
+    - R: "https://zg104.github.io/DSCrashCourse#r%E8%AF%AD%E8%A8%80"
+    - Git: "https://zg104.github.io/DSCrashCourse#git"
+#    - Pandas: "https://ex661wn4s4.feishu.cn/docx/doxcnYhnPWtZBw9ceJZGG0wsQTf"
+#    - Pandas_profiling: "pandas_profiling"
+    
+ 
+  👉寻找鲸鲸👀:
+    - 小红书📕: "https://www.xiaohongshu.com/user/profile/6180a092000000001f03501c?xhsshare=CopyLink&appuid=6180a092000000001f03501c&apptime=1651851000"
+    - 公众号📗: "https://mp.weixin.qq.com/s/AtTq5vS5dkraJ7WeX3MqSw"
+    - Github🖤: "https://github.com/datoujinggzj"
+    - Gitee❤️: "https://gitee.com/gzjzg/"
+    - LeetCode💯: "https://leetcode-cn.com/u/zg104/"
+    - bilibili💫: "https://space.bilibili.com/497463853/channel/series"
+    - YouTube📀: "https://www.youtube.com/channel/UCgieDnZI7JWiZsGpKrhDMgg"
+    - LinkedIn⚙️: "https://www.linkedin.com/in/zg104"
+    - 全民K歌🎵: "https://node.kg.qq.com/personal?uid=66999d87202a3e893c&stay=1"
+# #   - 机器学习算法总结: 'ml'
+#     - 线性回归: "Linear_regression"
+#     - 逻辑回归: "Logistic_regression"
+#     - 朴素贝叶斯: "Naive_bayes"
+#     - 支持向量机: "SVM"
+#     - k近邻: "KNN_tutorial"
+#     - K平均: "kmeans"
+#     - 决策树: "desciontree"
+#     - 提升算法: "boost"
+#     - EM算法&应用: "em"
+#     - 隐马尔科夫模型: "HMM"
+#     - 自编码器: 'AE'
+#     - 卷积变分自编码器: 'Conv_VAE'
+
+#   个人项目:
+#     - 基于 LSTM 的设备健康评估与剩余寿面预测的研究: 'hpm'
+#     - 基于神经网络模型的机队可靠性故障报告分析: 'relia'
+#     - 癌症再入院率预测: "Readmission_prediction"
+#     - 安全驾驶预测: "Safe_Driver_Prediction"
+#     - 客户画像&回购预测: 'xgb'
+#     - 基于XGBoost的回购预测: 'kaijie_project'
+#     - 产能预测: 'capacity_prediction'
+#     - COVID-19分析预测: "covid"
+#     - 玻璃碎片识别: "glass"
+#     - 图像识别: "deeplearning"
+#     - 安全驾驶预测: "Safe_Driver_Prediction"
+#     - KNN算法在Iris上的应用: 'KNN'
+#   量化:
+#     - 量化之路（一）: "Quant1"
+#     - 量化之路（二）: "Quant2"
+#     - AFML 金融数据结构: "AFML_structure"
+#     - AFML 为金融数据打标签: "AFML_label"
+#     - AFML 元标签: "stack_meta"
+#     - AFML 抽样权重: "AFML_Sample_Weights"
+#     - AFML 分数差分: "AFML_fdf"
+#     - Tushare: "tushare"
+#     - What Makes An Asset Useful: "wmaau"
+#     - 资金流入流出预测（上）: 'eda1'
+#     - 资金流入流出预测（下）: 'eda2'
+#     - 股价预测: "Project"
+
+
+  #Resources:
+  # - Github: "https://github.com/zg104"
+  # - 知乎: "https://www.zhihu.com/people/gao-zi-jing-98"
+  # - LinkedIn: "https://www.linkedin.com/in/zg104/"
+  # - Medium: "https://medium.com/@zg104"
+ 
+
 # --- Logo --- #
-################
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "image/whale_logo.png"
 
-# By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
+# By default, the image is cut into a circle. You can disable this behaviour here.
 round-avatar: true
 
-# If you want to have an image logo in the top-left corner instead of having the title of the website,
+# If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-#title-img: /path/to/image
+# title-img: image/selfpic.jpg
 
 
-#####################################
-# --- Footer social media links --- #
-#####################################
+# --- Footer options --- #
 
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
+# If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
-  email: "someone@example.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
-  patreon: DeanAttali
-  youtube: c/daattali
-#  medium: yourname
+  email: "2328247224@qq.com"
+  facebook: whaleg123
+  github: datoujinggzj
+#   twitter: Zijing39896593
+  rss: false
+#  weixin: datoujinggzj
 #  reddit: yourname
-#  linkedin: daattali
+  linkedin: zg104
 #  xing: yourname
-#  stackoverflow: "3943160/daattali"
+  stackoverflow: "19072279/studywhale"
 #  snapchat: deanat78
 #  instagram: deanat78
+  youtube: channel/UCgieDnZI7JWiZsGpKrhDMgg
 #  spotify: yourname
-#  telephone: +14159998888
+  telephone: 18616531215
 #  steam: deanat78
 #  twitch: yourname
 #  yelp: yourname
 #  telegram: yourname
 #  calendly: yourname
-#  mastodon: instance.url/@username
-#  ORCID: your ORCID ID
-#  google-scholar: your google scholar
-#  discord: invite/invite_code or users/userid 
-#  kaggle: yourname
-#  hackerrank: yourname
 
-# If you want your website to generate an RSS feed, provide a description
-# The URL for the feed will be https://<your_website>/feed.xml
-rss-description: This website is a virtual proof that I'm awesome
-
-###########################
 # --- General options --- #
-###########################
 
 # Select which social network share links to show in posts
 share-links-active:
-  twitter: true
-  facebook: true
+#   twitter: true
+#   facebook: true
   linkedin: true
-  vk: false
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
 
-# Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
-excerpt_length: 50
+# Create a "tags" index page and make tags on each post clickable
+#link-tags: true
 
-# Whether or not to show an excerpt for every blog post in the feed page
-feed_show_excerpt: true
+# Excerpt Word Length - Truncates the excerpt to the specified number of words on the index page
+#excerpt_length: 50
 
-# Whether or not to show a list of tags below each post preview in the feed page
-feed_show_tags: true
-
-# Add a search button to the navbar
-post_search: true
-
-# Add a button in the footer to edit the current page. Only works if your website is hosted on GitHub
-edit_page_button: true
-
-# Allow sub-menu items (second-level navigation menu items) to be longer than the top-level menu
-# If this setting is off, then long sub-menu words might get cut off
-# See https://github.com/daattali/beautiful-jekyll/issues/765 to understand the issue this setting can solve
-navbar-var-length: false
-
-# The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
-
-######################################
 # --- Colours / background image --- #
-######################################
 
-# Personalize the colours in your website. Colour values can be any valid CSS colour
+# Personalize the colors in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#EAEAEA"
+navbar-col: "#F5F5F5"
 navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-page-col: "#FFFFFF"
-text-col: "#404040"
+navbar-border-col: "#EAEAEA"
+page-col: "#F5F5F5"
 link-col: "#008AFF"
 hover-col: "#0085A1"
-footer-col: "#EAEAEA"
+footer-col: "#F5F5F5"
 footer-text-col: "#777777"
 footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
 
-# Alternatively, the navbar, footer, and page background can be set to an image
+# Alternatively, the navbar, footer, and page background can be set to use background images
 # instead of colour
 
-#navbar-img: "/assets/img/bgimage.png"
-#footer-img: "/assets/img/bgimage.png"
-#page-img: "/assets/img/bgimage.png"
+# 解锁背景
+navbar-img: "/assets/img/bgimage.png"
+footer-img: "/assets/img/bgimage.png"
+page-img: "/assets/img/bgimage.png"
 
-# Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
-
-# For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
-
-# If you have common JavaScript files that should be included in every page, list them here
-#site-js:
-#  - "/assets/js/custom-script.js"
-
-#################################
-# --- Web Analytics Section --- #
-#################################
+# --- Web Statistics Section --- #
 
 # Fill in your Google Analytics gtag.js ID to track your website using gtag
-#gtag: ""
+#gtag: "UA-173057260-1"
 
-# Fill in your Google Analytics ID to track your website using Google Analytics
+# Fill in your Google Analytics ID to track your website using GA
 #google_analytics: ""
-
-# Fill in your Cloudflare Analytics beacon token to track your website using Cloudflare Analytics
-#cloudflare_analytics: ""
 
 # Google Tag Manager ID
 #gtm: ""
@@ -179,18 +218,14 @@ footer-hover-col: "#0085A1"
 #  uri: "demo.wiki.pro"
 #  opt-out: true
 
-####################
 # --- Comments --- #
-####################
 
 # To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-#disqus: ""
+disqus: "whalysis"
+comments: true
 
 # To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
-#fb_comment_id: ""
-
-# To use CommentBox, sign up for a Project ID on https://commentbox.io
-#commentbox: "" # Project ID, e.g. "5694267682979840-proj"
+#fb_comment_id: "100026263117094"
 
 # To use Utterances comments: (0) uncomment the following section, (1) fill in
 # "repository" (make sure the repository is public), (2) Enable Issues in your repository,
@@ -202,39 +237,25 @@ footer-hover-col: "#0085A1"
 #  theme: github-light # Utterances theme
 #  label: blog-comments # Label that will be assigned to GitHub Issues created by Utterances
 
-# To use Staticman comments, uncomment the following section. You may leave the reCaptcha
-# section commented if you aren't using reCaptcha for spam protection. 
-# Using Staticman requires advanced knowledge, please consult 
-# https://github.com/eduardoboucas/staticman/ and https://staticman.net/ for further 
-# instructions. For any support with staticman please direct questions to staticman and 
-# not to BeautifulJekyll.
+# To use Staticman comments, first invite `staticmanlab` as a collaborator to your repository and
+# accept the invitation by going to `https://staticman3.herokuapp.com/v3/connect/github/<username>/<repo-name>`.
+# Then uncomment the following section and fill in "repository", "branch", and "endpoint".
+# If you want to use reCaptcha for staticman (optional for spam protection), then fill
+# in the "siteKey" and "secret" parameters below and also in `staticman.yml`.
+# See more details at https://staticman.net/
 #staticman:
 #  repository : # GitHub username/repository eg. "daattali/beautiful-jekyll"
 #  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-#  endpoint   : # URL of your deployment, with a trailing slash eg. "https://<your-api>/v3/entry/github/"
-#  reCaptcha:   # (optional, set these parameters in `staticman.yml` as well) 
-#    siteKey  : # You need to apply for a site key on Google
-#    secret   : # Encrypt your password by going to https://<your-own-api>/v3/encrypt/<your-site-secret>
+#  endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
+#  reCaptcha:
+#    siteKey  : # Use your own site key, you need to apply for one on Google
+#    secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
 
-# To use giscus comments:
-# (0) Uncomment the following giscus section, (1) Enable Discussions in your GitHub repository, 
-# (2) Install the giscus app in your repository (details at https://giscus.app),
-# (3) Fill in *all* the parameters below 
-# See more details about giscus and each of the following parameters at https://giscus.app
-#giscus:
-#  hostname: giscus.app # Replace with your giscus instance's hostname if self-hosting
-#  repository: # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  repository-id: # ID of your repository, retrieve this info from https://giscus.app
-#  category: Announcements # Category name of your GitHub Discussion posts
-#  category-id: # ID of your category, retrieve this info from https://giscus.app
-#  mapping: pathname
-#  reactions-enabled: 1
-#  emit-metadata: 0
-#  theme: light
-
-################
 # --- Misc --- #
-################
+
+# Character used to separate site title and description in HTML document title
+# and RSS feed title
+#title-separator: "-"
 
 # Ruby Date Format to show dates of posts
 date_format: "%B %-d, %Y"
@@ -242,12 +263,11 @@ date_format: "%B %-d, %Y"
 # Facebook App ID
 #fb_app_id: ""
 
-#################################################################################
+
 # --- You don't need to touch anything below here (but you can if you want) --- #
-#################################################################################
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Toronto"
+timezone: "America/Vancouver"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
@@ -266,11 +286,13 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
+      readtime: false # add estimated reading time on all blog posts
   -
     scope:
-      path: "" # any file that's not a post will be a "page" layout by default
+      path: "" # all files
     values:
       layout: "page"
+      show-avatar: true
 
 # Exclude these files from production site
 exclude:
@@ -289,4 +311,3 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
-
