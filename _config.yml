@@ -44,6 +44,7 @@ navbar-links:
     - 逻辑回归: "ML/Logistic_regression"
     - 支持向量机: "ML/SVM"
     - 朴素贝叶斯: "ML/Naive_Bayes"
+    - 决策树: "ML/Decision_Tree"
   
 #     - 线性算法面经: "https://ex661wn4s4.feishu.cn/docx/YffKdkTLlo9772xHPMFc0sAWnbc"
 #     - 树型算法面经: "https://ex661wn4s4.feishu.cn/docx/IypTdEjX6ojAp1xtJx3cQVyBnub"
