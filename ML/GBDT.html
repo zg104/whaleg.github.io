@@ -1,0 +1,592 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+html {
+	font-size: 19px;
+}
+
+html, body {
+	margin: auto;
+	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	font-family: "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
+}
+
+#write {
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	line-height: 1.53;
+	padding-top: 40px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media print {
+	html {
+		font-size: 13px;
+	}
+}
+
+/* Typography
+-------------------------------------------------------- */
+
+#write>h1:first-child,
+h1 {
+	margin-top: 1.6em;
+	font-weight: normal;
+}
+
+h1 {
+	font-size:3em;
+}
+
+h2 {
+	margin-top:2em;
+	font-weight: normal;
+}
+
+h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 3em;
+}
+
+h1, 
+h2, 
+h3{
+	text-align: center;
+}
+
+h2:after{
+	border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 1px;
+}
+
+h1+h2, h2+h3 {
+	margin-top: 0.83em;
+}
+
+p,
+.mathjax-block {
+	margin-top: 0;
+	-webkit-hypens: auto;
+	-moz-hypens: auto;
+	hyphens: auto;
+}
+ul {
+	list-style: square;
+	padding-left: 1.2em;
+}
+ol {
+	padding-left: 1.2em;
+}
+blockquote {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+}
+code,
+pre {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+}
+.md-fences{
+	margin-left: 1em;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+	padding-bottom: 8px;
+	padding-top: 6px;
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: #2484c1;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+h1 a,
+h1 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+hr {
+	color: #ddd;
+	height: 1px;
+	margin: 2em 0;
+	border-top: solid 1px #ddd;
+	border-bottom: none;
+	border-left: 0;
+	border-right: 0;
+}
+.ty-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
+table {
+	margin-bottom: 1.333333rem
+}
+table th,
+table td {
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+table th {
+	font-weight: bold
+}
+table thead th {
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+
+.task-list{
+	padding:0;
+}
+
+.md-task-list-item {
+	padding-left: 1.6rem;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.33333333rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #fefefe;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+.md-tag {
+	color: inherit;
+	font: inherit;
+}
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+}
+#write pre.md-meta-block {
+	white-space: pre;
+	background: #f8f8f8;
+	border: 0px;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+
+	margin-bottom: 2em;
+	margin-top: -1.3333333333333rem;
+	padding-top: 26px;
+	padding-bottom: 10px;
+	line-height: 1.8em;
+	font-size: 0.9em;
+	font-size: 0.76em;
+	padding-left: 0;
+}
+.md-img-error.md-image>.md-meta{
+	vertical-align: bottom;
+}
+#write>h5.md-focus:before {
+	top: 2px;
+}
+
+.md-toc {
+	margin-top: 40px;
+}
+
+.md-toc-content {
+	padding-bottom: 20px;
+}
+
+.outline-expander:before {
+	color: inherit;
+	font-size: 14px;
+	top: auto;
+	content: "\f0da";
+	font-family: FontAwesome;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  	content: "\f0d7";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.html-for-mac #typora-sidebar {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.typora-node .file-list-item-parent-loc, 
+.typora-node .file-list-item-time, 
+.typora-node .file-list-item-summary {
+	font-family: arial, sans-serif;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.md-fences .code-tooltip {
+	bottom: -2em !important;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+
+</style><title>GBDT</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='gbdt'><span>GBDT</span></h2><p><img src="https://arogozhnikov.github.io/images/gbdt_attractive_picture.png" referrerpolicy="no-referrer" alt="Gradient Boosting explained [demonstration]"></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n0"><a class="md-toc-inner" href="#gbdt">GBDT</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4"><a class="md-toc-inner" href="#summary">Summary</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n8"><a class="md-toc-inner" href="#key-takeaways">Key takeaways</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n37"><a class="md-toc-inner" href="#interview-questions">Interview Questions</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n62"><a class="md-toc-inner" href="#what-is-gbdt-and-how-does-it-work">What is GBDT and how does it work?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n64"><a class="md-toc-inner" href="#explain-the-difference-between-boosting-and-bagging">Explain the difference between boosting and bagging.</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n66"><a class="md-toc-inner" href="#what-are-the-advantages-of-gbdt-over-other-machine-learning-algorithms">What are the advantages of GBDT over other machine learning algorithms?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n68"><a class="md-toc-inner" href="#how-does-gbdt-handle-overfitting">How does GBDT handle overfitting?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n70"><a class="md-toc-inner" href="#what-is-the-learning-rate-in-gbdt-and-how-does-it-affect-the-model">What is the learning rate in GBDT and how does it affect the model?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n72"><a class="md-toc-inner" href="#can-gbdt-handle-missing-values-in-the-dataset-if-yes-how">Can GBDT handle missing values in the dataset? If yes, how?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n74"><a class="md-toc-inner" href="#how-does-gbdt-handle-categorical-features">How does GBDT handle categorical features?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n76"><a class="md-toc-inner" href="#explain-the-concept-of-feature-importance-in-gbdt">Explain the concept of feature importance in GBDT.</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n78"><a class="md-toc-inner" href="#what-are-the-hyperparameters-in-gbdt-and-how-do-they-impact-the-models-performance">What are the hyperparameters in GBDT and how do they impact the model's performance?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n80"><a class="md-toc-inner" href="#what-is-early-stopping-in-gbdt-and-why-is-it-important">What is early stopping in GBDT and why is it important?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n82"><a class="md-toc-inner" href="#how-can-you-prevent-gbdt-from-becoming-too-complex-or-prone-to-overfitting">How can you prevent GBDT from becoming too complex or prone to overfitting?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n84"><a class="md-toc-inner" href="#compare-gbdt-with-random-forests-when-would-you-choose-one-over-the-other">Compare GBDT with random forests. When would you choose one over the other?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n86"><a class="md-toc-inner" href="#what-evaluation-metrics-would-you-use-to-assess-the-performance-of-a-gbdt-model">What evaluation metrics would you use to assess the performance of a GBDT model?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n88"><a class="md-toc-inner" href="#what-are-some-strategies-to-improve-the-training-speed-of-gbdt">What are some strategies to improve the training speed of GBDT?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n90"><a class="md-toc-inner" href="#can-gbdt-be-parallelized-or-distributed-across-multiple-machines">Can GBDT be parallelized or distributed across multiple machines?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n92"><a class="md-toc-inner" href="#explain-the-concept-of-gradient-boosting-with-decision-trees">Explain the concept of gradient boosting with decision trees.</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n94"><a class="md-toc-inner" href="#how-does-gbdt-handle-class-imbalance-in-classification-tasks">How does GBDT handle class imbalance in classification tasks?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n96"><a class="md-toc-inner" href="#what-are-the-common-challenges-or-limitations-of-gbdt">What are the common challenges or limitations of GBDT?</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n98"><a class="md-toc-inner" href="#describe-the-trade-off-between-model-interpretability-and-predictive-power-in-gbdt">Describe the trade-off between model interpretability and predictive power in GBDT.</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n100"><a class="md-toc-inner" href="#can-gbdt-be-used-for-feature-selection-and-if-so-how">Can GBDT be used for feature selection, and if so, how?</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n382"><a class="md-toc-inner" href="#python-application">Python Application</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n393"><a class="md-toc-inner" href="#gradientboostingclassifier"><code>GradientBoostingClassifier()</code></a></span></p></div><p>&nbsp;</p><h3 id='summary'><span>Summary</span></h3><p><span>GBDT (Gradient Boosting Decision Tree) is an ensemble learning algorithm that combines multiple weak decision trees, iteratively correcting errors, and delivering high predictive power with the ability to handle complex non-linear relationships in data.</span></p><h3 id='key-takeaways'><span>Key takeaways</span></h3><ol><li><p><span>GBDT is an </span><mark><span>ensemble learning algorithm</span></mark><span> that combines multiple weak decision trees to create a strong predictive model.</span></p></li><li><p><span>It operates in an iterative manner, where each subsequent tree is trained to </span><mark><span>correct the mistakes made by the previous trees</span></mark><span>.</span></p></li><li><p><span>GBDT is widely used for </span><mark><span>both classification and regression</span></mark><span> tasks due to its ability to handle complex non-linear relationships in data.</span></p></li><li><p><span>It is a boosting algorithm that focuses on improving the performance of the model by giving more weight to misclassified instances.</span></p></li><li><p><span>GBDT is a powerful tool for feature selection, as it automatically learns the importance of different features based on their contribution to the overall model performance.</span></p></li><li><p><span>It is less prone to overfitting compared to individual decision trees, thanks to the ensemble nature of the algorithm.</span></p></li><li><p><span>GBDT can handle a variety of data types, including numerical, categorical, and ordinal features.</span></p></li><li><p><span>It is highly flexible and can be customized with various loss functions and optimization techniques to suit different problem domains.</span></p></li><li><p><span>GBDT is computationally expensive and may require substantial computational resources and time for training large-scale datasets.</span></p></li><li><p><span>Popular implementations of GBDT include XGBoost, LightGBM, and CatBoost, which offer optimizations and additional features to enhance performance and usability.</span></p></li></ol><h3 id='interview-questions'><span>Interview Questions</span></h3><h4 id='what-is-gbdt-and-how-does-it-work'><span>What is GBDT and how does it work?</span></h4><p><span>GBDT (Gradient Boosting Decision Tree) is an ensemble learning algorithm that combines multiple weak decision trees to create a strong predictive model. It works by iteratively training decision trees, where each subsequent tree is built to correct the errors made by the previous trees. The final prediction is obtained by aggregating the predictions of all the trees.</span></p><h4 id='explain-the-difference-between-boosting-and-bagging'><span>Explain the difference between boosting and bagging.</span></h4><p><span>The main difference between boosting and bagging is the way they build the ensemble models. </span></p><p><span>Boosting focuses on training weak models </span><strong><span>sequentially</span></strong><span>, where each subsequent model is built to </span><mark><span>correct the errors of the previous models</span></mark><span>. </span></p><p><span>Bagging, on the other hand, trains weak models independently in </span><strong><span>parallel</span></strong><span> and combines their predictions through voting or averaging. Boosting gives more emphasis to misclassified instances, while bagging treats all instances equally.</span></p><h4 id='what-are-the-advantages-of-gbdt-over-other-machine-learning-algorithms'><span>What are the advantages of GBDT over other machine learning algorithms?</span></h4><ul><li><p><span>It handles both categorical and numerical features efficiently, without requiring feature scaling or one-hot encoding.</span></p></li><li><p><span>GBDT can capture complex </span><strong><span>non-linear</span></strong><span> relationships in the data by combining multiple weak decision trees.</span></p></li><li><p><span>It provides </span><strong><span>robustness</span></strong><span> against outliers and noise in the data.</span></p></li><li><p><span>GBDT has the ability to handle </span><strong><span>missing values</span></strong><span> in the dataset.</span></p></li><li><p><span>The feature importance estimation in GBDT helps in identifying the most relevant features for the prediction task.</span></p></li><li><p><span>GBDT performs well on a wide range of datasets and can achieve high predictive accuracy.</span></p></li></ul><h4 id='how-does-gbdt-handle-overfitting'><span>How does GBDT handle overfitting?</span></h4><ul><li><p><span>Regularization: GBDT introduces parameters like learning rate, tree depth, minimum loss reduction, and minimum samples per leaf to control model complexity and prevent overfitting.</span></p></li><li><p><span>Early stopping: GBDT monitors the performance on a validation dataset during training and stops the training process if the performance stops improving or starts deteriorating, preventing overfitting.</span></p></li><li><p><span>Shrinkage: GBDT applies a learning rate that scales the contribution of each tree, reducing the impact of individual trees and controlling the learning process to avoid overfitting.</span></p></li><li><p><span>Stochastic Gradient Boosting: GBDT can introduce randomness by using random subsets of the training data or features for each tree, which adds regularization and helps prevent overfitting.</span></p></li></ul><h4 id='what-is-the-learning-rate-in-gbdt-and-how-does-it-affect-the-model'><span>What is the learning rate in GBDT and how does it affect the model?</span></h4><p><span>The learning rate in GBDT controls the contribution of each tree to the overall model. It is a scaling factor applied to the predictions of each tree before they are added to the ensemble. A smaller learning rate means each tree has a smaller impact on the final prediction, making the model more conservative. A larger learning rate allows each tree to have a stronger influence. The learning rate affects the convergence speed and generalization ability of the model. A smaller learning rate requires more iterations for the model to converge but may result in better generalization. However, a learning rate that is too small can excessively slow down the training process.</span></p><h4 id='can-gbdt-handle-missing-values-in-the-dataset-if-yes-how'><span>Can GBDT handle missing values in the dataset? If yes, how?</span></h4><p><span>Yes, GBDT can handle missing values in the dataset. During the tree building process, GBDT learns how to handle missing values by using surrogate splits. Surrogate splits are additional splits that are created to handle instances with missing values. These splits allow GBDT to make predictions for instances with missing values based on the available features.</span></p><h4 id='how-does-gbdt-handle-categorical-features'><span>How does GBDT handle categorical features?</span></h4><p><span>GBDT can handle categorical features by using an approach called one-hot encoding or by using an alternative encoding technique such as ordinal encoding. One-hot encoding converts each categorical feature into multiple binary features, where each binary feature represents a unique category. This allows GBDT to treat categorical variables as numerical variables and make effective splits based on them. Ordinal encoding assigns a unique numeric value to each category, preserving the ordinal relationship between categories.</span></p><h4 id='explain-the-concept-of-feature-importance-in-gbdt'><span>Explain the concept of feature importance in GBDT.</span></h4><p><span>Feature importance in GBDT refers to the estimation of the relative importance or contribution of each feature in the model&#39;s predictive performance. GBDT calculates feature importance by considering how often a feature is used for splitting across all the trees in the ensemble and the improvement in the objective function (e.g., reduction in the loss) achieved by each split. Features that are frequently used for splitting and lead to a significant reduction in the loss are considered more important. Feature importance helps in identifying the most relevant features for the prediction task, understanding the underlying patterns in the data, and performing feature selection for model optimization and interpretability.</span></p><h4 id='what-are-the-hyperparameters-in-gbdt-and-how-do-they-impact-the-models-performance'><span>What are the hyperparameters in GBDT and how do they impact the model&#39;s performance?</span></h4><p><span>Hyperparameters in GBDT are parameters that are set before the training process and affect the behavior and performance of the model. Some key hyperparameters in GBDT include:</span></p><ul><li><p><span>Learning rate: Controls the contribution of each tree to the overall model.</span></p></li><li><p><span>Number of trees: Determines the total number of trees to be built.</span></p></li><li><p><span>Tree depth: Specifies the maximum depth of each decision tree.</span></p></li><li><p><span>Minimum samples per leaf: Sets the minimum number of samples required to form a leaf node.</span></p></li><li><p><span>Minimum loss reduction: Specifies the minimum loss reduction required to split a node.</span></p></li></ul><p><span>These hyperparameters impact the model&#39;s complexity, convergence speed, and tendency to overfit. Proper tuning of these hyperparameters is crucial for achieving optimal model performance.</span></p><h4 id='what-is-early-stopping-in-gbdt-and-why-is-it-important'><span>What is early stopping in GBDT and why is it important?</span></h4><p><span>Early stopping in GBDT is a technique that monitors the performance of the model on a validation dataset during the training process. It stops the training if the performance on the validation set stops improving or starts deteriorating. Early stopping helps prevent overfitting by stopping the training before the model starts to memorize the training data too closely. It improves the model&#39;s generalization ability by selecting the iteration that achieves the best performance on unseen data.</span></p><h4 id='how-can-you-prevent-gbdt-from-becoming-too-complex-or-prone-to-overfitting'><span>How can you prevent GBDT from becoming too complex or prone to overfitting?</span></h4><ul><li><p><span>Regularization: Introduce regularization parameters like learning rate, tree depth, and minimum samples per leaf to control model complexity and prevent overfitting.</span></p></li><li><p><span>Early stopping: Use early stopping to monitor the model&#39;s performance on a validation set and stop the training process when performance stops improving or starts deteriorating.</span></p></li><li><p><span>Shrinkage: Apply a smaller learning rate to reduce the impact of each tree, making the model more conservative and less prone to overfitting.</span></p></li><li><p><span>Feature subsampling: Use a random subset of features for each tree to reduce the risk of overfitting to specific features.</span></p></li><li><p><span>Cross-validation: Perform cross-validation to evaluate the model&#39;s performance on different subsets of the data and select the hyperparameters that yield the best average performance.</span></p></li><li><p><span>Increase training data: Providing more diverse and representative training data can help mitigate overfitting by giving the model a broader learning experience.</span></p></li></ul><h4 id='compare-gbdt-with-random-forests-when-would-you-choose-one-over-the-other'><span>Compare GBDT with random forests. When would you choose one over the other?</span></h4><p><span>GBDT vs. Random Forests: Both GBDT and Random Forests are ensemble learning algorithms based on decision trees, but they differ in their approach. GBDT builds trees sequentially, where each tree corrects the errors of the previous tree, whereas Random Forests build trees independently.</span></p><p><span>Choose GBDT when:</span></p><ul><li><p><span>The dataset has complex relationships and interactions between features.</span></p></li><li><p><span>You want to prioritize reducing bias and focus on improving predictive accuracy.</span></p></li><li><p><span>The dataset is not very high-dimensional.</span></p></li><li><p><span>You are willing to spend more time on hyperparameter tuning and model optimization.</span></p></li></ul><p><span>Choose Random Forests when:</span></p><ul><li><p><span>The dataset has a large number of features.</span></p></li><li><p><span>You want to reduce the variance and mitigate overfitting.</span></p></li><li><p><span>You prefer a more straightforward and less computationally intensive approach.</span></p></li><li><p><span>You have limited time for hyperparameter tuning.</span></p></li></ul><h4 id='what-evaluation-metrics-would-you-use-to-assess-the-performance-of-a-gbdt-model'><span>What evaluation metrics would you use to assess the performance of a GBDT model?</span></h4><ul><li><p><span>For classification: Accuracy, precision, recall, F1-score, area under the ROC curve (AUC-ROC), and log loss.</span></p></li><li><p><span>For regression: Mean squared error (MSE), mean absolute error (MAE), R-squared, and root mean squared logarithmic error (RMSLE).</span></p></li></ul><h4 id='what-are-some-strategies-to-improve-the-training-speed-of-gbdt'><span>What are some strategies to improve the training speed of GBDT?</span></h4><ul><li><p><span>Use a smaller learning rate: A smaller learning rate reduces the step size taken during gradient descent, resulting in slower but more precise convergence.</span></p></li><li><p><span>Subsample the training data: Training on a random subset of the data can speed up training while maintaining generalization performance.</span></p></li><li><p><span>Reduce the depth of trees: Limiting the depth of trees reduces the computational complexity and memory requirements of the model.</span></p></li><li><p><span>Parallelize tree building: Use parallel computing techniques, such as multi-threading, to train trees concurrently.</span></p></li><li><p><span>Utilize GPU acceleration: Utilizing the computational power of GPUs can significantly speed up the training process.</span></p></li><li><p><span>Implement early stopping: Stop the training process if the performance on the validation set does not improve after a certain number of iterations, saving computation time.</span></p></li></ul><h4 id='can-gbdt-be-parallelized-or-distributed-across-multiple-machines'><span>Can GBDT be parallelized or distributed across multiple machines?</span></h4><p><span>Yes, GBDT can be parallelized or distributed across multiple machines. There are frameworks and implementations specifically designed for GBDT, such as XGBoost and LightGBM, that support parallelization and distributed training.</span></p><p><span>In parallelization, the training process is divided among multiple computational units (e.g., threads or processes) within a single machine. Each unit trains a subset of trees independently, and the results are combined at the end to form the final ensemble model. This parallelization technique can speed up the training process by utilizing the computational power of multiple cores or processors within a machine.</span></p><p><span>In distributed training, the training process is spread across multiple machines in a distributed computing environment. The data is partitioned and distributed among the machines, and each machine independently trains a subset of trees on its portion of the data. Communication protocols are used to exchange information and synchronize the ensemble models built on each machine. Distributed training enables scalability for large datasets and computational resources, as multiple machines can work in parallel to train the ensemble.</span></p><p><span>Both parallelization and distributed training techniques allow GBDT to leverage the capabilities of modern hardware infrastructure, such as multi-core processors and clusters of machines, to speed up the training process and handle larger datasets efficiently.</span></p><h4 id='explain-the-concept-of-gradient-boosting-with-decision-trees'><span>Explain the concept of gradient boosting with decision trees.</span></h4><p><span>Gradient Boosting with Decision Trees is a machine learning technique that combines the power of gradient descent optimization with the flexibility of decision trees to build a strong predictive model. It is an ensemble method where multiple decision trees are sequentially trained to correct the errors made by the previous trees.</span></p><p><span>The concept of gradient boosting can be explained in the following steps:</span></p><ol><li><p><span>Initialization: The process begins by initializing the model with a simple model, typically a decision tree with a single leaf node. This initial model makes predictions based on a single value, such as the average of the target variable.</span></p></li><li><p><span>Gradient Calculation: The gradient or the difference between the predicted and actual values is calculated for each instance in the training data. This gradient represents the direction and magnitude of the error.</span></p></li><li><p><span>Tree Building: A new decision tree is built to correct the errors made by the previous model. The tree is trained to minimize the loss function, which is a measure of the discrepancy between the predicted and actual values. The target values for training the tree are not the actual values but the negative gradients, which are the differences between the actual and predicted values. This way, the new tree focuses on the remaining errors and tries to learn patterns that capture the previously missed information.</span></p></li><li><p><span>Update of Ensemble: The new decision tree is added to the ensemble, and its predictions are combined with the predictions of the previous models. The combined predictions are used to calculate the new residuals or errors.</span></p></li><li><p><span>Iteration: Steps 2 to 4 are repeated for a predetermined number of iterations or until a stopping criterion is met. Each iteration, a new tree is built to address the remaining errors and improve the overall predictive power of the model.</span></p></li><li><p><span>Final Prediction: The final prediction of the gradient boosting model is the sum of the predictions from all the individual trees in the ensemble.</span></p></li></ol><p><span>By iteratively building decision trees that focus on correcting the errors of the previous models, gradient boosting effectively learns complex relationships and interactions in the data, leading to a powerful and accurate predictive model. The gradient descent optimization ensures that each new tree is trained to minimize the remaining errors in the ensemble, gradually improving the model&#39;s performance.</span></p><h4 id='how-does-gbdt-handle-class-imbalance-in-classification-tasks'><span>How does GBDT handle class imbalance in classification tasks?</span></h4><p><span>Gradient Boosting with Decision Trees (GBDT) can handle class imbalance in classification tasks through various techniques:</span></p><ol><li><p><span>Weighted Loss Function: GBDT allows the use of a weighted loss function during training. By assigning higher weights to instances from the minority class, the model can give more importance to correctly classifying minority class instances, thus mitigating the impact of class imbalance.</span></p></li><li><p><span>Class Weighting: GBDT algorithms often provide an option to assign different weights to each class. Higher weights can be assigned to the minority class, effectively increasing its influence during the training process and helping the model to focus more on correctly predicting instances from the minority class.</span></p></li><li><p><span>Subsampling: Instead of using the entire dataset, GBDT can employ subsampling techniques to balance the class distribution during training. This involves randomly selecting a subset of instances from the majority class to match the size of the minority class. This technique ensures that the model receives an equal representation of both classes, reducing the dominance of the majority class and improving the model&#39;s ability to learn patterns from the minority class.</span></p></li><li><p><span>Over/Under Sampling: Another approach is to oversample the minority class or undersample the majority class to create a balanced training dataset. Oversampling involves duplicating instances from the minority class, while undersampling involves removing instances from the majority class. These techniques create a balanced distribution and can be effective in improving the model&#39;s ability to learn from the minority class.</span></p></li><li><p><span>SMOTE (Synthetic Minority Over-sampling Technique): SMOTE is a popular technique for handling class imbalance. It creates synthetic instances for the minority class by interpolating between neighboring instances. This technique helps in expanding the minority class and provides more training samples, thus balancing the class distribution.</span></p></li></ol><p><span>By employing these techniques, GBDT can effectively address class imbalance in classification tasks and improve the model&#39;s ability to accurately predict instances from both the majority and minority classes. The choice of technique depends on the specific problem and dataset, and experimentation may be required to determine the most effective approach.</span></p><h4 id='what-are-the-common-challenges-or-limitations-of-gbdt'><span>What are the common challenges or limitations of GBDT?</span></h4><p><span>While Gradient Boosting with Decision Trees (GBDT) is a powerful and widely used machine learning technique, it does have certain challenges and limitations. Some common challenges and limitations of GBDT include:</span></p><ol><li><p><span>Overfitting: GBDT is prone to overfitting, especially when the model becomes too complex or when the dataset has noise or outliers. Overfitting occurs when the model captures the noise or idiosyncrasies of the training data, leading to poor generalization performance on unseen data.</span></p></li><li><p><span>Sensitivity to hyperparameters: GBDT has several hyperparameters that need to be carefully tuned for optimal performance. The choice of hyperparameters, such as the learning rate, tree depth, and regularization parameters, can significantly impact the model&#39;s performance. Improper tuning of hyperparameters can lead to suboptimal results.</span></p></li><li><p><span>Computational complexity: GBDT can be computationally expensive, especially when dealing with large datasets or complex models. Training multiple decision trees sequentially and calculating gradients can be time-consuming, requiring significant computational resources.</span></p></li><li><p><span>Memory usage: GBDT models can consume a large amount of memory, especially when dealing with high-dimensional datasets or deep trees. Storing the tree structures and gradients for each iteration can lead to high memory requirements, which may limit the scalability of the model.</span></p></li><li><p><span>Lack of interpretability: GBDT models are generally considered less interpretable compared to simpler models like linear regression or decision trees. The ensemble nature of GBDT and the complex interactions between the trees make it challenging to understand the specific contributions of each feature to the predictions.</span></p></li><li><p><span>Handling categorical variables: GBDT handles categorical variables by splitting them into multiple binary features, also known as one-hot encoding. This process can result in a large number of additional features, increasing the dimensionality of the dataset and potentially causing computational challenges and overfitting.</span></p></li><li><p><span>Imbalanced data: GBDT may struggle with imbalanced datasets, where one class significantly outnumbers the other. The model&#39;s tendency to focus on the majority class can result in poorer performance on the minority class unless appropriate techniques, such as class weighting or sampling, are applied.</span></p></li></ol><p><span>Despite these challenges, GBDT remains a powerful and widely used algorithm with numerous advantages. Proper understanding, careful hyperparameter tuning, and addressing specific challenges can help mitigate these limitations and improve the performance and effectiveness of GBDT models.</span></p><h4 id='describe-the-trade-off-between-model-interpretability-and-predictive-power-in-gbdt'><span>Describe the trade-off between model interpretability and predictive power in GBDT.</span></h4><p><span>The trade-off between model interpretability and predictive power in Gradient Boosting with Decision Trees (GBDT) can be described as follows:</span></p><ol><li><p><span>Model Interpretability: GBDT models, especially when using a large number of trees and deep trees, tend to become highly complex and less interpretable. The ensemble nature of GBDT, with multiple trees learning complex interactions, can make it challenging to understand the specific contributions of each feature to the predictions. Interpreting the relationships and decision-making process of individual trees within the ensemble becomes difficult.</span></p></li><li><p><span>Predictive Power: GBDT models are known for their high predictive power and accuracy. By iteratively building trees that correct the errors of previous models, GBDT effectively learns complex patterns and captures intricate relationships in the data. This results in strong predictive performance, often outperforming simpler models in terms of accuracy and generalization to unseen data.</span></p></li></ol><p><span>The trade-off between interpretability and predictive power can be summarized as follows:</span></p><ul><li><p><span>As the complexity of the GBDT model increases, interpretability decreases. Deep trees and large ensembles of trees make it challenging to explain the model&#39;s decision-making process in a simple and intuitive manner.</span></p></li><li><p><span>On the other hand, the increase in complexity often leads to improved predictive power. The ability of GBDT to capture complex interactions and patterns in the data enables it to make accurate predictions.</span></p></li></ul><p><span>In practical scenarios, the choice between interpretability and predictive power depends on the specific use case and the priorities of the problem at hand. For certain applications, interpretability is crucial, especially when the model&#39;s decision-making process needs to be explained to stakeholders or when regulatory requirements demand transparency. In such cases, simpler models like linear regression or decision trees may be preferred.</span></p><p><span>However, when the primary focus is on achieving the highest possible predictive performance, sacrificing some interpretability for improved accuracy can be acceptable. GBDT models, with their strong predictive power, are often employed in scenarios where accurate predictions are paramount, such as in various industry applications, including finance, healthcare, and recommendation systems.</span></p><p><span>It&#39;s important to strike a balance between interpretability and predictive power based on the specific requirements and constraints of the problem, considering factors such as the target audience, regulatory considerations, complexity of the data, and the trade-off between transparency and accuracy.</span></p><h4 id='can-gbdt-be-used-for-feature-selection-and-if-so-how'><span>Can GBDT be used for feature selection, and if so, how?</span></h4><p><span>Yes, Gradient Boosting with Decision Trees (GBDT) can be used for feature selection. GBDT models inherently provide a measure of feature importance, which can be leveraged to select relevant features. The feature importance is typically based on the contribution of each feature in the ensemble of decision trees.</span></p><p><span>Here&#39;s how GBDT can be used for feature selection:</span></p><ol><li><p><span>Train a GBDT model: Fit a GBDT model to the training data, using appropriate hyperparameters and settings. The GBDT model learns the relationships and interactions between features and the target variable.</span></p></li><li><p><span>Extract feature importance: GBDT models assign importance scores to each feature based on their contribution to reducing the loss function during training. These importance scores capture the relative significance of features in the model&#39;s predictions.</span></p></li><li><p><span>Rank features by importance: Sort the features based on their importance scores in descending order. The higher the importance score, the more influential the feature is in the GBDT model&#39;s predictions.</span></p></li><li><p><span>Select top features: Choose a desired number or a threshold for feature selection. Select the top-ranked features based on their importance scores. These selected features are considered the most informative and relevant for the prediction task.</span></p></li></ol><p><span>It&#39;s worth noting that GBDT&#39;s feature selection is a relative ranking process within the context of the specific GBDT model. The importance scores reflect the relevance of features for the particular GBDT model and the training data used. Feature importance may vary across different GBDT models or if the training data changes.</span></p><p><span>By using GBDT for feature selection, you can identify the most important features that contribute significantly to the model&#39;s predictive performance. This can help in reducing the dimensionality of the dataset, improving model interpretability, and potentially enhancing the model&#39;s generalization ability by focusing on the most informative features.</span></p><h3 id='python-application'><span>Python Application</span></h3><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 11.0759px; left: 42px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 38px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;" class="CodeMirror-activeline"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -38px; width: 38px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">numpy</span> <span class="cm-keyword">as</span> <span class="cm-variable">np</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">sklearn</span>.<span class="cm-property">datasets</span> <span class="cm-keyword">import</span> <span class="cm-variable">load_iris</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">sklearn</span>.<span class="cm-property">model_selection</span> <span class="cm-keyword">import</span> <span class="cm-variable">train_test_split</span></span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">sklearn</span>.<span class="cm-property">ensemble</span> <span class="cm-keyword">import</span> <span class="cm-variable">GradientBoostingClassifier</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">sklearn</span>.<span class="cm-property">metrics</span> <span class="cm-keyword">import</span> <span class="cm-variable">accuracy_score</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Load the Iris dataset</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">iris</span> <span class="cm-operator">=</span> <span class="cm-variable">load_iris</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Split the data into features (X) and target (y)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">X</span> <span class="cm-operator">=</span> <span class="cm-variable">iris</span>.<span class="cm-property">data</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">y</span> <span class="cm-operator">=</span> <span class="cm-variable">iris</span>.<span class="cm-property">target</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Split the data into training and testing sets</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">X_train</span>, <span class="cm-variable">X_test</span>, <span class="cm-variable">y_train</span>, <span class="cm-variable">y_test</span> <span class="cm-operator">=</span> <span class="cm-variable">train_test_split</span>(<span class="cm-variable">X</span>, <span class="cm-variable">y</span>, <span class="cm-variable">test_size</span><span class="cm-operator">=</span><span class="cm-number">0.2</span>, <span class="cm-variable">random_state</span><span class="cm-operator">=</span><span class="cm-number">42</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Gradient Boosting Classifier</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">gbdt</span> <span class="cm-operator">=</span> <span class="cm-variable">GradientBoostingClassifier</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">gbdt</span>.<span class="cm-property">fit</span>(<span class="cm-variable">X_train</span>, <span class="cm-variable">y_train</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">gbdt_predictions</span> <span class="cm-operator">=</span> <span class="cm-variable">gbdt</span>.<span class="cm-property">predict</span>(<span class="cm-variable">X_test</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 29px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">gbdt_accuracy</span> <span class="cm-operator">=</span> <span class="cm-variable">accuracy_score</span>(<span class="cm-variable">y_test</span>, <span class="cm-variable">gbdt_predictions</span>)</span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 29px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">"GBDT Accuracy:"</span>, <span class="cm-variable">gbdt_accuracy</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 601px;"></div><div class="CodeMirror-gutters" style="height: 601px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 37px;"></div></div></div></div></pre><p><span>In this example, we load the Iris dataset using </span><code>load_iris</code><span> from </span><code>sklearn.datasets</code><span>. We then split the data into training and testing sets using </span><code>train_test_split</code><span> from </span><code>sklearn.model_selection</code><span>.</span></p><p><span>We create a Gradient Boosting Classifier using </span><code>GradientBoostingClassifier</code><span> from </span><code>sklearn.ensemble</code><span>. We fit the classifier to the training data and make predictions on the test data. The accuracy of the GBDT classifier is calculated using </span><code>accuracy_score</code><span> from </span><code>sklearn.metrics</code><span> and printed.</span></p><h4 id='gradientboostingclassifier'><code>GradientBoostingClassifier()</code></h4><p><code>GradientBoostingClassifier</code><span> is a class in scikit-learn that implements the Gradient Boosting algorithm for classification tasks. It is based on the principle of ensemble learning, where multiple weak learners (decision trees in this case) are combined to create a strong predictive model. Here&#39;s a detailed explanation of the </span><code>GradientBoostingClassifier</code><span>:</span></p><ol><li><p><strong><span>Ensemble Learning</span></strong><span>: </span><code>GradientBoostingClassifier</code><span> is an ensemble learning method that combines multiple weak learners, in this case, decision trees, to create a more powerful model. It iteratively builds an ensemble of decision trees, where each subsequent tree corrects the errors made by the previous ones.</span></p></li><li><p><strong><span>Gradient Boosting</span></strong><span>: The algorithm uses a gradient descent optimization technique to minimize the loss function. It fits each new decision tree to the negative gradient of the loss function with respect to the previous ensemble&#39;s predictions. This iterative process reduces the overall prediction error over time.</span></p></li><li><p><strong><span>Weak Learners (Decision Trees)</span></strong><span>: The base learners used in </span><code>GradientBoostingClassifier</code><span> are decision trees. Decision trees are constructed in a greedy manner by recursively partitioning the data based on feature values to create a tree-like structure of nodes and branches. The decision trees in GBDT are typically shallow and have a limited number of nodes and depth.</span></p></li><li><p><strong><span>Loss Function</span></strong><span>: The loss function in </span><code>GradientBoostingClassifier</code><span> determines the measure of the difference between the predicted and actual labels. By default, it uses the deviance loss function, which corresponds to the logistic regression for binary classification and the negative log-likelihood loss for multi-class classification.</span></p></li><li><p><strong><span>Hyperparameters</span></strong><span>: </span><code>GradientBoostingClassifier</code><span> has various hyperparameters that can be tuned to control the behavior and performance of the model. Some important hyperparameters include the number of boosting stages (n_estimators), the learning rate (learning_rate), the maximum depth of the trees (max_depth), and the number of features to consider when looking for the best split (max_features).</span></p></li><li><p><strong><span>Feature Importance</span></strong><span>: </span><code>GradientBoostingClassifier</code><span> provides a measure of feature importance based on the contribution of each feature in the ensemble of decision trees. This allows you to assess the relative significance of different features in the classification task.</span></p></li><li><p><strong><span>Pros and Cons</span></strong><span>: </span><code>GradientBoostingClassifier</code><span> has several advantages, including strong predictive power, the ability to handle complex interactions in the data, and automatic feature selection through feature importance. However, it can be computationally expensive, sensitive to noise/outliers, and requires careful hyperparameter tuning to avoid overfitting.</span></p></li></ol></div></div>
+</body>
+</html>
