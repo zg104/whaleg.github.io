@@ -49,6 +49,7 @@ navbar-links:
     - 随机森林: "ML/Random_Forest"
     - Adaboost: "ML/Adaboost"
     - GBDT: "ML/GBDT"
+    - XGBoost: "ML/XGBoost"
   
 #     - 线性算法面经: "https://ex661wn4s4.feishu.cn/docx/YffKdkTLlo9772xHPMFc0sAWnbc"
 #     - 树型算法面经: "https://ex661wn4s4.feishu.cn/docx/IypTdEjX6ojAp1xtJx3cQVyBnub"
