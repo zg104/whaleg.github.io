@@ -51,6 +51,7 @@ navbar-links:
     - GBDT: "ML/GBDT"
     - XGBoost: "ML/XGBoost"
     - k-means: "ML/kmeans"
+    - DBSCAN: "ML/DBSCAN"
   
 #     - 线性算法面经: "https://ex661wn4s4.feishu.cn/docx/YffKdkTLlo9772xHPMFc0sAWnbc"
 #     - 树型算法面经: "https://ex661wn4s4.feishu.cn/docx/IypTdEjX6ojAp1xtJx3cQVyBnub"
