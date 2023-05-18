@@ -1,0 +1,664 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying disabled!');
+        });
+    });
+</script>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+html {
+	font-size: 19px;
+}
+
+html, body {
+	margin: auto;
+	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	font-family: "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
+}
+
+#write {
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	line-height: 1.53;
+	padding-top: 40px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media print {
+	html {
+		font-size: 13px;
+	}
+}
+
+/* Typography
+-------------------------------------------------------- */
+
+#write>h1:first-child,
+h1 {
+	margin-top: 1.6em;
+	font-weight: normal;
+}
+
+h1 {
+	font-size:3em;
+}
+
+h2 {
+	margin-top:2em;
+	font-weight: normal;
+}
+
+h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 3em;
+}
+
+h1, 
+h2, 
+h3{
+	text-align: center;
+}
+
+h2:after{
+	border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 1px;
+}
+
+h1+h2, h2+h3 {
+	margin-top: 0.83em;
+}
+
+p,
+.mathjax-block {
+	margin-top: 0;
+	-webkit-hypens: auto;
+	-moz-hypens: auto;
+	hyphens: auto;
+}
+ul {
+	list-style: square;
+	padding-left: 1.2em;
+}
+ol {
+	padding-left: 1.2em;
+}
+blockquote {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+}
+code,
+pre {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+}
+.md-fences{
+	margin-left: 1em;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+	padding-bottom: 8px;
+	padding-top: 6px;
+	margin-bottom: 1.5em;
+}
+
+a {
+	color: #2484c1;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+h1 a,
+h1 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+hr {
+	color: #ddd;
+	height: 1px;
+	margin: 2em 0;
+	border-top: solid 1px #ddd;
+	border-bottom: none;
+	border-left: 0;
+	border-right: 0;
+}
+.ty-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
+table {
+	margin-bottom: 1.333333rem
+}
+table th,
+table td {
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+table th {
+	font-weight: bold
+}
+table thead th {
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+
+.task-list{
+	padding:0;
+}
+
+.md-task-list-item {
+	padding-left: 1.6rem;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.33333333rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #fefefe;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+.md-tag {
+	color: inherit;
+	font: inherit;
+}
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+}
+#write pre.md-meta-block {
+	white-space: pre;
+	background: #f8f8f8;
+	border: 0px;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+
+	margin-bottom: 2em;
+	margin-top: -1.3333333333333rem;
+	padding-top: 26px;
+	padding-bottom: 10px;
+	line-height: 1.8em;
+	font-size: 0.9em;
+	font-size: 0.76em;
+	padding-left: 0;
+}
+.md-img-error.md-image>.md-meta{
+	vertical-align: bottom;
+}
+#write>h5.md-focus:before {
+	top: 2px;
+}
+
+.md-toc {
+	margin-top: 40px;
+}
+
+.md-toc-content {
+	padding-bottom: 20px;
+}
+
+.outline-expander:before {
+	color: inherit;
+	font-size: 14px;
+	top: auto;
+	content: "\f0da";
+	font-family: FontAwesome;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  	content: "\f0d7";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.html-for-mac #typora-sidebar {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.typora-node .file-list-item-parent-loc, 
+.typora-node .file-list-item-time, 
+.typora-node .file-list-item-summary {
+	font-family: arial, sans-serif;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.md-fences .code-tooltip {
+	bottom: -2em !important;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>gradient_descent</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='梯度下降gradient-descent）'><span>梯度下降（Gradient Descent）</span></h2><p><img src="https://miro.medium.com/v2/resize:fit:1400/1*47skUygd3tWf3yB9A10QHg.gif" alt="A Visual Explanation of Gradient Descent Methods (Momentum, AdaGrad,  RMSProp, Adam) | by Lili Jiang | Towards Data Science" style="zoom:100%;" /></p><p>&nbsp;</p><p>&nbsp;</p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n0"><a class="md-toc-inner" href="#梯度下降gradient-descent）">梯度下降（Gradient Descent）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n5"><a class="md-toc-inner" href="#summary">Summary</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n9"><a class="md-toc-inner" href="#key-takeaways">Key Takeaways</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n61"><a class="md-toc-inner" href="#interview-questions">Interview Questions</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n66"><a class="md-toc-inner" href="#什么是梯度下降它在机器学习中的作用是什么">什么是梯度下降？它在机器学习中的作用是什么？</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n86"><a class="md-toc-inner" href="#梯度下降基本概念">梯度下降基本概念</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n90"><a class="md-toc-inner" href="#为什么用梯度下降">为什么用梯度下降？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n68"><a class="md-toc-inner" href="#梯度下降的主要步骤是什么请解释每个步骤的含义">梯度下降的主要步骤是什么？请解释每个步骤的含义。</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n70"><a class="md-toc-inner" href="#学习率的选择对梯度下降的性能有何影响如何选择适当的学习率">学习率的选择对梯度下降的性能有何影响？如何选择适当的学习率？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n72"><a class="md-toc-inner" href="#梯度下降有哪些常见的变体它们之间有什么区别">梯度下降有哪些常见的变体？它们之间有什么区别？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n76"><a class="md-toc-inner" href="#如何解决梯度下降中的局部最小值问题">如何解决梯度下降中的局部最小值问题？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n78"><a class="md-toc-inner" href="#梯度下降的收敛条件是什么如何确定算法是否已经收敛">梯度下降的收敛条件是什么？如何确定算法是否已经收敛？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n80"><a class="md-toc-inner" href="#在梯度下降中什么是动量momentum）它如何改善算法的性能">在梯度下降中，什么是动量（momentum）？它如何改善算法的性能？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n82"><a class="md-toc-inner" href="#当目标函数具有多个参数时如何同时更新它们">当目标函数具有多个参数时，如何同时更新它们？</a></span></p></div><h3 id='summary'><span>Summary</span></h3><p><span>梯度下降是一种通过计算函数梯度并沿着梯度反方向更新参数的优化算法，用于寻找函数的最小值，常用于机器学习和数学优化问题中。</span></p><p><span>Gradient descent is an optimization algorithm that iteratively updates parameters by computing and moving in the direction of the function&#39;s gradient, aiming to find the minimum of the function.</span></p><h3 id='key-takeaways'><span>Key Takeaways</span></h3><ol><li><p><span>梯度下降是一种迭代优化算法，用于通过调整参数来找到函数的最小值。</span></p></li><li><p><span>它依赖于计算每次迭代中函数的梯度（导数），以确定最陡下降的方向。</span></p></li><li><p><span>学习率决定了每次迭代中的步长大小，影响算法的收敛速度和稳定性。</span></p></li><li><p><span>梯度下降通过在梯度的反方向更新参数，逐渐接近最小值。</span></p></li><li><p><span>它可用于凸函数和非凸函数，尽管收敛保证在两种情况下略有不同。</span></p></li><li><p><span>成本函数或损失函数的选择至关重要，因为它决定了在机器学习模型中所优化的目标。</span></p></li><li><p><span>梯度下降有不同的变体，包括批量梯度下降、随机梯度下降和小批量梯度下降，每种变体都有其优点和缺点。</span></p></li><li><p><span>梯度下降可能会陷入局部最小值，但动量、自适应学习率和正则化等技术可以帮助减轻这个问题。</span></p></li><li><p><span>收敛准则通常使用梯度范数很小或达到最大迭代次数等条件来停止算法。</span></p></li><li><p><span>梯度下降在机器学习、深度学习和神经网络训练中被广泛应用，使模型能够从数据中学习并优化性能。</span></p></li></ol><hr /><ol><li><p><span>Gradient descent is an iterative optimization algorithm used to find the minimum of a function by adjusting its parameters.</span></p></li><li><p><span>It relies on computing the gradient (derivative) of the function at each iteration to determine the direction of steepest descent.</span></p></li><li><p><span>The learning rate determines the step size taken in each iteration, influencing the convergence speed and stability of the algorithm.</span></p></li><li><p><span>Gradient descent operates by updating the parameters in the opposite direction of the gradient, gradually approaching the minimum.</span></p></li><li><p><span>It can be used for both convex and non-convex functions, although convergence guarantees differ between the two cases.</span></p></li><li><p><span>The choice of the cost function or loss function is crucial, as it determines the objective being optimized in machine learning models.</span></p></li><li><p><span>There are different variations of gradient descent, including batch gradient descent, stochastic gradient descent, and mini-batch gradient descent, each with its own advantages and drawbacks.</span></p></li><li><p><span>Gradient descent may get trapped in local minima, but techniques like momentum, adaptive learning rates, and regularization can help mitigate this issue.</span></p></li><li><p><span>Convergence criteria, such as a small gradient norm or reaching a maximum number of iterations, are typically used to stop the algorithm.</span></p></li><li><p><span>Gradient descent is widely used in machine learning, deep learning, and neural network training, enabling models to learn from data and optimize their performance.</span></p></li></ol><h3 id='interview-questions'><span>Interview Questions</span></h3><h4 id='什么是梯度下降它在机器学习中的作用是什么'><span>什么是梯度下降？它在机器学习中的作用是什么？</span></h4><h5 id='梯度下降基本概念'><span>梯度下降基本概念</span></h5><p><span>梯度下降是一种优化算法，用于在机器学习中寻找函数的最小值。它通过计算函数的梯度（导数）来确定最陡下降的方向，并在每次迭代中更新参数，逐步接近最优解。</span></p><h5 id='为什么用梯度下降'><span>为什么用梯度下降？</span></h5><p><span>梯度下降在机器学习中的作用是通过最小化损失函数来优化模型的参数，使模型能够更准确地进行预测和分类。</span></p><ol><li><p><span>模型训练：在机器学习中，我们需要通过训练数据来调整模型的参数，以使其能够对未见过的数据进行准确的预测。梯度下降通过优化参数，使模型能够逐渐改善其预测能力，最大限度地减少预测误差。</span></p></li><li><p><span>参数优化：梯度下降通过计算损失函数关于参数的梯度，确定参数更新的方向和步长。通过反复迭代更新参数，梯度下降能够逐步接近损失函数的最小值，找到最优的参数配置，使模型能够达到最佳的性能。</span></p></li><li><p><span>深度学习中的神经网络训练：在深度学习中，神经网络模型具有大量的参数，需要通过梯度下降来训练这些参数。梯度下降通过反向传播算法计算每个参数的梯度，并根据梯度的反方向更新参数，以优化网络的性能。梯度下降在神经网络的训练中扮演着关键的角色，使网络能够逐层地学习特征表示，从而提高预测的准确性。</span></p></li></ol><h4 id='梯度下降的主要步骤是什么请解释每个步骤的含义'><span>梯度下降的主要步骤是什么？请解释每个步骤的含义。</span></h4><ol><li><p><span>初始化参数：选择初始参数的值。</span></p></li><li><p><span>计算梯度：计算函数在当前参数值处的梯度（导数）。梯度表示函数在给定点的变化率和方向。</span></p></li><li><p><span>更新参数：根据学习率确定的步长，沿着梯度的反方向更新参数值。学习率决定了每次迭代中参数更新的大小。</span></p></li><li><p><span>重复迭代：重复执行步骤2和步骤3，直到满足停止条件，如达到最大迭代次数或梯度变化很小。</span></p></li></ol><h4 id='学习率的选择对梯度下降的性能有何影响如何选择适当的学习率'><span>学习率的选择对梯度下降的性能有何影响？如何选择适当的学习率？</span></h4><p><span>学习率的选择对梯度下降的性能具有重要影响。学习率太小会导致收敛速度慢，需要更多的迭代次数才能达到最优解；学习率太大可能会导致震荡或无法收敛。</span></p><p><span>适当的学习率应根据具体问题进行调整，常见的选择方法包括：</span></p><ul><li><p><span>网格搜索：尝试不同的学习率值，并根据验证集或交叉验证的性能选择最佳学习率。</span></p></li><li><p><span>学习率衰减：开始时使用较大的学习率，随着迭代的进行逐渐减小学习率，使其更接近最优解。</span></p></li><li><p><span>自适应学习率：一些优化算法（如Adam、Adagrad、RMSprop）会根据梯度的统计信息自动调整学习率，以提高性能和收敛速度。</span></p></li></ul><p><span>适当的学习率选择可以加快算法的收敛速度并提高优化结果的质量。然而，过大或过小的学习率都可能导致性能下降，因此需要进行适当的调整和实验来找到最佳的学习率。</span></p><p><span>学习率过大或过小都会对梯度下降算法的性能产生负面影响，具体表现如下：</span></p><ol><li><p><span>学习率过大：</span></p><ul><li><p><span>收敛困难或不稳定：如果学习率过大，每次参数更新的步长会很大，可能会导致梯度下降算法无法收敛或在最小值附近震荡，无法稳定地找到最优解。</span></p></li><li><p><span>跳过最优解：学习率过大可能会导致参数跳过最优解点，错过损失函数的最小值，从而导致模型性能下降。</span></p></li></ul></li><li><p><span>学习率过小：</span></p><ul><li><p><span>收敛缓慢：如果学习率过小，每次参数更新的步长会很小，可能需要更多的迭代次数才能达到最优解，导致收敛速度缓慢。</span></p></li><li><p><span>陷入局部最小值：学习率过小可能会使梯度下降算法陷入局部最小值，无法跳出该局部最小值并继续搜索更优的解。</span></p></li></ul></li></ol><p><img src="https://www.jeremyjordan.me/content/images/2018/02/Screen-Shot-2018-02-24-at-11.47.09-AM.png" referrerpolicy="no-referrer" alt="Setting the learning rate of your neural network."></p><p><span>选择合适的学习率很重要。合适的学习率应该能够在合理的迭代次数内收敛到最优解，同时避免收敛困难、震荡或陷入局部最小值。通常需要通过实验和调整来选择最佳的学习率。一些自适应学习率算法（如Adam、Adagrad、RMSprop）可以根据梯度的统计信息自动调整学习率，从而更好地平衡收敛速度和性能。</span></p><h4 id='梯度下降有哪些常见的变体它们之间有什么区别'><span>梯度下降有哪些常见的变体？它们之间有什么区别？</span></h4><ol><li><p><strong><span>批量梯度下降（Batch Gradient Descent）</span></strong><span>：在每次迭代中，使用整个训练数据集计算损失函数的梯度，然后更新参数。它需要存储整个数据集，计算量较大，但通常具有较好的收敛性。</span></p><ul><li><p><span>梯度计算：在每次迭代中，批量梯度下降使用</span><mark><span>整个训练数据集</span></mark><span>计算损失函数关于参数的梯度。这意味着它需要</span><mark><span>遍历整个数据集</span></mark><span>并计算每个样本对梯度的贡献。</span></p></li><li><p><span>参数更新：在梯度计算完成后，批量梯度下降通过将参数沿着梯度的</span><mark><span>相反方向</span></mark><span>进行更新来最小化损失函数。更新的步长由学习率控制。</span></p></li><li><p><span>每次迭代使用全部数据：批量梯度下降在每次迭代中都使用整个训练数据集，因此它的参数更新是基于全部数据的梯度信息。</span></p></li><li><p><span>收敛性：由于使用整个数据集计算梯度，批量梯度下降通常具有</span><mark><span>较好的收敛性</span></mark><span>。它可以更准确地估计梯度，因此在一定迭代次数后能够收敛到较好的解。</span></p></li><li><p><span>计算复杂度：相对于随机梯度下降和小批量梯度下降，批量梯度下降的计算</span><mark><span>复杂度较高</span></mark><span>。因为它需要计算整个数据集的梯度，对于大规模数据集或高维数据而言，计算量较大。</span></p></li><li><p><span>内存要求：批量梯度下降需要存储整个数据集，因此</span><mark><span>对内存的要求较高</span></mark><span>。对于较大的数据集，可能需要额外的内存管理策略，如分批加载数据或使用分布式计算。</span></p></li></ul></li><li><p><strong><span>随机梯度下降（Stochastic Gradient Descent）</span></strong><span>：在每次迭代中，</span><mark><span>随机选择一个样本</span></mark><span>来计算损失函数的梯度，并更新参数。它具有较低的计算复杂度，但可能导致参数更新的方向不稳定，存在一定的随机性。</span></p><ul><li><p><span>梯度计算：在每次迭代中，随机梯度下降使用</span><mark><span>单个样本或随机选择的小批量样本</span></mark><span>来计算损失函数关于参数的梯度。与批量梯度下降不同，它不需要遍历整个数据集。</span></p></li><li><p><span>参数更新：在梯度计算完成后，随机梯度下降通过将参数沿着梯度的相反方向进行更新来最小化损失函数。更新的步长由学习率控制。</span></p></li><li><p><span>随机性：由于每次迭代使用的是单个样本或小批量样本，随机梯度下降的参数更新具有一定的随机性。这也导致了它的更新方向可能不太稳定，但有助于避免陷入局部最优解。</span></p></li><li><p><span>迭代次数：由于使用随机样本进行梯度计算和参数更新，随机梯度下降通常需要较少的迭代次数才能达到收敛。每个迭代的计算开销较小，使其在大规模数据集上更高效。</span></p></li><li><p><span>内存要求：随机梯度下降只需要存储当前样本或小批量样本的信息，对内存要求较低。因此，它适用于大规模数据集或具有高维特征的问题。</span></p></li><li><p><span>收敛性：由于使用随机样本进行梯度估计，随机梯度下降的收敛性可能不如批量梯度下降稳定。在一定程度上，随机梯度下降可能陷入局部最小值，但也有机会跳出局部最小值并找到更好的解。</span></p></li></ul></li><li><p><strong><span>小批量梯度下降（Mini-Batch Gradient Descent）</span></strong><span>：在每次迭代中，随机选择一小批样本（通常为2到几百个）来计算损失函数的梯度，并更新参数。小批量梯度下降综合了批量梯度下降和随机梯度下降的优点，可以在一定程度上平衡收敛速度和参数更新的稳定性。</span></p><ul><li><p><span>梯度计算：在每次迭代中，小批量梯度下降使用一小批样本（通常为2到几百个）来计算损失函数关于参数的梯度。这一小批样本的大小是可以调整的。</span></p></li><li><p><span>参数更新：在梯度计算完成后，小批量梯度下降通过将参数沿着梯度的相反方向进行更新来最小化损失函数。更新的步长由学习率控制。</span></p></li><li><p><span>每次迭代使用部分数据：小批量梯度下降在每次迭代中使用一小批样本来计算梯度，而不是整个数据集。这样可以在一定程度上平衡批量梯度下降和随机梯度下降的优势。</span></p></li><li><p><span>计算复杂度：相对于批量梯度下降，小批量梯度下降的计算复杂度较低。它不需要计算整个数据集的梯度，而是仅计算一小批样本的梯度，因此在大规模数据集上具有较好的可扩展性。</span></p></li><li><p><span>内存要求：小批量梯度下降需要存储一小批样本的信息，内存要求介于批量梯度下降和随机梯度下降之间。对于较大的数据集，仍然需要适当的内存管理策略。</span></p></li><li><p><span>收敛性：小批量梯度下降相对于随机梯度下降具有较好的收敛性。它的梯度估计比随机梯度下降更稳定，同时相对于批量梯度下降，更新的频率更高，有助于更快地收敛。</span></p></li></ul></li></ol><p><span>这些变体之间的主要区别在于参数更新的频率和计算复杂度。批量梯度下降需要计算整个数据集的梯度，适用于较小的数据集，但计算量较大。随机梯度下降每次只计算一个样本的梯度，计算量较小，但参数更新可能不稳定。小批量梯度下降在每次迭代中计算一小批样本的梯度，可以在一定程度上平衡计算效率和参数更新的稳定性。</span></p><h4 id='如何解决梯度下降中的局部最小值问题'><span>如何解决梯度下降中的局部最小值问题？</span></h4><p><span>解决梯度下降中的局部最小值问题是一个挑战，因为梯度下降算法可能会陷入局部最小值而无法找到全局最小值。以下是几种常用的方法来解决这个问题：</span></p><ol><li><p><span>初始化策略：通过</span><strong><span>合适的参数初始化</span></strong><span>可以增加逃离局部最小值的机会。可以尝试使用不同的初始参数值进行多次运行，并选择具有较低损失的结果作为最终模型。</span></p></li><li><p><span>学习率调整：学习率是梯度下降算法中的重要参数，对于避免陷入局部最小值至关重要。过大的学习率可能导致参数在梯度下降过程中发散，而过小的学习率可能使算法收敛速度过慢。可以尝试使用学习率调度策略，如学习率衰减或自适应学习率方法（如Adam、Adagrad等），以动态调整学习率的大小。</span></p></li><li><p><span>随机性引入：在梯度下降算法中引入一定程度的随机性可以帮助避免陷入局部最小值。例如，使用</span><strong><span>随机梯度下降或小批量梯度下降</span></strong><span>来计算梯度，而不是批量梯度下降，可以在每次迭代中引入随机性。</span></p></li><li><p><span>正则化方法：正则化方法可以帮助克服局部最小值问题。例如，</span><strong><span>L1正则化（Lasso）和L2正则化（Ridge）可以引入参数稀疏性</span></strong><span>，防止参数陷入某些局部最小值。</span></p></li><li><p><span>梯度初始化：对于某些模型，合适的梯度初始化方法可以帮助模型避免陷入局部最小值。例如，在深度神经网络中，使用一些高效的初始化方法，如Xavier初始化或He初始化，可以提高模型的训练效果。</span></p></li><li><p><span>模型复杂性：增加模型的复杂性（如增加层数、增加参数量）可以提高模型的拟合能力，从而减少陷入局部最小值的可能性。然而，增加模型复杂性也会增加过拟合的风险，需要进行适当的正则化和模型选择。</span></p></li></ol><h4 id='梯度下降的收敛条件是什么如何确定算法是否已经收敛'><span>梯度下降的收敛条件是什么？如何确定算法是否已经收敛？</span></h4><p><span>梯度下降的收敛条件通常是通过判断算法是否达到了预定的停止条件。常见的收敛条件有以下几种：</span></p><ol><li><p><span>梯度阈值：当梯度的范数（向量的长度）小于某个设定的阈值时，可以认为算法已经收敛。</span></p></li><li><p><span>目标函数值变化：当目标函数值的变化小于某个设定的阈值时，可以认为算法已经收敛。通常需要比较连续几次迭代中的目标函数值，如果变化足够小，则判定为收敛。</span></p></li><li><p><span>参数变化：当参数的变化小于某个设定的阈值时，可以认为算法已经收敛。与目标函数值类似，需要比较连续几次迭代中的参数变化。</span></p></li><li><p><span>迭代次数：设定一个最大迭代次数，当达到该次数时，算法停止迭代。</span></p></li></ol><p><span>确定算法是否已经收敛可以根据以下策略：</span></p><ol><li><p><span>观察目标函数值的变化：监控目标函数值在每次迭代中的变化情况，如果变化足够小并且在一段时间内保持稳定，则可以认为算法已经收敛。</span></p></li><li><p><span>观察参数的变化：监控参数在每次迭代中的变化情况，如果变化足够小并且在一段时间内保持稳定，则可以认为算法已经收敛。</span></p></li><li><p><span>判断梯度的范数：计算梯度的范数，并与预设的阈值进行比较，如果梯度的范数小于阈值，则可以认为算法已经收敛。</span></p></li><li><p><span>设定最大迭代次数：如果达到了预设的最大迭代次数，可以判定算法停止迭代，即达到了收敛条件。</span></p></li></ol><p><span>在实际应用中，根据具体问题和算法的特点选择适合的收敛条件，一般会结合多个条件进行判断。同时，观察目标函数值的变化曲线、参数的变化曲线以及梯度的变化曲线也是一种直观判断算法是否收敛的方式。</span></p><h4 id='在梯度下降中什么是动量momentum）它如何改善算法的性能'><span>在梯度下降中，什么是动量（momentum）？它如何改善算法的性能？</span></h4><p><span>在梯度下降中，动量（momentum）是一种用于加速收敛和减少梯度下降算法震荡的技术。</span></p><p><span>动量可以理解为模拟物理力学中的动量概念，它在更新参数时考虑了过去梯度的累积影响。具体来说，动量算法引入了一个动量项，它表示过去梯度更新的加权平均。在每次参数更新时，动量项会根据当前梯度的方向和大小进行调整。</span></p><p><span>动量的更新公式如下： </span></p><p><span>v = β * v - α * ∇J(θ)</span>
+<span>θ = θ + v</span></p><p><span>其中，</span><em><span>v</span></em><span>是动量项，</span><em><span>β</span></em><span>是动量系数（通常取值范围为0到1之间），</span><em><span>α</span></em><span>是学习率，∇</span><em><span>J</span></em><span>(</span><em><span>θ</span></em><span>)是当前参数位置的梯度。</span></p><p><span>动量的作用是在参数更新时考虑之前的梯度趋势。如果当前梯度和过去梯度的方向一致，那么动量项会增强梯度下降的力度；如果当前梯度和过去梯度的方向相反，那么动量项会减缓梯度下降的力度。这样可以在参数空间中更快地穿过平坦区域，避免陷入局部最小值，并且减少震荡，提高算法的稳定性。</span></p><p><span>动量的引入能够加速梯度下降的收敛速度，特别是在面对高度曲折的损失函数表面时。它还有助于跳出局部极小点，并且在参数更新方向不断变化时，能够提供一定的稳定性。动量算法常用于深度神经网络训练中，能够加速收敛、减少震荡，并且有助于避免陷入鞍点等问题。</span></p><h4 id='当目标函数具有多个参数时如何同时更新它们'><span>当目标函数具有多个参数时，如何同时更新它们？</span></h4><p><span>梯度下降在神经网络训练中的应用是怎样的？有没有其他优化算法可以替代梯度下降？</span></p><p><span>当目标函数具有多个参数时，可以使用梯度下降算法同时更新它们。梯度下降算法中的参数更新规则是对每个参数进行更新，使其朝着梯度的反方向移动，从而最小化目标函数。</span></p><p><span>具体而言，对于每个参数 θ</span><sub><span>i</span></sub><span>，其更新规则为：</span></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="16.143ex" height="3.07ex" role="img" focusable="false" viewBox="0 -899.6 7135.4 1356.7" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.034ex;"><defs><path id="MJX-49-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path><path id="MJX-49-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-49-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-49-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-49-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path><path id="MJX-49-TEX-N-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path id="MJX-49-TEX-I-1D715" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"></path><path id="MJX-49-TEX-I-1D43D" d="M447 625Q447 637 354 637H329Q323 642 323 645T325 664Q329 677 335 683H352Q393 681 498 681Q541 681 568 681T605 682T619 682Q633 682 633 672Q633 670 630 658Q626 642 623 640T604 637Q552 637 545 623Q541 610 483 376Q420 128 419 127Q397 64 333 21T195 -22Q137 -22 97 8T57 88Q57 130 80 152T132 174Q177 174 182 130Q182 98 164 80T123 56Q115 54 115 53T122 44Q148 15 197 15Q235 15 271 47T324 130Q328 142 387 380T447 625Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-49-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-49-TEX-I-1D456"></use></g></g><g data-mml-node="mo" transform="translate(1073.7,0)"><use data-c="3D" xlink:href="#MJX-49-TEX-N-3D"></use></g><g data-mml-node="msub" transform="translate(2129.5,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-49-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-49-TEX-I-1D456"></use></g></g><g data-mml-node="mo" transform="translate(3147.7,0)"><use data-c="2212" xlink:href="#MJX-49-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(4147.9,0)"><use data-c="1D6FC" xlink:href="#MJX-49-TEX-I-1D6FC"></use></g><g data-mml-node="mo" transform="translate(5010.1,0)"><use data-c="2217" xlink:href="#MJX-49-TEX-N-2217"></use></g><g data-mml-node="mfrac" transform="translate(5732.3,0)"><g data-mml-node="mrow" transform="translate(277.6,394) scale(0.707)"><g data-mml-node="mi"><use data-c="1D715" xlink:href="#MJX-49-TEX-I-1D715"></use></g><g data-mml-node="mi" transform="translate(566,0)"><use data-c="1D43D" xlink:href="#MJX-49-TEX-I-1D43D"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)"><g data-mml-node="mi"><use data-c="1D715" xlink:href="#MJX-49-TEX-I-1D715"></use></g><g data-mml-node="msub" transform="translate(566,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-49-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-49-TEX-I-1D456"></use></g></g></g><rect width="1163" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>θ</mi><mi>i</mi></msub><mo>=</mo><msub><mi>θ</mi><mi>i</mi></msub><mo>−</mo><mi>α</mi><mo>∗</mo><mfrac><mrow><mi>∂</mi><mi>J</mi></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>i</mi></msub></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">θ_i = θ_i - α * \frac{\partial J}{\partial θ_i}</script></p><p><span>其中，α 是学习率，</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.174ex" height="3.07ex" role="img" focusable="false" viewBox="0 -899.6 1403 1356.7" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.034ex;"><defs><path id="MJX-16-TEX-N-2202" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"></path><path id="MJX-16-TEX-I-1D43D" d="M447 625Q447 637 354 637H329Q323 642 323 645T325 664Q329 677 335 683H352Q393 681 498 681Q541 681 568 681T605 682T619 682Q633 682 633 672Q633 670 630 658Q626 642 623 640T604 637Q552 637 545 623Q541 610 483 376Q420 128 419 127Q397 64 333 21T195 -22Q137 -22 97 8T57 88Q57 130 80 152T132 174Q177 174 182 130Q182 98 164 80T123 56Q115 54 115 53T122 44Q148 15 197 15Q235 15 271 47T324 130Q328 142 387 380T447 625Z"></path><path id="MJX-16-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path><path id="MJX-16-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mrow" transform="translate(277.6,394) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-16-TEX-N-2202"></use></g></g><g data-mml-node="mi" transform="translate(566,0)"><use data-c="1D43D" xlink:href="#MJX-16-TEX-I-1D43D"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-16-TEX-N-2202"></use></g></g><g data-mml-node="msub" transform="translate(566,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-16-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use></g></g></g><rect width="1163" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><mi>J</mi></mrow><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><msub><mi>θ</mi><mi>i</mi></msub></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{∂J}{∂θ_i}</script><span> 是目标函数关于参数 θ</span><em><span>i 的偏导数，也称为参数 θ</span></em><span>i 的梯度。</span></p><p><span>在实践中，可以将所有参数的更新步骤组合在一起，同时更新它们。具体步骤如下：</span></p><ol><li><p><span>计算目标函数关于每个参数的梯度：</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="16.198ex" height="3.07ex" role="img" focusable="false" viewBox="0 -899.6 7159.6 1356.7" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.034ex;"><defs><path id="MJX-33-TEX-N-2202" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"></path><path id="MJX-33-TEX-I-1D43D" d="M447 625Q447 637 354 637H329Q323 642 323 645T325 664Q329 677 335 683H352Q393 681 498 681Q541 681 568 681T605 682T619 682Q633 682 633 672Q633 670 630 658Q626 642 623 640T604 637Q552 637 545 623Q541 610 483 376Q420 128 419 127Q397 64 333 21T195 -22Q137 -22 97 8T57 88Q57 130 80 152T132 174Q177 174 182 130Q182 98 164 80T123 56Q115 54 115 53T122 44Q148 15 197 15Q235 15 271 47T324 130Q328 142 387 380T447 625Z"></path><path id="MJX-33-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path><path id="MJX-33-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-33-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path id="MJX-33-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-33-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-33-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mrow" transform="translate(316.4,394) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-33-TEX-N-2202"></use></g></g><g data-mml-node="mi" transform="translate(566,0)"><use data-c="1D43D" xlink:href="#MJX-33-TEX-I-1D43D"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-33-TEX-N-2202"></use></g></g><g data-mml-node="msub" transform="translate(566,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-33-TEX-I-1D703"></use></g><g data-mml-node="mn" transform="translate(502,-150) scale(0.707)"><use data-c="31" xlink:href="#MJX-33-TEX-N-31"></use></g></g></g><rect width="1240.5" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(1480.5,0)"><use data-c="2C" xlink:href="#MJX-33-TEX-N-2C"></use></g><g data-mml-node="mfrac" transform="translate(1925.2,0)"><g data-mml-node="mrow" transform="translate(316.4,394) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-33-TEX-N-2202"></use></g></g><g data-mml-node="mi" transform="translate(566,0)"><use data-c="1D43D" xlink:href="#MJX-33-TEX-I-1D43D"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-33-TEX-N-2202"></use></g></g><g data-mml-node="msub" transform="translate(566,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-33-TEX-I-1D703"></use></g><g data-mml-node="mn" transform="translate(502,-150) scale(0.707)"><use data-c="32" xlink:href="#MJX-33-TEX-N-32"></use></g></g></g><rect width="1240.5" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(3405.8,0)"><use data-c="2C" xlink:href="#MJX-33-TEX-N-2C"></use></g><g data-mml-node="mo" transform="translate(3850.4,0)"><use data-c="2E" xlink:href="#MJX-33-TEX-N-2E"></use></g><g data-mml-node="mo" transform="translate(4295.1,0)"><use data-c="2E" xlink:href="#MJX-33-TEX-N-2E"></use></g><g data-mml-node="mo" transform="translate(4739.8,0)"><use data-c="2E" xlink:href="#MJX-33-TEX-N-2E"></use></g><g data-mml-node="mo" transform="translate(5184.4,0)"><use data-c="2C" xlink:href="#MJX-33-TEX-N-2C"></use></g><g data-mml-node="mfrac" transform="translate(5629.1,0)"><g data-mml-node="mrow" transform="translate(341.4,394) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-33-TEX-N-2202"></use></g></g><g data-mml-node="mi" transform="translate(566,0)"><use data-c="1D43D" xlink:href="#MJX-33-TEX-I-1D43D"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-33-TEX-N-2202"></use></g></g><g data-mml-node="msub" transform="translate(566,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-33-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-33-TEX-I-1D45B"></use></g></g></g><rect width="1290.5" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><mi>J</mi></mrow><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><msub><mi>θ</mi><mn>1</mn></msub></mrow></mfrac><mo>,</mo><mfrac><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><mi>J</mi></mrow><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><msub><mi>θ</mi><mn>2</mn></msub></mrow></mfrac><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mfrac><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><mi>J</mi></mrow><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><msub><mi>θ</mi><mi>n</mi></msub></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{∂J}{∂θ_1}, \frac{∂J}{∂θ_2}, ..., \frac{∂J}{∂θ_n}</script><span>。</span></p></li><li><p><span>对于每个参数 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.801ex" height="1.952ex" role="img" focusable="false" viewBox="0 -705 796 862.8" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.357ex;"><defs><path id="MJX-36-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path><path id="MJX-36-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-36-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-36-TEX-I-1D456"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>θ</mi><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container><script type="math/tex">θ_i</script><span>，应用参数更新规则：</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="16.143ex" height="3.07ex" role="img" focusable="false" viewBox="0 -899.6 7135.4 1356.7" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.034ex;" class=""><defs><path id="MJX-14-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path><path id="MJX-14-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-14-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-14-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-14-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path><path id="MJX-14-TEX-N-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path id="MJX-14-TEX-N-2202" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"></path><path id="MJX-14-TEX-I-1D43D" d="M447 625Q447 637 354 637H329Q323 642 323 645T325 664Q329 677 335 683H352Q393 681 498 681Q541 681 568 681T605 682T619 682Q633 682 633 672Q633 670 630 658Q626 642 623 640T604 637Q552 637 545 623Q541 610 483 376Q420 128 419 127Q397 64 333 21T195 -22Q137 -22 97 8T57 88Q57 130 80 152T132 174Q177 174 182 130Q182 98 164 80T123 56Q115 54 115 53T122 44Q148 15 197 15Q235 15 271 47T324 130Q328 142 387 380T447 625Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-14-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use></g></g><g data-mml-node="mo" transform="translate(1073.7,0)"><use data-c="3D" xlink:href="#MJX-14-TEX-N-3D"></use></g><g data-mml-node="msub" transform="translate(2129.5,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-14-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use></g></g><g data-mml-node="mo" transform="translate(3147.7,0)"><use data-c="2212" xlink:href="#MJX-14-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(4147.9,0)"><use data-c="1D6FC" xlink:href="#MJX-14-TEX-I-1D6FC"></use></g><g data-mml-node="mo" transform="translate(5010.1,0)"><use data-c="2217" xlink:href="#MJX-14-TEX-N-2217"></use></g><g data-mml-node="mfrac" transform="translate(5732.3,0)"><g data-mml-node="mrow" transform="translate(277.6,394) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-14-TEX-N-2202"></use></g></g><g data-mml-node="mi" transform="translate(566,0)"><use data-c="1D43D" xlink:href="#MJX-14-TEX-I-1D43D"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2202" xlink:href="#MJX-14-TEX-N-2202"></use></g></g><g data-mml-node="msub" transform="translate(566,0)"><g data-mml-node="mi"><use data-c="1D703" xlink:href="#MJX-14-TEX-I-1D703"></use></g><g data-mml-node="mi" transform="translate(502,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use></g></g></g><rect width="1163" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>θ</mi><mi>i</mi></msub><mo>=</mo><msub><mi>θ</mi><mi>i</mi></msub><mo>−</mo><mi>α</mi><mo>∗</mo><mfrac><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><mi>J</mi></mrow><mrow><mrow data-mjx-texclass="ORD"><mo>∂</mo></mrow><msub><mi>θ</mi><mi>i</mi></msub></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">θ_i = θ_i - α * \frac{∂J}{∂θ_i}</script><span>。</span></p></li></ol><p><span>通过同时更新所有参数，梯度下降算法能够在参数空间中搜索更优的解，最小化目标函数。这样可以有效地优化多参数的模型，并找到使目标函数最小化的最佳参数组合。</span></p></div></div>
+</body>
+</html>
