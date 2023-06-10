@@ -38,7 +38,17 @@ navbar-links:
 #     - 汇总: "https://mp.weixin.qq.com/s/CEl7xg1Wi09iz8ZVHgfmBw"
 #     - 小班课: "https://mp.weixin.qq.com/s/VWovPLfvOT5baHUr3vQtcA"
    
-  
+  👉SQL面经💯:
+    - 窗口函数: "SQL/window"
+    - CTE: "SQL/cte"
+    - 子查询: "SQL/subquery"
+    - 条件判断: "SQL/casewhen"
+    - 表格连接: "SQL/join"
+    - 自连接: "SQL/selfjoin"
+    - 分组聚合: "SQL/groupby"
+    - 缺失值处理: "SQL/null"
+    - 时间处理: "SQL/time"
+    
   👉机器学习👨‍💻: 
     - 梯度下降: "ML/gradient_descent"
     - 感知机: "ML/Perceptron"
