@@ -37,8 +37,8 @@ navbar-links:
 #  👉鲸析DA&DS求职1月小班课🐋: "https://mp.weixin.qq.com/s/CPTpmXLkui0kTC40R94oaA"
 #     - 汇总: "https://mp.weixin.qq.com/s/CEl7xg1Wi09iz8ZVHgfmBw"
 #     - 小班课: "https://mp.weixin.qq.com/s/VWovPLfvOT5baHUr3vQtcA"
-  👉实战项目🐋:
-      - 车险预测: "projects/safe_driver_prediction"
+#   👉实战项目🐋:
+#       - 车险预测: "projects/safe_driver_prediction"
   👉SQL面经💯:
     - 窗口函数: "SQL/window"
     - CTE: "SQL/cte"
