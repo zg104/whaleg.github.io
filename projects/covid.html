@@ -1,0 +1,1097 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying disabled!');
+        });
+    });
+</script>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+
+.cm-s-inner.CodeMirror {
+    background-color: #003444;
+    color: #EEFFFF;
+    padding: 0.75rem 0.15rem 0.75rem 0.15rem;
+    border-radius: 6px;
+}
+
+#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid #f0f0f0;
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: #A77DF4;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background: #003444;
+    color: #546E7A;
+    border: none;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+    color: #fff;
+    background: #003444;
+    border-radius: 6px;
+}
+
+.cm-s-inner .CodeMirror-guttermarker,
+.cm-s-inner .CodeMirror-guttermarker-subtle,
+.cm-s-inner .CodeMirror-linenumber {
+    color: #546E7A;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: 1px solid #FFCC00;
+}
+
+.cm-s-inner.cm-fat-cursor .CodeMirror-cursor {
+    background-color: #5d6d5c80 !important;
+}
+.cm-s-inner .cm-animate-fat-cursor {
+    background-color: #5d6d5c80 !important;
+}
+
+.cm-s-inner div.CodeMirror-selected {
+    background: rgba(128, 203, 196, 0.2);
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+    background: rgba(128, 203, 196, 0.2);
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::selection {
+    background:  rgba(0,178,123,0.2);
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background: rgba(0,178,123,0.2);
+}
+.cm-s-inner .CodeMirror-selected {
+    background: rgba(0,178,123,0.2) !important;
+}
+.cm-s-inner .CodeMirror-selectedtext {
+    background: transparent !important;
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: #003444;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C792EA;
+}
+
+.cm-s-inner .cm-operator {
+    color: #E9EDED;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+    color: #82B1FF;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #DECB6B;
+}
+
+.cm-s-inner .cm-atom {
+    color: #F77669;
+}
+
+.cm-s-inner .cm-number {
+    color: #F77669;
+}
+
+.cm-s-inner .cm-def {
+    color: #00AEC4;
+}
+
+.cm-s-inner .cm-string {
+    color: #C3E88D;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-comment {
+    color: #AEBBC2;
+}
+
+.cm-s-inner .cm-variable {
+    color: #82B1FF;
+}
+
+.cm-s-inner .cm-tag {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-meta {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #FFCB6B;
+}
+
+.cm-s-inner .cm-property {
+    color: #80CBAE;
+}
+
+.cm-s-inner .cm-qualifier {
+    color: #DECB6B;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+    color: #DECB6B;
+}
+
+.cm-s-inner .cm-error {
+    color: #FFFFFF;
+    background-color: #FF5370;
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+@import url('file:///C://Users//Admin//AppData//Roaming//Typora/themes/');
+@import url('file:///C://Users//Admin//AppData//Roaming//Typora/themes/');
+
+/** color vars **/
+:root {
+  /* system vars*/
+  --primary-color: #f0f0f0; /* color of primary buttons */
+  --side-bar-bg-color: #003444;
+  --active-file-bg-color: #004144; /* sidebar active & hover */
+  --active-file-text-color: #ffffff;
+  --active-file-border-color: #757575;
+  --item-hover-text-color: #fff;
+  --item-hover-bg-color: #005C44;  /* sidebar footer item hover*/
+  --control-text-color: #ddd;
+  --control-text-hover-color: #fff;
+  --monospace: 'SourceHanSansSC','JetBrains Mono', -apple-system, sans-serif;
+
+  /* custom vars */
+  --theme-primary-color: #00997B; /* rgb(0, 153, 123) */
+  --white-color: #fff;
+
+  /* head */
+  --head-text-color: #333444;
+  --h1-text-color: rgba(0, 52, 68, 0.9);
+  --h5-text-color: var(--theme-primary-color);
+  --h6-text-color: rgba(0, 153, 123, 0.838);
+  --head-prefix-color: #D0D0D0;
+
+  /* text */
+  --text-color: #363C42;
+  --text-search-hit-color: rosybrown;
+
+  /* highlight */
+  --highlight-bg-color: #FFF3F3;
+  --highlight-text-color: #FF2F2F;
+
+  /* a link */
+  --a-text-color: var(--theme-primary-color);
+
+  /* annotate */
+  --annotate-text-color: #8CAA16;
+
+  /* inline code */
+  --inline-code-bg-color: #f3f3f3;
+  --inline-code-text-color: #00769A;
+
+  /* selection */
+  --selection-text-color: rgba(0, 153, 123, 0.2);
+
+  /* check-box */
+  --checked-text-color: #ADB5BD;
+  --line-through-color: #CFD4DA;
+  --border-color: #868E96;
+
+  /* table */
+  --table-border-color: #DADCDE;
+  --table-cell-bg-color:rgba(0, 153, 123, 0.03);
+
+  /* quote */
+  --quote-bg-color: rgba(0, 153, 123, 0.05);
+  --quote-text-color: #81888D ;
+
+  /* sidebar */
+  --sidebar-footer-dropdown-menu-border-color: #212529;
+  --sidebar-footer-dropdown-menu-item-border-color: #ADB5BD;
+  --sidebar-footer-item-hover-bg-color: #004544;
+  --siderbar-dropdown-menu-text-color: #fff;
+
+  /* sidebar resizer */
+  --sidebar-resizer: #6eace2;
+
+  /*--window-border: #e5e5e5;*/
+  --window-border: #1F6F57; /*sidebar layout border*/
+}
+
+
+/* global && write area */
+#write {
+  position: static;
+  width: 90%;
+  max-width: 900px;
+  line-height: 1.6;
+  padding: 36px 0 70px;
+}
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+  width: auto;
+}
+html, body, #write {
+  background: var(--white-color);
+  font-family: 'SourceHanSansSC','JetBrains Mono', -apple-system, sans-serif;
+}
+p {
+  font-size: 1em;
+  font-family: 'SourceHanSansSC', 'JetBrains Mono', -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+
+/* search match active*/
+.md-search-hit.md-search-select{
+  background-color: var(--text-search-hit-color);
+}
+
+
+/* heading */
+h1, h2, h3, h4, h5, h6 {
+  width: auto;
+  line-height: 2;
+  font-style: normal;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+h2, h3, h4 {
+  color: var(--head-text-color);
+}
+h2::before, h3::before, h4::before, h5::before, h6::before,
+h2.md-focus::before, h3.md-focus::before, h4.md-focus::before, h5.md-focus::before, h6.md-focus::before {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--head-prefix-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-variant: 'small-caps';
+  line-height: 2;
+  padding: 0;
+  border: 0;
+}
+
+#write h1 {
+  font-size: 2.1rem;
+  font-weight: 900;
+  text-align: center;
+  color: var(--h1-text-color);
+}
+#write h1>span{
+  position: relative;
+  display: inline-block;
+}
+#write h1>span:after{
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 3px double var(--h1-text-color);
+  height: 3px;
+  width: 15rem;
+  max-width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#write h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+#write>h2::before {
+  content: 'H2';
+}
+
+#write h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+#write>h3::before {
+  content: 'H3';
+}
+
+#write h4, #write h5, #write h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#write h5 {
+  color: var(--h5-text-color);
+}
+#write h6 {
+  color: var(--h6-text-color);
+}
+#write>h4::before {
+  content: 'H4';
+}
+#write>h5::before {
+  content: 'H5';
+}
+#write>h6::before {
+  content: 'H6';
+}
+
+
+/* inline element */
+#write a {
+  color: var(--a-text-color);
+  cursor: pointer;
+  padding: 0 3px 0 3px;
+  text-decoration: none;
+}
+#write a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+#write .md-link a>span:after {
+  content: '';
+  display: inline-block;
+  background-image: url("file:///C://Users//Admin//AppData//Roaming//Typora/themes/forest/link-icon.svg");
+  background-repeat: no-repeat;
+  width: 0.8em;
+  height: 0.8em;
+  vertical-align: middle;
+  margin-left: 3px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+mark {
+  background: var(--highlight-bg-color);
+  color: var(--highlight-text-color);
+  font-weight: 500;
+  padding: 0 2px 0 2px;
+  margin: 0 2px 0 2px;
+  border-radius: 2px;
+}
+
+span.md-comment {
+  color: var(--annotate-text-color);
+}
+
+/* footnote */
+sup.md-footnote {
+  color: var(--a-text-color);
+  background-color: var(--white-color);
+}
+.footnotes .md-def-name {
+  padding-right: 4ch;
+}
+
+/* inline code */
+#write code{
+  margin: 0 2px;
+  padding: 0px 4px;
+  font-size: 0.95rem;
+  background: var(--inline-code-bg-color);
+  display: inline;
+  vertical-align: top;
+  line-height: 1.6;
+  border-radius: 6px;
+  font-weight: 700;
+  color: var(--inline-code-text-color);
+}
+.md-hover-tip .code-tooltip-content, .md-hover-tip .md-arrow:after {
+  background: var(--side-bar-bg-color);
+}
+#write *[mdtype="heading"] code{
+  font-size: inherit!important;
+  vertical-align: baseline;
+}
+
+img {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+p>.md-image:only-child:not(.md-img-error) img, p>img:only-child {
+  display: block;
+  margin: unset;
+}
+/* operation img tip dialog */
+#user-context-menu>li>a, .dropdown-menu>li>a {
+  color: var(--theme-primary-color);
+  font-weight: 500;
+}
+#user-context-menu>li>a:hover, #user-context-menu>li.active>a {
+  background: var(--theme-primary-color);
+  color: #fff;
+}
+#zoom-img-menu.context-menu.dropdown-menu>li>a:hover,
+#zoom-img-menu.context-menu.dropdown-menu>li.active>a {
+  background: var(--theme-primary-color);
+  color: #fff;
+}
+#zoom-img-menu.dropdown-menu .divider {
+  background: var(--theme-primary-color);
+}
+
+/* underline */
+#write u {
+  text-decoration: none;
+}
+#write u>span {
+  border-bottom: 1px solid;
+}
+
+/* selection */
+span::selection, *::selection {
+  background: var(--selection-text-color);
+}
+
+
+/* block element */
+/* YAML front */
+pre.md-meta-block {
+  font-size: .85rem;
+  color: var(--quote-text-color);
+  background: var(--quote-bg-color);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* toc */
+#write .md-toc {
+  font-size: 1rem;
+}
+#write a.md-toc-inner {
+  color: var(--theme-primary-color);
+}
+#write a.md-toc-inner:hover {
+  text-decoration: underline;
+  border-bottom: none;
+}
+p.md-toc-content {
+  line-height: 1.8;
+  font-weight: 500;
+}
+.md-toc-h2 .md-toc-inner {
+  margin-left: 1em;
+}
+.md-toc-h3 .md-toc-inner {
+  margin-left: 2em;
+}
+.md-toc-h4 .md-toc-inner {
+  margin-left: 3em;
+}
+.md-toc-h5 .md-toc-inner {
+  margin-left: 4em;
+}
+.md-toc-h6 .md-toc-inner {
+  margin-left: 5em;
+}
+
+/* quote */
+blockquote {
+  position: relative;
+  padding: 1rem;
+  background-color: var(--quote-bg-color);
+  border-radius: 6px;
+  line-height: 1;
+}
+blockquote p {
+  color: var(--quote-text-color);
+  margin: 0 ;
+}
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  height: 100%;
+  width: .30rem;
+  background: var(--theme-primary-color);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+/* hr */
+div[mdtype='hr'] {
+  text-align: center;
+}
+hr {
+  border-top: 1px dashed var(--theme-primary-color);
+  transform: scaleY(0.5);
+  width: 90%;
+}
+
+/* ul, ol */
+ul>li>ul>li {
+  list-style-type: circle;
+}
+ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+ul>li>ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+
+ol ul li {
+  list-style-type: circle;
+}
+ol ul>li>ul>li {
+  list-style-type: disc;
+}
+ol ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+ol ul>li>ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+ol ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+ol ul>li>ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+
+ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+ol>li>ol>li>ol>li {
+  list-style-type: decimal;
+}
+ol>li>ol>li>ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+ol>li>ol>li>ol>li>ol>li>ol>li {
+  list-style-type: decimal;
+}
+ol>li>ol>li>ol>li>ol>li>ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+ol>li>ol>li>ol>li>ol>li>ol>li>ol>li>ol>li {
+  list-style-type: decimal;
+}
+
+/* task list */
+.task-list-item.md-task-list-item {
+  list-style-type: none;
+}
+.md-task-list-item>input, #write .md-task-list-item>input[type=checkbox] {
+  margin-left: -1.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.md-task-list-item>input:before {
+  border: 2px solid var(--border-color);
+  width: 1rem;
+  height: 1rem;
+  background:  var(--white-color);
+  content: ' ';
+  transition: background-color 200ms ease-in-out;
+  display: block;
+}
+.md-task-list-item>input:checked:before,
+.md-task-list-item>input[checked]:before {
+  background: var(--theme-primary-color);
+  border-width: 1px;
+  transition: background-color 200ms ease-in-out;
+  border: 2px solid var(--theme-primary-color);
+}
+.md-task-list-item>input[checked]+p {
+  color: var(--checked-text-color);
+  text-decoration: line-through;
+  text-decoration-color: var(--line-through-color);
+}
+
+.md-task-list-item>input:checked:after,
+.md-task-list-item>input[checked]:after {
+  opacity: 1;
+}
+.md-task-list-item>input:after {
+  opacity: 1;
+  -webkit-transition: opacity 0.05s ease-in-out;
+  -moz-transition: opacity 0.05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0.25rem;
+  left: 0.19rem;
+  width: 0.6rem;
+  height: 0.375rem;
+  border: 2px solid var(--white-color);
+  border-top: 0;
+  border-right: 0;
+  content: ' ';
+  opacity: 0;
+}
+
+/* table */
+.md-table-edit .btn-default {
+  color: inherit;
+}
+table.md-table {
+  width: auto;
+  min-width: 80%;
+}
+table tr:nth-child(2n), table thead  {
+  background-color: var(--table-cell-bg-color);
+}
+table thead {
+  font-weight: 900;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--table-border-color);
+}
+table tr:first-of-type {
+  border-top: 1px solid var(--table-border-color);
+}
+table tr th, table tr td {
+  border-left: 1px solid var(--table-border-color);
+  padding: 6px 13px;
+}
+table tr th:last-of-type, table tr td:last-of-type {
+  border-right: 1px solid var(--table-border-color);
+}
+
+/* code */
+.auto-suggest-container {
+  border: 1px solid var(--theme-primary-color);
+}
+.auto-suggest-container li:hover, .auto-suggest-container li.active {
+  color: #fff;
+  background: var(--theme-primary-color);
+}
+
+
+/* outline */
+#toc-dropmenu {
+  width: 400px;
+}
+#toc-dropmenu.open {
+  background: var(--side-bar-bg-color);
+  color: var(--white-color);
+}
+#toc-dropmenu .outline-title-wrapper .outline-title {
+  font-weight: 900;
+}
+#toc-dropmenu .outline-title-wrapper {
+  height: 2.5rem;
+}
+.outline-title-wrapper .btn {
+  color: var(--white-color);
+  line-height: 2.5rem;
+  vertical-align: middle;
+}
+
+.dropdown-menu .divider {
+  background: var(--white-color);
+}
+.outline-item:hover {
+  background: var(--active-file-bg-color);
+}
+.outline-expander {
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+.outline-label {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 1.5rem);
+}
+.outline-label:hover {
+  text-decoration: none;
+}
+
+
+/* notification */
+#md-notification:before {
+  top: 18px;
+}
+#md-notification p {
+  color: var(--theme-primary-color);
+  font-weight: 500;
+}
+.btn-default {
+  background: var(--theme-primary-color);
+  color: var(--white-color);
+}
+.btn-default.active, .btn-default.focus, .btn-default:active,
+.btn-default:focus, .btn-default:hover,
+.open>.dropdown-toggle.btn-default {
+  color: var(--theme-primary-color);
+  border: 1px solid var(--theme-primary-color);
+  background: var(--white-color);
+}
+
+
+/* sidebar */
+.sidebar-menu {
+  color: var(--siderbar-dropdown-menu-text-color);
+}
+.sidebar-menu .sidebar-content  .sidebar-content-content {
+  font-weight: 500;
+}
+
+#file-library-tree .file-tree-node {
+  padding-left: 1.5em;
+  color: var(--control-text-color);
+  padding-top: 6px;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.file-tree-node .file-node-content:hover {
+  cursor: pointer;
+}
+#file-library-tree .file-node-expanded>.file-node-content>.fa-folder:before {
+  content: '\f07c';
+}
+#file-library-tree .fa-file-text-o:before {
+  content: '\f1ce'
+}
+
+.file-tree-node.active>.file-node-background {
+  border-left: 4px solid var(--theme-primary-color);
+}
+#typora-sidebar .file-list-item.file-library-node:not(.active):hover {
+  background: var(--active-file-bg-color);
+}
+#typora-sidebar .file-tree-node.file-library-file-node:not(.active):hover .file-node-background {
+  background: var(--active-file-bg-color);
+  height: 2.2rem;
+}
+
+/* siderbar footer*/
+.sidebar-footer-main-item #sidebar-files-menu {
+  border: 1px solid var(--sidebar-footer-dropdown-menu-border-color);
+}
+.sidebar-menu  .dropdown-menu>li>a, .sidebar-menu .dropdown-menu>li>a:focus, .sidebar-menu .dropdown-menu>li>a:hover {
+  color: var(--siderbar-dropdown-menu-text-color);
+}
+.dropdown-menu>li>a:hover {
+  background: var(--active-file-bg-color);
+}
+.sidebar-footer-main-item .dropdown-menu .menuitem-group-label {
+  font-weight: 500;
+}
+.dropdown-menu .selected-folder-menu-item a:after {
+  color: var(--theme-primary-color);
+}
+.file-sort-item .ty-side-sort-btn {
+  cursor: pointer;
+}
+#sidebar-files-menu>.show+.menuitem-group-label.show {
+  border-top: 1px solid var(--sidebar-footer-dropdown-menu-item-border-color);
+}
+.footer-item:hover, .sidebar-footer-item:hover {
+  background: var(--sidebar-footer-item-hover-bg-color);
+}
+
+/* sidebar search*/
+.sidebar-menu .ty-sidebar-search-panel #file-library-search-input {
+  color: var(--white-color);
+  background: transparent;
+}
+/* sidebar tab for windows */
+.info-panel-tab:hover {
+  color: var(--white-color)!important;
+}
+.active-tab-files #info-panel-tab-file .info-panel-tab-border,
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
+  background-color: var(--white-color) !important;
+}
+
+/* resizer */
+#typora-sidebar-resizer.dragging{
+  color: var(--sidebar-resizer);
+}
+
+
+/* print style */
+@media print {
+  .typora-export * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  #write>h1::before, #write>h2::before, #write>h3::before, #write>h4::before, #write>h5::before, #write>h6::before {
+    content: '';
+    bottom: 1rem;
+  }
+
+  #write u {
+    text-decoration: none;
+  }
+  #write u>span {
+    border-bottom: 1px solid;
+  }
+}
+
+
+/* source code */
+#typora-source {
+  font-family: 'SourceHanSansSC','JetBrains Mono', -apple-system, sans-serif;
+  line-height: 1.6;
+}
+#typora-source .cm-header {
+  color: var(--theme-primary-color);
+}
+
+/* quick open bar */
+.ty-quick-open-category {
+  color: var(--white-color);
+}
+.ty-quick-open-category .typora-quick-open-item {
+  opacity: 0.5;
+}
+.ty-quick-open-category .typora-quick-open-item.active {
+  opacity: 1;
+}
+
+.CodeMirror.cm-s-inner.cm-s-null-scroll.CodeMirror-wrap {
+  padding: 8px;
+}
+
+
+
+
+</style><title>上海新冠</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='上海新冠疫情预测与趋势分析'><span>上海新冠疫情预测与趋势分析</span></h1><p><img src="https://i2.mjj.rip/2023/06/22/31171c1a4695c198a3ffeb3e9dc1827e.png" alt="31171c1a4695c198a3ffeb3e9dc1827e.png" border="0"></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#上海新冠疫情预测与趋势分析">上海新冠疫情预测与趋势分析</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#项目背景">项目背景</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n6"><a class="md-toc-inner" href="#简述">简述</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n8"><a class="md-toc-inner" href="#目标">目标</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n16"><a class="md-toc-inner" href="#收益">收益</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n64"><a class="md-toc-inner" href="#评估指标">评估指标</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n82"><a class="md-toc-inner" href="#项目节奏">项目节奏</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n83"><a class="md-toc-inner" href="#项目准备阶段约1-2周）">项目准备阶段（约1-2周）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n93"><a class="md-toc-inner" href="#数据探索和预处理阶段约2-3周）">数据探索和预处理阶段（约2-3周）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n117"><a class="md-toc-inner" href="#数据挖掘和特征工程约1-2周）">数据挖掘和特征工程（约1-2周）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n129"><a class="md-toc-inner" href="#模型选择和开发阶段约2-4周）">模型选择和开发阶段（约2-4周）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n143"><a class="md-toc-inner" href="#模型评估和优化阶段约2-4周）">模型评估和优化阶段（约2-4周）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n153"><a class="md-toc-inner" href="#部署和上线阶段约1-2周）">部署和上线阶段（约1-2周）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n161"><a class="md-toc-inner" href="#复盘总结约1周）">复盘总结（约1周）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n167"><a class="md-toc-inner" href="#项目难点挑战">项目难点&amp;挑战</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n168"><a class="md-toc-inner" href="#从jhu-csse获取数据并自动更新同时融合上海卫健委数据的爬虫和数据清洗">从JHU CSSE获取数据并自动更新，同时融合上海卫健委数据的爬虫和数据清洗</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n438"><a class="md-toc-inner" href="#时间序列的缺失值填充处理">时间序列的缺失值填充处理</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n178"><a class="md-toc-inner" href="#时间序列数据中的时间特征加工难度大提取周期因子比较困难">时间序列数据中的时间特征加工难度大，提取周期因子比较困难</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n280"><a class="md-toc-inner" href="#时间序列训练集测试集分割">时间序列训练集测试集分割</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n449"><a class="md-toc-inner" href="#时间序列数据中存在非线性关系非平稳性转化">时间序列数据中存在非线性关系、非平稳性转化</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n666"><a class="md-toc-inner" href="#单多变量模型基于4种评估指标的模型比对和筛选">单、多变量模型基于4种评估指标的模型比对和筛选</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n669"><a class="md-toc-inner" href="#未来动作">未来动作</a></span></p></div><p>&nbsp;</p><h2 id='项目背景'><span>项目背景</span></h2><h3 id='简述'><span>简述</span></h3><p><span>上海市于2022年3月爆发了严重的2019冠状病毒病（COVID-19）聚集性疫情，由奥密克戎变异株引发。该疫情导致了上海市范围内的大规模封锁和防控措施的实施，对社会经济和居民生活造成了巨大影响。此次疫情在全国范围内也引起了广泛关注，并对其他地区产生了外溢影响。为了更好地应对类似的疫情，需要建立预测模型来预测短期内上海市新冠确诊数和无症状感染数的趋势，以帮助决策者制定科学有效的防控策略和资源调配方案。</span></p><h3 id='目标'><span>目标</span></h3><ul><li><p><span>构建准确的预测模型：利用上海市历史疫情数据，建立可靠的预测模型，能够在一定程度上预测短期内的新冠确诊数和无症状感染数趋势。</span></p></li><li><p><span>分析疫情趋势：通过对预测结果和历史数据的比较和分析，揭示上海市新冠疫情的趋势变化，洞察疫情发展的关键因素和周期性变化。</span></p></li><li><p><span>提供决策支持：将预测结果和趋势分析提供给政府、卫生部门和公众，以帮助决策者制定更科学、有效的疫情防控策略和资源调配方案。</span></p></li></ul><h3 id='收益'><span>收益</span></h3><blockquote><ul><li><p><span>预警和响应能力提升：准确的新冠疫情预测可以帮助政府和卫生部门提前预警，并及时采取措施应对疫情的发展，最大限度地减少疫情对公众的影响。</span></p></li><li><p><span>资源优化：通过预测模型，可以更好地规划和分配防控资源，确保资源的合理利用和高效配置，提高抗疫工作的效率。</span></p></li><li><p><span>公众参与和安全感：向公众提供疫情预测结果和趋势分析，增加公众对疫情的了解和参与度，同时提供科学依据，增强公众对防控措施的接受度</span></p></li></ul></blockquote><ul><li><p><mark><span>预警和响应能力提升</span></mark><span>：</span></p><ul><li><p><strong><span>及时发现和预警疫情</span></strong><span>：通过建立预测模型，可以对上海市新冠疫情进行监测和分析，及早发现潜在的疫情爆发趋势。预警系统能够通过监测数据的变化和模型的预测结果，发出及时警报，使决策者能够更早地意识到疫情的可能发展方向。</span></p></li><li><p><strong><span>快速采取防控措施</span></strong><span>：准确的预测结果可以为政府和卫生部门提供决策依据，使其能够更加及时和有针对性地采取防控措施。例如，当预测模型显示疫情可能迅速扩散时，可以立即加强人员的流行病学调查和疫情监测，加强社区封控和隔离措施，以控制疫情蔓延的速度和范围。</span></p></li><li><p><strong><span>高效资源调配</span></strong><span>：准确的预测结果还可以帮助决策者合理规划和调配防控资源。根据疫情的发展趋势和预测结果，可以提前准备医疗物资、人力资源和设备设施，确保在疫情爆发时能够迅速投入适当的资源，提高防控工作的效率和效果。</span></p></li><li><p><strong><span>提升公众安全感</span></strong><span>：预警和响应能力的提升可以增加公众对疫情防控工作的信心和安全感。通过向公众提供准确的预测信息和及时的应对措施，可以增强公众对政府和卫生部门的信任，提高公众的配合度和参与度，共同应对疫情的挑战。</span></p></li></ul></li><li><p><mark><span>资源优化</span></mark><span>：</span></p><ul><li><p><span>通过准确预测车险索赔的发生概率和成本，保险公司可以更好地为客户提供精确的理赔服务。例如，如果预测模型能够预测到某位驾驶员的索赔风险较高，保险公司可以提前做好准备并更迅速地响应索赔请求，提供更及时和准确的理赔服务，增强客户的满意度和忠诚度。</span></p></li><li><p><span>缺乏准确量化驾驶员风险的情况下，保险公司可能会面临潜在的亏损风险。如果高风险驾驶员被错误地定价为低风险，他们可能购买保险产品并引发频繁的索赔。这将对保险公司的经济状况产生不利影响。例如，一个高风险驾驶员如果被错误地定价为低风险并购买了保险，保险公司可能需要支付高额索</span></p></li></ul></li><li><p><mark><span>优化风险管理</span></mark><span>：</span></p><ul><li><p><strong><span>医疗资源优化</span></strong><span>：准确的预测可以帮助医疗机构更好地规划和调配医疗资源。根据预测结果，可以提前预留足够的床位、医护人员和医疗设备，以满足潜在的疫情患者需求。同时，可以避免资源的过度投入或浪费，使医疗资源得到更加合理的利用，提高医疗服务的效率和质量。</span></p></li><li><p><strong><span>物资供应链优化</span></strong><span>：预测模型可以帮助政府和相关机构更好地管理物资供应链。根据疫情的预测结果，可以提前预订和储备必要的医疗物资，如口罩、防护服、试剂等，以保障物资的及时供应。同时，可以根据需求的变化调整物资的分配和调拨，确保各个地区和医疗机构都能够得到合理的物资支持，避免出现短缺或浪费的情况。</span></p></li><li><p><strong><span>人员调配优化</span></strong><span>：基于预测模型的结果，可以更加精确地进行人员调配。根据疫情的发展趋势和预测结果，可以合理安排医护人员、社区工作人员和疫情防控人员的工作任务和轮班安排，确保人力资源的合理利用和充分发挥，提高防控工作的效率。</span></p></li><li><p><strong><span>社会资源调配优化</span></strong><span>：通过预测疫情的趋势，可以引导和优化社会资源的调配。例如，根据预测结果可以提前做出决策，调整学校的开学时间，合理安排企业的复工复产计划，以减少人员流动和交叉感染的风险。同时，还可以根据疫情的预测结果，有针对性地推动社区防控工作，加强高风险区域的管控和资源支持，以实现资源的优化配置。</span></p></li></ul></li><li><p><mark><span>公众参与和安全感</span></mark><span>：</span></p><ul><li><p><strong><span>公众参与</span></strong><span>：预测模型可以将疫情数据和趋势以易于理解的方式呈现给公众，使他们更加了解疫情的发展情况。公众可以通过了解疫情的预测结果，认识到疫情的严重性和紧迫性，从而主动参与到疫情防控措施中。他们可以采取个人防护措施，如佩戴口罩、勤洗手、保持社交距离等，以减少感染的风险。同时，公众也可以提供相关信息和反馈，协助相关部门进行疫情监测和调查工作，增强疫情防控的全民参与度和效果。</span></p></li><li><p><strong><span>安全感提升</span></strong><span>：及时准确的疫情预测信息可以增强公众的安全感。当公众了解到政府和相关机构对疫情进行科学预测和有效应对的能力时，他们会感到更加安心和信任。公众会意识到他们生活的城市有着明确的防控计划和措施，能够及时应对潜在的风险和挑战。这种安全感可以减少公众的恐慌和焦虑情绪，稳定社会秩序，为疫情防控工作提供更好的社会环境和支持。</span></p></li><li><p><strong><span>信息透明和沟通效果</span></strong><span>：通过预测模型，政府和相关机构可以及时向公众传达疫情预测结果和相应的防控措施。公众可以了解到疫情的发展趋势、重点区域和人群的风险等信息，从而更好地做出个人决策和行动。透明的信息传播和有效的沟通可以建立政府与公众之间的信任和合作关系，加强疫情防控工作的协同效应。</span></p></li></ul></li></ul><h3 id='评估指标'><span>评估指标</span></h3><ul><li><p><a href='https://www.investopedia.com/terms/r/r-squared.asp'><span>R-Squared</span></a></p></li><li><p><a href='https://en.wikipedia.org/wiki/Mean_absolute_error'><span>Mean Absolute Error(MAE)</span></a></p></li><li><p><a href='https://www.statisticshowto.com/mean-absolute-percentage-error-mape/'><span>Mean Absolute Percentage Error(MAPE)</span></a></p></li><li><p><a href='https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/mean-squared-error/'><span>Mean Squared Error(MSE)</span></a></p></li><li><p><a href='https://www.statisticshowto.com/probability-and-statistics/regression-analysis/rmse-root-mean-square-error/'><span>Root Mean Squared Error(RMSE)</span></a></p></li><li><p><a href='https://stats.stackexchange.com/questions/255276/normalized-root-mean-square-error-nrmse-with-zero-mean-of-observed-value'><span>Normalized Root Mean Squared Error(NRMSE)</span></a></p></li><li><p><a href='https://stackoverflow.com/questions/68529201/how-to-calculate-wape-for-given-dataframe-in-python'><span>Weighted Absolute Percentage Error(WAPE)</span></a></p></li><li><p><a href='https://www.baeldung.com/cs/mape-vs-wape-vs-wmape'><span>Weighted Mean Absolute Percentage Error(WMAPE)</span></a></p></li></ul><h2 id='项目节奏'><span>项目节奏</span></h2><h3 id='项目准备阶段约1-2周）'><span>项目准备阶段（约1-2周）</span></h3><ul><li><p><span>明确项目目标、收益和范围：与项目团队和利益相关者明确讨论项目的整体目标和期望收益，确定项目的范围和可行性。确保对项目的目标和利益有清晰的共识。</span></p></li><li><p><span>收集和整理相关数据集：确定需要使用的数据来源，如上海市卫生健康委员会、疾病控制中心等官方机构的数据发布平台。收集相关的上海新冠疫情数据，包括确诊数、无症状感染数、康复数等指标，以及对应的时间和地理位置信息。</span></p></li><li><p><span>确定数据清洗和预处理的需求：分析收集到的数据，识别数据中的缺失值、异常值和重复值等问题，并确定适当的数据清洗和预处理方法。例如，对于缺失值，可以选择填充或删除；对于异常值，可以选择修正或删除；对于重复值，可以选择去重操作。</span></p></li><li><p><span>分析业务需求和问题定义：与利益相关者和项目团队共同讨论和分析业务需求，明确需要解决的问题和目标。例如，预测上海新冠疫情的确诊趋势、无症状感染数的变化等。确保对项目的需求和问题有清晰的理解和定义。</span></p></li></ul><h3 id='数据探索和预处理阶段约2-3周）'><span>数据探索和预处理阶段（约2-3周）</span></h3><ul><li><p><span>确定数据来源：确定可靠的数据来源，例如</span><a href='https://wsjkw.sh.gov.cn/yqtb/index.html'><span>上海市卫生健康委员会</span></a><span>、</span><a href='https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data'><span>JHU CSSE</span></a><span>等官方机构的数据发布平台，确保数据的准确性和可信度。</span></p></li><li><p><span>收集数据：从确定的数据来源获取上海新冠疫情相关的数据。这些数据可能包括每日的确诊数、无症状感染数、死亡数、康复数等指标，以及对应的日期和地理位置信息。</span></p></li><li><p><span>数据质量检查：对收集到的数据进行质量检查，包括以下方面：</span></p><ul><li><p><span>缺失值处理：检查数据中是否存在缺失值，如果有，需要确定处理缺失值的方法，例如填充缺失值或删除缺失值所在的行/列。</span></p></li><li><p><span>异常值处理：检查数据中是否存在异常值，如极端值或不合理的值，需要进行异常值处理，可以通过统计方法或领域知识进行判断和处理。</span></p></li><li><p><span>数据类型转换：检查数据类型是否正确，例如确保日期数据以正确的格式存储，确保数值数据以数值类型存储等。</span></p></li></ul></li><li><p><span>数据清洗与整理：根据项目的需求和分析目标，进行数据清洗和整理的操作，包括以下方面：</span></p><ul><li><p><span>数据去重：如果存在重复的数据记录，需要进行去重操作，确保每条数据的唯一性。</span></p></li><li><p><span>数据格式调整：调整数据的格式和结构，以便于后续的特征工程和模型训练。可能需要进行数据重塑、转置、合并等操作。</span></p></li><li><p><span>特征提取：根据需要，从原始数据中提取相关特征，例如提取日期相关的特征（年、月、季度等）、构建滞后特征等，以便于后续的建模和预测分析。</span></p></li></ul></li></ul><h3 id='数据挖掘和特征工程约1-2周）'><span>数据挖掘和特征工程（约1-2周）</span></h3><ul><li><p><span>特征编码和转换：对收集到的原始数据进行编码和转换，将其转化为机器学习算法可以处理的格式。例如，将日期和时间转换为数值型特征，对分类变量进行独热编码或标签编码等。</span></p></li><li><p><span>特征构建和衍生：基于现有的数据特征，构建新的特征以提供更多的信息。这可能涉及到特征组合、特征交互或通过数学运算等方式进行特征衍生。例如，从日期中提取季节特征或工作日/非工作日特征。</span></p></li><li><p><span>特征选择和降维：通过分析特征与目标变量之间的相关性，选择对目标变量有显著影响的特征。可以使用统计方法（如方差分析）或机器学习算法（如决策树、随机森林）来进行特征选择。如果数据维度较高，还可以考虑使用降维技术（如主成分分析）来减少特征的数量。</span></p></li><li><p><span>特征重要性评估：对选择的特征进行重要性评估，以确定它们在预测模型中的贡献程度。可以使用各种方法，如基于树的算法（如随机森林）或基于模型的方法（如LASSO回归）来评估特征的重要性。</span></p></li><li><p><span>特征离散化：对连续型特征进行离散化处理，将其划分为不同的区间或使用自定义的阈值。这有助于处理非线性关系、减少异常值的影响，并且在某些情况下可以提高模型的解释性。</span></p></li></ul><h3 id='模型选择和开发阶段约2-4周）'><span>模型选择和开发阶段（约2-4周）</span></h3><ul><li><p><span>数据集划分：将可用数据集划分为训练集、验证集和测试集。训练集用于模型的训练和参数调优，验证集用于模型选择和超参数调优，测试集用于最终评估模型的性能。</span></p></li><li><p><span>模型选择：根据问题的特点和数据集的特征，选择适合时序预测的机器学习或统计模型。常见的模型包括线性回归、ARIMA、SARIMA、LSTM等。根据模型的假设、可解释性、计算效率等因素进行选择。</span></p></li><li><p><span>模型训练和调优：使用训练集和验证集进行模型的训练和调优。根据选定的模型，设置合适的超参数，并通过反复实验和交叉验证等方法来调整模型，以提高其性能和泛化能力。</span></p></li><li><p><span>模型评估：使用验证集评估模型的性能，比较不同模型的预测结果。常用的评估指标包括均方根误差（RMSE）、平均绝对误差（MAE）、平均绝对百分比误差（MAPE）等。根据评估结果选择表现最佳的模型。</span></p></li><li><p><span>模型解释性和计算效率：考虑模型的解释性和计算效率。某些模型可能具有较好的解释性，能够解释预测结果的原因和影响因素。同时，考虑模型的计算效率，尤其是在实时预测或大规模数据集上的应用。</span></p></li><li><p><span>尝试不同的算法和模型组合：除了单一模型，可以尝试使用集成方法（如随机森林、梯度提升树等）或模型组合的方法来进一步提高预测准确度。通过组合多个模型的预测结果，可以获得更准确和鲁棒的预测结果。</span></p></li></ul><h3 id='模型评估和优化阶段约2-4周）'><span>模型评估和优化阶段（约2-4周）</span></h3><ul><li><p><span>分析模型的误差和不确定性：通过比较模型的预测结果与实际观测值，分析模型的误差和不确定性。这可以包括计算预测误差的平均值、标准差或其他统计指标，以及绘制误差分布图或残差图。通过分析模型的误差，你可以确定哪些方面需要改进和优化，以提高模型的性能。</span></p></li><li><p><span>模型优化和改进：根据模型评估的结果和误差分析的发现，进行模型的优化和改进。这可能涉及调整模型的超参数，改进特征工程的方法，或尝试其他算法或模型结构。通过不断迭代和改进，你可以逐步提升模型的性能，并使其更加符合实际预测需求。</span></p></li><li><p><span>特征选择：考虑对特征进行选择，以提高模型的预测性能和解释能力。使用特征选择技术，如相关性分析、特征重要性评估或基于模型的特征选择方法，来确定哪些特征对于预测任务最为关键。通过选择最相关或最重要的特征，可以降低维度、减少噪声，并改善模型的泛化能力。</span></p></li><li><p><span>模型融合和集成学习：考虑将多个模型进行融合，以提升预测性能和稳定性。通过集成学习技术，如投票法、堆叠法或加权平均，将多个模型的预测结果进行组合，以得到更准确和鲁棒的预测。这可以减少个别模型的偏差和方差，并提高整体预测的稳定性和准确性。</span></p></li></ul><h3 id='部署和上线阶段约1-2周）'><span>部署和上线阶段（约1-2周）</span></h3><ul><li><p><span>部署模型到生产环境：将训练好的模型部署到实际的生产环境中，以进行实时的预测和风险评估。这可能涉及将模型集成到现有的系统或应用程序中，确保模型能够正确运行并处理实时数据。</span></p></li><li><p><span>监控模型性能和稳定性：建立监控机制，定期检查模型的性能和稳定性。监测模型在实际应用中的表现，并及时发现和解决任何性能问题。这可以包括监控模型的预测准确度、处理时间、资源利用率等指标。</span></p></li><li><p><span>模型调整和更新：根据实际应用情况和用户反馈，对模型进行调整和更新。这可能包括针对特定场景或问题领域的调优，优化模型的参数或特征，或者引入新的训练数据以改善模型的性能。</span></p></li></ul><h3 id='复盘总结约1周）'><span>复盘总结（约1周）</span></h3><ul><li><p><span>分享项目经验教训：回顾项目过程中的经验教训和挑战，与团队成员分享所学到的经验和可借鉴的最佳实践。这有助于提高团队的工作效率和质量，并为未来类似项目的开展提供指导。</span></p></li><li><p><span>展望未来工作和改进方向：讨论项目的成果和结果，并展望未来的工作和改进方向。根据项目的实际效果和反馈，提出进一步的研究和发展建议，以进一步提升模型的性能和应用效果。</span></p></li></ul><h2 id='项目难点挑战'><span>项目难点&amp;挑战</span></h2><h3 id='从jhu-csse获取数据并自动更新同时融合上海卫健委数据的爬虫和数据清洗'><span>从JHU CSSE获取数据并自动更新，同时融合上海卫健委数据的爬虫和数据清洗</span></h3><p><span>数据源的获取和更新：JHU CSSE网站上的数据可能以不同的格式和结构进行发布，数据需要进行定期更新，以保持与最新的疫情情况一致。</span></p><p><span>数据清洗和整合：从不同数据源获取的数据可能存在格式差异、缺失值、异常值等问题。因此，在将数据与上海卫健委的数据进行融合之前，需要进行数据清洗和预处理，包括处理缺失值、处理异常值、统一日期格式等。</span></p><p><span>爬虫的稳定性和可靠性：由于数据源的更新频率和网站的变化，爬虫程序需要具备稳定性和可靠性，能够适应网站结构的变化，并能够在长期运行的情况下持续获取数据。</span></p><h3 id='时间序列的缺失值填充处理'><span>时间序列的缺失值填充处理</span></h3><p><img src="https://i2.mjj.rip/2023/06/26/14243a04a447b0ab8141043f10ad425c.png" alt="14243a04a447b0ab8141043f10ad425c.png" border="0"></p><h3 id='时间序列数据中的时间特征加工难度大提取周期因子比较困难'><span>时间序列数据中的时间特征加工难度大，提取周期因子比较困难</span></h3><p><span>我们尝试加工并构造下列时间特征</span></p><ol><li><p><span>季节性特征：提取每周的星期几作为季节性特征。例如，将日期转换为星期一、星期二等，以便模型能够捕捉到每周不同天的确诊数变化。</span></p></li><li><p><span>日期和时间特征：提取年份、月份、季度等特征。这些特征可以帮助模型捕捉到年度、月度或季度的趋势和周期性。</span></p></li><li><p><span>时间差特征：计算当前时间点与前一个时间点之间的时间差。例如，计算相邻两天之间的天数差或相邻两周之间的周数差。这些特征可以反映出新冠确诊数的增长速度或变化趋势。</span></p></li><li><p><span>滞后特征：引入过去几天或几周的确诊数作为滞后特征。例如，引入过去3天或过去7天的确诊数作为特征，以便模型能够考虑到过去一段时间内的确诊情况对未来的影响。</span></p></li><li><p><span>移动平均特征：计算过去一周或一月的确诊数的平均值作为特征。这可以平滑数据，减少噪声的影响，并帮助模型捕捉到长期趋势。</span></p></li></ol><h3 id='时间序列训练集测试集分割'><span>时间序列训练集测试集分割</span></h3><p><img src="https://miro.medium.com/max/1400/1*2-zaRQ-dsv8KWxOlzc8VaA.png" referrerpolicy="no-referrer" alt="img"></p><p><span>在时间序列的数据之中，进行train、val、test划分时需要注意的问题是：</span></p><ul><li><p><span>不要将val中的数据出现在train中</span></p></li></ul><blockquote><p><span>准确的说，是选取的val数据的时间节点不能与train中数据时间节点有任何交集。否则，你会发现训练时，val的loss会与train的loss几乎一样，即失去其作用，会引入未来数据。例如，告诉你5日到10日的收盘价，让你预测第11日收盘价（验证阶段）；同时，给你11日到16日的收盘价，让你记忆第17日的收盘价（训练阶段）。这11日的价格你记忆过，在验证时无法做到客观。</span></p></blockquote><p><span>所以在做时序预测时，一定要注意数据的先后次序，不可以随便选一部分数据（随机抽样）去train，另一部分val等等，所以k-fold显然不适用了，可以改为下面这2种方法</span></p><ol><li><p><span>嵌套交叉验证</span></p></li></ol><p><span>包含一个用于估计误差的外循环，一个用于调参的内循环。</span></p><p><span>训练集被分割成一个训练子集和一个验证集，模型在训练子集上训练，然后选择在验证集上能够使误差最小化的参数。但是，现在我们增加了一个外循环，它将数据集分割成多个不同的训练集和测试集，为了计算模型误差的鲁棒估计，对每一次分割的误差求平均值。</span></p><ul><li><p><span>优点：嵌套交叉验证过程可以提供一个几近无偏的真实误差估计</span></p></li><li><p><span>缺点：数据量级不定，对于结果无法排除数据量级的影响</span></p></li></ul><p><img src="https://lonepatient-1257945978.cos.ap-chengdu.myqcloud.com/18-7-25/49741568.jpg" alt="img" style="zoom:53%;" /></p><ol start='2' ><li><p><span>定量移动交叉验证</span></p></li></ol><p><span>一般适用于大型数据集，不断舍弃前面数据，使量级在window移动时是统一的。</span></p><p><img src="https://www.dataapplab.com/wp-content/uploads/2018/12/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20181212162750-768x360.png" alt="img" style="zoom:50%;" /></p><h3 id='时间序列数据中存在非线性关系非平稳性转化'><span>时间序列数据中存在非线性关系、非平稳性转化</span></h3><p><img src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20230626181137410.png" alt="image-20230626181137410" style="zoom:44%;" /></p><h3 id='单多变量模型基于4种评估指标的模型比对和筛选'><span>单、多变量模型基于4种评估指标的模型比对和筛选</span></h3><figure class='table-figure'><table><thead><tr><th style='text-align:center;' >&nbsp;</th><th style='text-align:center;' ><span>mae</span></th><th style='text-align:center;' ><span>rmse</span></th><th style='text-align:center;' ><span>mape</span></th><th style='text-align:center;' ><span>r2</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Naive mean</span></td><td style='text-align:center;' ><span>12100.090490</span></td><td style='text-align:center;' ><span>25061.990568</span></td><td style='text-align:center;' ><span>8.675757e+11</span></td><td style='text-align:center;' ><span>-0.171814</span></td></tr><tr><td style='text-align:center;' ><span>Yesterdays value</span></td><td style='text-align:center;' ><span>4953.734513</span></td><td style='text-align:center;' ><span>13558.736582</span></td><td style='text-align:center;' ><span>8.233628e+11</span></td><td style='text-align:center;' ><span>0.657022</span></td></tr><tr><td style='text-align:center;' ><span>SES</span></td><td style='text-align:center;' ><span>4724.025576</span></td><td style='text-align:center;' ><span>10724.455429</span></td><td style='text-align:center;' ><span>8.633496e+11</span></td><td style='text-align:center;' ><span>0.785425</span></td></tr><tr><td style='text-align:center;' ><span>HWES</span></td><td style='text-align:center;' ><span>4724.025576</span></td><td style='text-align:center;' ><span>10724.455429</span></td><td style='text-align:center;' ><span>8.633496e+11</span></td><td style='text-align:center;' ><span>0.785425</span></td></tr><tr><td style='text-align:center;' ><span>AR</span></td><td style='text-align:center;' ><span>8407.739339</span></td><td style='text-align:center;' ><span>19448.537633</span></td><td style='text-align:center;' ><span>8.243584e+11</span></td><td style='text-align:center;' ><span>0.294330</span></td></tr><tr><td style='text-align:center;' ><span>MA</span></td><td style='text-align:center;' ><span>8757.279544</span></td><td style='text-align:center;' ><span>18672.747056</span></td><td style='text-align:center;' ><span>9.969011e+11</span></td><td style='text-align:center;' ><span>0.349505</span></td></tr><tr><td style='text-align:center;' ><span>ARMA</span></td><td style='text-align:center;' ><span>13627.563814</span></td><td style='text-align:center;' ><span>27839.187800</span></td><td style='text-align:center;' ><span>1.103581e+11</span></td><td style='text-align:center;' ><span>-0.445909</span></td></tr><tr><td style='text-align:center;' ><span>ARIMA</span></td><td style='text-align:center;' ><span>5185.765565</span></td><td style='text-align:center;' ><span>13534.852385</span></td><td style='text-align:center;' ><span>8.673517e+11</span></td><td style='text-align:center;' ><span>0.658229</span></td></tr><tr><td style='text-align:center;' ><span>AutoARIMA (2, 2, 3)</span></td><td style='text-align:center;' ><span>16162.704981</span></td><td style='text-align:center;' ><span>32259.598317</span></td><td style='text-align:center;' ><span>3.576454e+11</span></td><td style='text-align:center;' ><span>-0.941537</span></td></tr><tr><td style='text-align:center;' ><span>SARIMAX</span></td><td style='text-align:center;' ><span>5051.966837</span></td><td style='text-align:center;' ><span>13589.460089</span></td><td style='text-align:center;' ><span>7.234183e+11</span></td><td style='text-align:center;' ><span>0.655466</span></td></tr><tr><td style='text-align:center;' ><span>AutoSARIMAX (2, 2, 2)</span></td><td style='text-align:center;' ><span>5404.924573</span></td><td style='text-align:center;' ><span>11595.420636</span></td><td style='text-align:center;' ><span>9.036212e+11</span></td><td style='text-align:center;' ><span>0.749158</span></td></tr><tr><td style='text-align:center;' ><span>BayesianRidge</span></td><td style='text-align:center;' ><span>6181.001328</span></td><td style='text-align:center;' ><span>11662.429564</span></td><td style='text-align:center;' ><span>6.763388e+11</span></td><td style='text-align:center;' ><span>0.746250</span></td></tr><tr><td style='text-align:center;' ><span>LassoLars</span></td><td style='text-align:center;' ><span>6736.912601</span></td><td style='text-align:center;' ><span>12594.020130</span></td><td style='text-align:center;' ><span>6.872141e+11</span></td><td style='text-align:center;' ><span>0.704092</span></td></tr><tr><td style='text-align:center;' ><span>ARDRegression</span></td><td style='text-align:center;' ><span>5909.168128</span></td><td style='text-align:center;' ><span>11547.695052</span></td><td style='text-align:center;' ><span>7.459070e+11</span></td><td style='text-align:center;' ><span>0.751218</span></td></tr><tr><td style='text-align:center;' ><span>DecisionTree</span></td><td style='text-align:center;' ><span>6439.944150</span></td><td style='text-align:center;' ><span>12783.166526</span></td><td style='text-align:center;' ><span>3.905066e+11</span></td><td style='text-align:center;' ><span>0.695137</span></td></tr><tr><td style='text-align:center;' ><span>Randomforest</span></td><td style='text-align:center;' ><span>4460.337036</span></td><td style='text-align:center;' ><span>10032.253553</span></td><td style='text-align:center;' ><span>4.017273e+11</span></td><td style='text-align:center;' ><span>0.812231</span></td></tr><tr><td style='text-align:center;' ><span>AdaBoost</span></td><td style='text-align:center;' ><span>6650.062766</span></td><td style='text-align:center;' ><span>14746.718025</span></td><td style='text-align:center;' ><span>6.760435e+11</span></td><td style='text-align:center;' ><span>0.594287</span></td></tr><tr><td style='text-align:center;' ><span>XGBoost</span></td><td style='text-align:center;' ><span>6877.176122</span></td><td style='text-align:center;' ><span>12745.476082</span></td><td style='text-align:center;' ><span>1.326902e+12</span></td><td style='text-align:center;' ><span>0.696932</span></td></tr><tr><td style='text-align:center;' ><span>Lightgbm</span></td><td style='text-align:center;' ><span>6959.791241</span></td><td style='text-align:center;' ><span>14497.070928</span></td><td style='text-align:center;' ><span>9.820705e+11</span></td><td style='text-align:center;' ><span>0.607908</span></td></tr><tr><td style='text-align:center;' ><span>SVM RBF</span></td><td style='text-align:center;' ><span>12270.453819</span></td><td style='text-align:center;' ><span>25743.212523</span></td><td style='text-align:center;' ><span>5.596598e+11</span></td><td style='text-align:center;' ><span>-0.236384</span></td></tr><tr><td style='text-align:center;' ><span>KNN</span></td><td style='text-align:center;' ><span>6319.911504</span></td><td style='text-align:center;' ><span>12861.180642</span></td><td style='text-align:center;' ><span>1.298525e+11</span></td><td style='text-align:center;' ><span>0.691405</span></td></tr><tr><td style='text-align:center;' ><span>Tensorflow simple LSTM</span></td><td style='text-align:center;' ><span>6334.214497</span></td><td style='text-align:center;' ><span>11791.231820</span></td><td style='text-align:center;' ><span>3.526280e+11</span></td><td style='text-align:center;' ><span>0.740614</span></td></tr></tbody></table></figure><p><img src="https://i2.mjj.rip/2023/06/26/72a8c0e169c96914f72808ba168c5473.png" alt="72a8c0e169c96914f72808ba168c5473.png" border="0"></p><h2 id='未来动作'><span>未来动作</span></h2><ol start='' ><li><p><mark><span>数据质量改进</span></mark><span>：优化数据采集和清洗过程，减少新冠确诊数据的缺失和异常，提高数据质量。改进数据收集方法，加强数据验证和清洗流程，减少数据质量问题对预测模型的影响。</span></p></li><li><p><mark><span>特征扩展和更新</span></mark><span>：引入更多相关特征、衍生特征和外部数据，提高预测模型的表达能力和准确度。整合与新冠疫情相关的外部数据，如人口流动指数、气象数据等，构建更丰富的特征集。</span></p></li><li><p><mark><span>特征选择和筛选</span></mark><span>：通过选择与新冠确诊数目标变量具有强相关性的特征，简化模型输入，减少冗余和噪声特征的影响。使用特征选择方法，如相关系数分析或基于模型的特征选择，识别并保留与确诊数最相关的特征。</span></p></li><li><p><mark><span>模型集成和优化</span></mark><span>：尝试不同的模型集成方法，如集成多个预测模型、堆叠模型等，以提高预测性能和稳定性。训练和集成多个预测模型，如ARIMA、长短期记忆网络（LSTM）等，通过加权平均或投票机制获得最终预测结果。</span></p></li><li><p><mark><span>实时预测和决策</span></mark><span>：建立实时预测和决策系统，及时更新模型预测结果，支持实时风险评估和决策制定。开发实时监测系统，定期更新预测模型，提供实时新冠确诊数的风险评估和决策支持。</span></p></li><li><p><mark><span>模型解释和可解释性提升</span></mark><span>：通过解释性技术和方法，提高模型的可解释性，增加业务用户对预测结果的理解和信任。应用解释性技术，如SHAP值、特征重要性分析等，解释模型的预测过程和关键影响因素，使预测结果更具可解释性。</span></p></li></ol><p>&nbsp;</p></div></div>
+</body>
+</html>
