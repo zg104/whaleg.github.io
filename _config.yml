@@ -34,9 +34,9 @@ navbar-links:
 #     - 简单: "sql"
 #     - 中等: "sql_medium"
 
-#  👉鲸析DA&DS求职1月小班课🐋: "https://mp.weixin.qq.com/s/CPTpmXLkui0kTC40R94oaA"
-#     - 汇总: "https://mp.weixin.qq.com/s/CEl7xg1Wi09iz8ZVHgfmBw"
-#     - 小班课: "https://mp.weixin.qq.com/s/VWovPLfvOT5baHUr3vQtcA"
+  👉鲸鲸小班课🐋: 
+#     - 数据科学项目背景提升课: "https://www.offerrealize.com/plan#dsproject"
+#     - 数据科学面试辅导课: "https://www.offerrealize.com/plan#ds"
 #   👉实战项目🐋:
 #       - 车险预测: "projects/safe_driver_prediction"
   👉SQL面经💯:
@@ -71,7 +71,7 @@ navbar-links:
 #     - 线性算法面经: "https://ex661wn4s4.feishu.cn/docx/YffKdkTLlo9772xHPMFc0sAWnbc"
 #     - 树型算法面经: "https://ex661wn4s4.feishu.cn/docx/IypTdEjX6ojAp1xtJx3cQVyBnub"
     
-  👉鲸析课堂👨‍🏫: 
+  👉免费资源👨‍🏫: 
     - 数据源: "datasource"
     - 数学统计: "https://zg104.github.io/DSCrashCourse#math--stats-%E6%95%B0%E5%AD%A6%E7%BB%9F%E8%AE%A1"
     - SQL笔记: "https://docs.qq.com/doc/DRU5Pa0pManNvSXJH"
