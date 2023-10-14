@@ -165,21 +165,21 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 # If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
-  email: "2328247224@qq.com"
-  facebook: whaleg123
-  github: datoujinggzj
+#  email: "2328247224@qq.com"
+#  facebook: whaleg123
+#  github: datoujinggzj
 #   twitter: Zijing39896593
   rss: false
 #  weixin: datoujinggzj
 #  reddit: yourname
-  linkedin: zg104
+#  linkedin: zg104
 #  xing: yourname
-  stackoverflow: "19072279/studywhale"
+#  stackoverflow: "19072279/studywhale"
 #  snapchat: deanat78
 #  instagram: deanat78
-  youtube: channel/UCgieDnZI7JWiZsGpKrhDMgg
+#  youtube: channel/UCgieDnZI7JWiZsGpKrhDMgg
 #  spotify: yourname
-  telephone: 18616531215
+#  telephone: 18616531215
 #  steam: deanat78
 #  twitch: yourname
 #  yelp: yourname
