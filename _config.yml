@@ -34,9 +34,9 @@ navbar-links:
 #     - 简单: "sql"
 #     - 中等: "sql_medium"
 
-  👉鲸鲸小班课🐋: 
-    - 数据科学项目背景提升课: "https://www.offerrealize.com/plan#dsproject"
-    - 数据科学面试辅导课: "https://www.offerrealize.com/plan#ds"
+  # 👉鲸鲸小班课🐋: 
+  #   - 数据科学项目背景提升课: "https://www.offerrealize.com/plan#dsproject"
+  #   - 数据科学面试辅导课: "https://www.offerrealize.com/plan#ds"
 #   👉实战项目🐋:
 #       - 车险预测: "projects/safe_driver_prediction"
 #   👉SQL面经💯:
@@ -86,7 +86,7 @@ navbar-links:
     - Pandas: "https://ex661wn4s4.feishu.cn/docx/doxcnYhnPWtZBw9ceJZGG0wsQTf"
 #    - Pandas_profiling: "pandas_profiling"
     
-#  👉鲸析小班课🐋: "https://mp.weixin.qq.com/s/5G9XOQbn-CqEWMyKMr8TTQ"
+   👉鲸析小班课🐋: "http://mp.weixin.qq.com/s?__biz=Mzg2OTU4NzI3NQ==&mid=2247486717&idx=1&sn=bbf13792633308c73ed6606281e58ea2&chksm=ce9b8cd9f9ec05cfe4515fd0c9ac7b62b8c71144ac3f316d972f0ef594cc4008256d2428a44b&mpshare=1&scene=1&srcid=0105rl52iV25MoDLbRAM9u1x&sharer_shareinfo=5c4bc6cc54b026806836c2eec761372d&sharer_shareinfo_first=5c4bc6cc54b026806836c2eec761372d#rd"
 #   👉寻找鲸鲸👀:
 #     - 小红书📕: "https://www.xiaohongshu.com/user/profile/6180a092000000001f03501c?xhsshare=CopyLink&appuid=6180a092000000001f03501c&apptime=1651851000"
 #     - 公众号📗: "https://mp.weixin.qq.com/s/AtTq5vS5dkraJ7WeX3MqSw"
