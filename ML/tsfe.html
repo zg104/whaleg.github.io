@@ -1,0 +1,786 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying disabled!');
+        });
+    });
+</script>
+
+<link href='https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/*
+fonts initalization
+*/
+@import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap);
+@page {
+	size: A4;
+	margin: 8mm 0mm;
+}
+
+/*
+root variables including colors, font-familys and a shadow style
+*/
+:root {
+	--h-border-color: rgb(255, 191, 191);
+	--h-bg-color: rgb(255, 232, 232);
+	--table-border-color: rgb(255, 235, 211);
+	--th-bg-color: rgb(255, 243, 228);
+	--tr-bg-color: rgb(255, 249, 242);
+	--tr-hover-bg-color: rgb(254, 255, 230);
+	--code-bg-color: rgb(247, 247, 247);
+	--del-color: rgb(151, 151, 151);
+	--selection-bg-color: rgb(235, 227, 255);
+	--block-shadow: 0.15rem 0.15rem 0.5rem rgb(150, 150, 150);
+	--sans-serif-font: "Noto Sans SC Medium", "Noto Sans SC", sans-serif;
+	--monospace-font: "Source Code Pro Regular", "Source Code Pro", monospace;
+}
+
+html {
+	font-size: 16px;
+}
+
+
+#write {
+	font-family: var(--sans-serif-font);
+	max-width: 60rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+/*
+yaml header settings
+*/
+#write pre.md-meta-block {
+	font-family: var(--monospace-font);
+	font-size: 1rem;
+	text-align: left;
+	padding: 0.6rem;
+	color: rgb(134, 134, 134);
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+}
+
+/*
+headers settings
+*/
+#write h1 {
+	font-size: 2.2rem;
+	text-align: center;
+	text-shadow: 0.15rem 0.15rem 0.3rem rgb(187, 187, 187);
+}
+#write h2 {
+	font-size: 1.8rem;
+	margin-top: 1.8rem;
+	margin-left: -1.5rem;
+	margin-right: -1.5rem;
+	background-color: var(--h-bg-color);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border-left: 0.5rem solid var(--h-border-color);
+	border-radius: 0.4rem;
+}
+#write h3 {
+	font-size: 1.6rem;
+	text-decoration: underline double var(--h-border-color) 0.15rem;
+}
+#write h4 {
+	text-decoration: underline dotted var(--h-border-color) 0.2rem;
+}
+
+/*
+tables settings
+*/
+#write table {
+	border-collapse: collapse;
+	border: 0.25rem solid var(--table-border-color);
+}
+#write table th {
+	background-color: var(--th-bg-color);
+}
+#write table th, td {
+	text-align: center;
+	border: 0.13rem dashed var(--table-border-color);
+	padding: 0.5rem;
+}
+#write table tr:nth-child(even) {
+	background-color: var(--tr-bg-color);
+}
+#write table tr:hover {
+	background-color: var(--tr-hover-bg-color);
+}
+
+/*
+checkboxes settings
+*/
+#write .task-list-item input[type = "checkbox"] {
+	width: 0;
+	height: 0;
+}
+#write .task-list-item input[type = "checkbox"]::before, #write input[type = "checkbox"]:checked::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	left: -0.15rem;
+	top: -0.41rem;
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 0.08rem solid var(--del-color);
+	border-radius: 50%;
+	transition: all 0.2s;
+}
+#write .task-list-item input[type = "checkbox"]:checked::before {
+	padding: 0.12rem;
+	background-clip: content-box;
+	background-color: black;
+}
+#write .task-list-item input[type = "checkbox"]:checked + p {
+	text-decoration: line-through;
+	color: var(--del-color);
+}
+#write input[type='checkbox']:hover::before {
+	transition: all 0.2s;
+	background-color: rgb(228, 228, 228);
+}
+
+/*
+blockquotes settings
+*/
+#write blockquote {
+	color:rgb(102, 102, 102);
+	border-left: 0.25rem solid rgb(169, 202, 255);
+	padding: 0.5rem 1rem 0.6rem 1rem;
+}
+#write blockquote::before {
+	display: block;
+	height: 2rem;
+	width: 1.5rem;
+	content: "🌈";
+	font-size: 1.2rem;
+}
+
+/*
+horizontal rules settings
+*/
+#write hr {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	background-color: rgb(226, 226, 226);
+	height: 0.13rem;
+	border: 0;
+}
+
+#write p {
+	font-size: 1rem;
+	line-height: 1.6rem;
+}
+
+/*
+code blocks settings
+*/
+#write .md-fences {
+	font-family: var(--monospace-font);
+	font-size: 1rem;
+	padding: 0.6rem;
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+	box-shadow: var(--block-shadow);
+}
+#write .cm-s-inner .CodeMirror-gutters {
+	border: none;
+}
+#write .cm-s-inner .CodeMirror-linenumber {
+	color: rgb(212, 212, 212);
+}
+#write .cm-s-inner .cm-keyword {
+	color: rgb(204, 35, 35);
+}
+#write .cm-s-inner .cm-number {
+	color: rgb(27, 57, 226);
+}
+#write .cm-s-inner .cm-def {
+	color: rgb(146, 50, 255);
+}
+#write .cm-s-inner .cm-operator {
+	color: rgb(204, 35, 35);
+}
+#write .cm-s-inner .cm-variable2 {
+	color: rgb(38, 129, 219);
+}
+#write .cm-s-inner .cm-variable3 {
+	color: rgb(204, 35, 35);
+}
+#write .cm-s-inner .cm-comment {
+	color: rgb(18, 129, 18);
+}
+#write .cm-s-inner .cm-string {
+	color: rgb(18, 129, 18);
+}
+#write .cm-s-inner .cm-builtin {
+	color: rgb(218, 135, 12);
+}
+#write .cm-tag {
+	color: rgb(139, 10, 10);
+}
+
+/*
+formulas settings
+*/
+#write mjx-container {
+	font-size: 1.1rem;
+}
+
+/*
+tooltips settings
+*/
+#write .code-tooltip {
+	box-shadow: 0.1rem 0.1rem 0.2rem rgb(150, 150, 150);
+	border-radius: 0.2rem;
+	margin-top: 0.3rem;
+}
+
+/*
+selected texts in code blocks settings
+*/
+#write .CodeMirror-selected, #write .CodeMirror-selectedtext, #write .in-text-selection {
+	background-color: var(--selection-bg-color) !important;
+}
+
+/*
+diagrams settings
+*/
+#write pre[lang=’sequence’], #write pre[lang=’flow’], #write pre[lang=’mermaid’] {
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+	box-shadow: var(--block-shadow);
+}
+
+/*
+inline codes settings
+*/
+#write code {
+	font-family: var(--monospace-font);
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	padding: 0.05rem 0.3rem;
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+	box-shadow: 0.13rem 0.13rem 0.26rem rgb(197, 197, 197);
+}
+
+/*
+urls settings
+*/
+#write a {
+	color: rgb(31, 117, 255);
+}
+#write a:hover {
+	color: rgb(108, 164, 255);
+}
+
+/*
+images settings
+*/
+#write img {
+	display: block;
+	margin: 0 auto;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: var(--block-shadow);
+}
+
+/*
+highlights settings
+*/
+#write mark {
+  background: rgb(144, 238, 144); /* 浅绿色背景 */
+  color: rgb(64, 64, 64); /* 深灰色文字 */
+  font-weight: 500;
+  padding: 0 2px 0 2px;
+  margin: 0 2px 0 2px;
+  border-radius: 2px;
+}
+
+/*
+deletes settings
+*/
+#write del {
+	color: var(--del-color);
+}
+
+/*
+selected texts settings
+*/
+#write ::selection {
+	background-color: var(--selection-bg-color);
+}
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>时间序列数据的特征工程总结</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#时间序列数据的特征工程总结">时间序列数据的特征工程总结</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1-时间戳衍生的特征">1. 时间戳衍生的特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#11-时间特征">1.1 时间特征</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#12-布尔特征">1.2 布尔特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#121-布尔特征的好处">1.2.1 布尔特征的好处：</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#122-可构造的布尔特征">1.2.2 可构造的布尔特征：</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#123-其他可能的布尔特征">1.2.3 其他可能的布尔特征：</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#13-时间差特征">1.3 时间差特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#131-时间差特征的好处">1.3.1 时间差特征的好处：</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#132-可构造的时间差特征">1.3.2 可构造的时间差特征：</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2-时序值衍生的特征">2. 时序值衍生的特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#21-滞后值lag-feature）">2.1 滞后值（lag feature）</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#22-滑动窗口统计rolling-window-statistics）">2.2 滑动窗口统计（Rolling Window Statistics）</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#23-扩展窗口统计">2.3 扩展窗口统计</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3-序列属性衍生的特征">3. 序列属性衍生的特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#31-连续变量衍生">3.1 连续变量衍生</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#32-类别变量encoding">3.2 类别变量Encoding</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#320-变量类型">3.2.0 变量类型</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#321-label-encoding标签编码）">3.2.1 Label Encoding（标签编码）</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#322-one-hot-encoding独热编码）">3.2.2 One-Hot Encoding（独热编码）</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#322-target-encoding目标编码）">3.2.2 Target Encoding（目标编码）</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4-波峰波谷特征">4. 波峰波谷特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#41-全局特征">4.1 全局特征</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#42-窗口局部特征">4.2 窗口局部特征</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#43-其他">4.3 其他</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5-周期特征">5. 周期特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#51-周期因子特征">5.1 周期因子特征</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#511-方法1">5.1.1 方法1</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#512-方法2">5.1.2 方法2</a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#6-其他变换">6. 其他变换</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#61-正余弦变换">6.1 正余弦变换</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#62-样条转换">6.2 样条转换</a></div><ul class="outline-children"></ul></li></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='时间序列数据的特征工程总结'><span>时间序列数据的特征工程总结</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#时间序列数据的特征工程总结">时间序列数据的特征工程总结</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n87"><a class="md-toc-inner" href="#1-时间戳衍生的特征">1. 时间戳衍生的特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n89"><a class="md-toc-inner" href="#11-时间特征">1.1 时间特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n107"><a class="md-toc-inner" href="#12-布尔特征">1.2 布尔特征</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n108"><a class="md-toc-inner" href="#121-布尔特征的好处">1.2.1 布尔特征的好处：</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n116"><a class="md-toc-inner" href="#122-可构造的布尔特征">1.2.2 可构造的布尔特征：</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n130"><a class="md-toc-inner" href="#123-其他可能的布尔特征">1.2.3 其他可能的布尔特征：</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n138"><a class="md-toc-inner" href="#13-时间差特征">1.3 时间差特征</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n140"><a class="md-toc-inner" href="#131-时间差特征的好处">1.3.1 时间差特征的好处：</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n148"><a class="md-toc-inner" href="#132-可构造的时间差特征">1.3.2 可构造的时间差特征：</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n162"><a class="md-toc-inner" href="#2-时序值衍生的特征">2. 时序值衍生的特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n171"><a class="md-toc-inner" href="#21-滞后值lag-feature）">2.1 滞后值（lag feature）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n177"><a class="md-toc-inner" href="#22-滑动窗口统计rolling-window-statistics）">2.2 滑动窗口统计（Rolling Window Statistics）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n183"><a class="md-toc-inner" href="#23-扩展窗口统计">2.3 扩展窗口统计</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n188"><a class="md-toc-inner" href="#3-序列属性衍生的特征">3. 序列属性衍生的特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n189"><a class="md-toc-inner" href="#31-连续变量衍生">3.1 连续变量衍生</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n191"><a class="md-toc-inner" href="#32-类别变量encoding">3.2 类别变量Encoding</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n193"><a class="md-toc-inner" href="#320-变量类型">3.2.0 变量类型</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n215"><a class="md-toc-inner" href="#321-label-encoding标签编码）">3.2.1 Label Encoding（标签编码）</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n231"><a class="md-toc-inner" href="#322-one-hot-encoding独热编码）">3.2.2 One-Hot Encoding（独热编码）</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n250"><a class="md-toc-inner" href="#322-target-encoding目标编码）">3.2.2 Target Encoding（目标编码）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n299"><a class="md-toc-inner" href="#4-波峰波谷特征">4. 波峰波谷特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n301"><a class="md-toc-inner" href="#41-全局特征">4.1 全局特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n303"><a class="md-toc-inner" href="#42-窗口局部特征">4.2 窗口局部特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n312"><a class="md-toc-inner" href="#43-其他">4.3 其他</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n315"><a class="md-toc-inner" href="#5-周期特征">5. 周期特征</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n383"><a class="md-toc-inner" href="#51-周期因子特征">5.1 周期因子特征</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n384"><a class="md-toc-inner" href="#511-方法1">5.1.1 方法1</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n448"><a class="md-toc-inner" href="#512-方法2">5.1.2 方法2</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n544"><a class="md-toc-inner" href="#6-其他变换">6. 其他变换</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n545"><a class="md-toc-inner" href="#61-正余弦变换">6.1 正余弦变换</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n550"><a class="md-toc-inner" href="#62-样条转换">6.2 样条转换</a></span></p></div><p><span>当下时间序列预测的方法主要有三种</span></p><ul><li><p><span>第一个是传统的时间序列预测方法，典型代表有ARIMA和指数平滑法</span></p></li><li><p><span>第二个是基于机器学习的方法，目前用的最多的是lightgbm和xgboost</span></p></li><li><p><span>第三个是基于深度学习的方法，如RNN、LSTM等</span></p></li></ul><p><span>现在传统时序预测的方法的预测精度都已经不如基于机器学习和深度学习的方法了，但是后者依赖于特征工程，特征调教的好的话是可以达到很高的预测精度的</span></p><p><img src="https://pic2.zhimg.com/80/v2-eb81156177252a8ead922db76a4dd195_720w.webp" alt="img" style="zoom: 50%;" /></p><p>&nbsp;</p><p><span>一个典型的时间序列数据，会包含以下几列：时间戳，时序值，序列的属性变量，比如下图，日期就是时间戳，销量就是时序值，如果是多序列的话可能还会有序列的属性变量，如城市、产品、价格等。</span></p><p><span>除了销售数据之外，时间序列数据可以包括各种不同类型的信息。以下是另一个典型的时间序列数据的示例：</span></p><p><mark><span>数据类型：气象观测数据</span></mark></p><ol start='' ><li><p><strong><span>时间戳（时间戳列）：</span></strong><span> 记录每个观测时间点的日期和时间。</span></p></li><li><p><strong><span>时序值（时序值列）：</span></strong><span> 记录与每个时间点相关的气象测量值，如温度、湿度、风速等。</span></p></li><li><p><span>序列的属性变量：</span></p><ul><li><p><strong><span>地点（城市）：</span></strong><span> 记录每个观测点的地理位置，比如城市名。</span></p></li><li><p><strong><span>观测类型：</span></strong><span> 记录所测量的气象参数类型，如温度、湿度、降水量等。</span></p></li></ul></li></ol><p><strong><span>示例数据：</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>时间戳</span></th><th><span>温度 (摄氏度)</span></th><th><span>湿度 (%)</span></th><th><span>风速 (m/s)</span></th><th><span>城市</span></th><th><span>观测类型</span></th></tr></thead><tbody><tr><td><span>2024-03-22 00:00:00</span></td><td><span>20</span></td><td><span>60</span></td><td><span>2</span></td><td><span>北京</span></td><td><span>温度</span></td></tr><tr><td><span>2024-03-22 00:00:00</span></td><td><span>25</span></td><td><span>50</span></td><td><span>3</span></td><td><span>上海</span></td><td><span>温度</span></td></tr><tr><td><span>2024-03-22 00:00:00</span></td><td><span>18</span></td><td><span>70</span></td><td><span>1</span></td><td><span>广州</span></td><td><span>温度</span></td></tr><tr><td><span>2024-03-22 03:00:00</span></td><td><span>19</span></td><td><span>65</span></td><td><span>2.5</span></td><td><span>北京</span></td><td><span>温度</span></td></tr><tr><td><span>2024-03-22 03:00:00</span></td><td><span>24</span></td><td><span>55</span></td><td><span>3.2</span></td><td><span>上海</span></td><td><span>温度</span></td></tr><tr><td><span>2024-03-22 03:00:00</span></td><td><span>17</span></td><td><span>75</span></td><td><span>1.8</span></td><td><span>广州</span></td><td><span>温度</span></td></tr><tr><td><span>...</span></td><td><span>...</span></td><td><span>...</span></td><td><span>...</span></td><td><span>...</span></td><td><span>...</span></td></tr></tbody></table></figure><h2 id='1-时间戳衍生的特征'><span>1. 时间戳衍生的特征</span></h2><p><span>时间戳虽然只有一列，但是也可以根据这个就衍生出很多很多变量了，具体可以分为三大类：</span><mark><span>时间特征、布尔特征，时间差特征</span></mark></p><h3 id='11-时间特征'><span>1.1 时间特征</span></h3><ul><li><p><span>年</span></p></li><li><p><span>季度</span></p></li><li><p><span>月</span></p></li><li><p><span>周</span></p></li><li><p><span>天：一年、一月、一周的第几天</span></p></li><li><p><span>小时</span></p></li><li><p><span>分钟</span></p></li><li><p><span>...</span></p></li></ul><h3 id='12-布尔特征'><span>1.2 布尔特征</span></h3><h4 id='121-布尔特征的好处'><span>1.2.1 布尔特征的好处：</span></h4><ol start='' ><li><p><strong><span>捕捉</span><mark><span>周期性</span></mark><span>模式：</span></strong><span> 布尔特征可以捕捉数据中的周期性模式，比如是否是年初/年末、月初/月末、周末等，这些周期性因素可能对时间序列数据具有显著影响。</span></p></li><li><p><strong><span>引入额外信息：</span></strong><span> 布尔特征可以引入与预测目标相关的额外信息，比如</span><mark><span>节假日、特殊日期</span></mark><span>等，这些信息可能会对时间序列的波动性产生重要影响。</span></p></li><li><p><strong><span>增强模型解释性：</span></strong><span> 布尔特征的引入可以增强模型的解释性，使得模型的预测结果更容易解释。</span></p></li></ol><h4 id='122-可构造的布尔特征'><span>1.2.2 可构造的布尔特征：</span></h4><ol start='' ><li><p><strong><span>是否年初/年末：</span></strong><span> 根据日期特征，判断是否为年初或年末。</span></p></li><li><p><strong><span>是否月初/月末：</span></strong><span> 根据日期特征，判断是否为月初或月末。</span></p></li><li><p><strong><span>是否周末：</span></strong><span> 根据日期特征，判断是否为周六或周日。</span></p></li><li><p><strong><span>是否节假日：</span></strong><span> 使用日历信息，判断日期是否为节假日。</span></p></li><li><p><strong><span>是否特殊日期：</span></strong><span> 判断是否为特殊日期，比如双十一、圣诞节等，这些日期可能会对数据产生特殊影响。</span></p></li><li><p><strong><span>是否早上/中午/晚上：</span></strong><span> 根据时间特征，判断是否为早上、中午或晚上，这些时间段可能与人们的行为模式相关。</span></p></li></ol><h4 id='123-其他可能的布尔特征'><span>1.2.3 其他可能的布尔特征：</span></h4><ol start='' ><li><p><strong><span>天气条件：</span></strong><span> 根据天气数据，构造布尔特征表示某种天气条件是否发生，比如是否下雨、是否有雾霾等。（貌似没用）</span></p></li><li><p><strong><span>经济指标：</span></strong><span> 根据经济数据，构造布尔特征表示某种经济指标是否达到某个阈值，比如是否为经济低迷期等。（可以试试）</span></p></li><li><p><strong><span>事件影响：</span></strong><span> 根据事件发生的数据，构造布尔特征表示某种事件是否发生，比如是否有重大新闻、是否有特定活动等。（得自己去查）</span></p></li></ol><h3 id='13-时间差特征'><span>1.3 时间差特征</span></h3><p><span>时间差特征（或距离特征）是指与某个特定时间点或事件之间的时间差</span></p><h4 id='131-时间差特征的好处'><span>1.3.1 时间差特征的好处：</span></h4><ol start='' ><li><p><strong><span>丰富特征表达</span></strong><span>：时间差特征可以提供关于时间的更多信息，丰富了特征空间。通过距离不同时间点的时间差，可以捕捉到时间的周期性、趋势性等特征，有助于更好地描述数据的变化规律。</span></p></li><li><p><strong><span>增强模型预测能力</span></strong><span>：时间差特征可以为模型提供更多的信息，从而提高模型的预测能力。例如，距离重要日期（如节假日、特殊日期）的时间差可能会影响到销售额或交易量等，通过构造相应的时间差特征，模型能够更好地学习到这些影响因素。</span></p></li><li><p><strong><span>解释模型预测结果</span></strong><span>：时间差特征可以帮助解释模型的预测结果。例如，模型预测某个时间点的销售额增加了，而与某个特殊日期的时间差减少了，那么可以推断出这个特殊日期可能与销售额增加有关。</span></p></li></ol><h4 id='132-可构造的时间差特征'><span>1.3.2 可构造的时间差特征：</span></h4><ul><li><p><span>距离年初/年末的天数</span></p></li><li><p><span>距离月初/月末的天数</span></p></li><li><p><span>距离周末的天数</span></p></li><li><p><span>距离节假日的天数</span></p></li><li><p><span>距离特殊日期的天数</span></p></li><li><p><span>距离自定义事件的天数</span></p></li></ul><h2 id='2-时序值衍生的特征'><span>2. 时序值衍生的特征</span></h2><p><span>它们是从当前时间点之前的历史数据中派生出来的，可以帮助发现时间序列数据中的趋势、季节性周期性因素以及一些不规则的变动。具体来说，这些衍生特征可以分为三种类型：</span></p><ol start='' ><li><p><strong><span>滞后值（Lag Values）</span></strong><span>：滞后值是指将时序数据在时间上向后推移一定的步长，从而构造新的特征。例如，对于某个时间序列变量，可以构造其一期前、两期前、三期前等的滞后值作为新的特征。通过引入滞后值特征，可以捕捉到时间序列数据的自相关性，即当前时刻的值与过去时刻的值之间的关系。</span></p></li><li><p><strong><span>滑动窗口统计（Rolling Window Statistics）</span></strong><span>：滑动窗口统计是指在时间序列数据中，以固定大小的窗口对数据进行滑动，并在每个窗口内计算统计指标。常见的统计指标包括平均值、标准差、最大值、最小值等。通过引入滑动窗口统计特征，可以在一定程度上平滑时间序列数据，减少噪声的影响，同时还能够捕捉到数据的趋势性和周期性。</span></p></li><li><p><strong><span>拓展窗口统计（Expanding Window Statistics）</span></strong><span>：拓展窗口统计是指在时间序列数据中，逐步扩大窗口的大小，并在每个窗口内计算统计指标。与滑动窗口统计不同，拓展窗口统计考虑了整个历史数据的影响，可以更好地反映数据的长期趋势。常见的拓展窗口统计指标包括累积和、累积均值等。</span></p></li></ol><h3 id='21-滞后值lag-feature）'><span>2.1 滞后值（lag feature）</span></h3><p><span>也称</span><mark><span>lag feature</span></mark><span>，滞后特征是指将时间序列数据在时间轴上向后推移一定步长所得到的特征。</span></p><p><span>在预测任务中，我们通常认为当前时刻的数据与过去某些时刻的数据具有</span><mark><span>相关性</span></mark><span>，因此可以将这些过去时刻的数据作为特征，帮助预测当前时刻的目标值。比如，对于某个时间序列变量，在预测 t 时刻的值时，可以将 t-1、t-7、t-30、t-365 时刻的数据作为特征。</span></p><p><span>在多步预测任务中，如果要预测的时间范围超过了滞后期数，就会出现数据不匹配的情况。以一个具体的例子来说明这个问题：</span></p><p><span>假设我们要预测 2021-07-11 和 2021-07-12 两天的数据，而我们的滞后特征仅包含了 t-1 的数据（即 2021-07-10 的数据）。在这种情况下，我们希望使用 2021-07-10 的数据作为特征来预测 2021-07-11 的数据，因为此时有可用的特征。但是，当我们想要预测 2021-07-12 的数据时，由于没有 2021-07-11 的数据作为特征，我们无法直接使用 t-1 的特征来进行预测。</span></p><p><span>因此，为了解决这个问题，我们需要一种方法来填补这个缺失的特征。一种常见的方法是使用已经预测的值作为特征。具体来说，我们可以先用 t-1 的特征来预测 2021-07-11 的数据，得到预测值，然后将这个预测值作为 t-1 的特征，再用它来预测 2021-07-12 的数据。这样就可以逐步迭代地预测每一步的数据，每次都使用上一步的预测值作为特征输入。</span></p><h3 id='22-滑动窗口统计rolling-window-statistics）'><span>2.2 滑动窗口统计（Rolling Window Statistics）</span></h3><p><span>除了使用原始Lag值作为特征，还可以使用先前时间观察值的统计信息作为特征，这种类型的特征叫做滑动窗口统计，Rolling Window Statistics。</span></p><p><span>具体来说，对于某个特定时刻t，滑动窗口统计会考虑在过去一段时间窗口内的数据，并计算该窗口内数据的统计信息，如平均值、中位数、标准差、最大值、最小值等。这个时间窗口的大小由用户指定，通常以天为单位。</span></p><p><img src="https://yxl-article.oss-cn-shenzhen.aliyuncs.com/images/sling-window.jpg" alt="滑动窗口（Sliding Window）技巧总结- 大杂草- 博客园" style="zoom:50%;" /></p><p><span>举个例子，如果将窗口大小设定为7天，那么对于时刻t，滑动窗口统计会考虑时刻t-1到t-7的数据，并计算这7天内数据的统计信息作为新的特征。这样可以利用过去一周的数据情况来帮助预测当前时刻的目标值。</span></p><p><span>需要注意的是，滑动窗口统计也可以根据需要指定不同的窗口大小，如14天、30天等，以获取不同时间跨度的数据统计信息。此外，还要注意在构造这种特征时可能会遇到多步预测时的问题，需要考虑好窗口大小和预测步长之间的关系，以避免引入过多的时间偏差或数据泄漏。</span></p><h3 id='23-扩展窗口统计'><span>2.3 扩展窗口统计</span></h3><p><span>另一种特征叫做扩展窗口统计（Expanding Window Statistics），其实也算是一种特殊的滑动窗口统计，不过他用来统计的数据是整个序列全部的数据。</span></p><p><img src="https://miro.medium.com/v2/resize:fit:700/1*qZlIek_aFN8wTV-fO38Bdg.png" alt="img" style="zoom: 67%;" /></p><p><span>这种方法的思想是逐步扩大窗口，从序列的开始到当前位置，逐步增加数据量来计算统计指标。这样做的好处是能够利用序列中所有数据的信息，得到更加全面和准确的统计特征。通常可以计算的统计特征包括平均数、中位数、标准差、最大值、最小值等。</span></p><p><span>扩展窗口统计特征提供了一种方法来捕捉序列内部的规律和变化，因为它考虑了整个序列的全部数据，而不仅仅是局部窗口的数据。通过计算统计指标，如平均数、中位数、标准差等，可以更好地描述序列的整体趋势和波动性。这样的特征能够为每个序列提供更具代表性的描述，从而使模型能够更好地理解和区分不同序列之间的差异。</span></p><h2 id='3-序列属性衍生的特征'><span>3. 序列属性衍生的特征</span></h2><h3 id='31-连续变量衍生'><span>3.1 连续变量衍生</span></h3><p><span>一个序列可能会伴有多个连续变量的特征，比如说对于股票数据，除了收盘价，可能还会有成交量、开盘价等伴随的特征，对于销量数据，可能还会伴随有价格的特征。对于这种连续变量，可以直接作为一个特征，也可以像之前时序值衍生的特征那样做处理，或者也可以与先前的数据做差值，比如t时刻的价格减去t-1时刻的价格。但是一般这种连续变量使用不多，因为这些值在未来也很可能是不可知的，那怎么能当成造特征呢？</span></p><h3 id='32-类别变量encoding'><span>3.2 类别变量Encoding</span></h3><p><span>对于类别型变量，如果类别比较少，一般在机器学习里做的处理是one-hot encoding，但是如果类别一多，那么生成的特征是会很多的，容易造成维度灾难，但是也不能随便用label encoding，因为很多时候类别是不反应顺序的，如果给他编码成1、2、3、4、5，对于一些树模型来说，在分裂节点的时候可不管这些是类别型还是连续型，通通当作连续型来处理，这是有先后顺序的，肯定不能这么做。所以就有这么一种方式，就是和y做特征交互，比如预测销量，有一个特征是产品类别，那么就可以统计下这个产品类别下的销量均值、标准差等，这种其实也算是上面扩展窗口统计的一种。</span></p><h4 id='320-变量类型'><span>3.2.0 变量类型</span></h4><p><strong><span>A. 二元特征：</span></strong><span> 二元特征通常表示两种互斥的状态或选择。这意味着一个对象只能同时具有其中的一种状态。在二元特征中，每个类别代表了一个明确的情况或选择。例如：</span></p><ul><li><p><span>是/否：表示是否发生了某个事件或条件是否成立。</span></p></li><li><p><span>真/假：表示某个断言的真实性或有效性。</span></p></li></ul><p><span>在二元特征中，每个类别之间通常存在明确的对立关系，而且两个类别通常具有相似的重要性。</span></p><p><strong><span>B. 有序特征：</span></strong><span> 有序特征表示具有一定顺序或级别关系的类别。这意味着在这种特征中，每个类别都有一个明确的顺序，其中某些类别被认为是更高或更重要的。例如：</span></p><ul><li><p><span>低/中/高：表示某种级别或程度的大小顺序。</span></p></li><li><p><span>冷/热/岩浆热：表示温度的不同级别，其中某些级别被认为比其他级别更高。</span></p></li></ul><p><span>在有序特征中，类别之间的顺序关系对于数据的解释和分析至关重要。通常，这种特征表示的是一种连续性的变化或级别。</span></p><p><strong><span>C. 名义特征：</span></strong><span> 名义特征代表的是一组没有任何内在顺序或级别关系的类别。这意味着在名义特征中，每个类别都是彼此独立的，没有明确的顺序。例如：</span></p><ul><li><p><span>猫/狗/老虎：表示不同类型的动物，它们之间没有明确的顺序关系。</span></p></li><li><p><span>披萨/汉堡/可乐：表示不同种类的食物或饮料，它们之间没有大小或重要性的顺序。</span></p></li></ul><p><span>在名义特征中，每个类别都被视为是独立的，没有顺序关系。因此，在分析和建模时，名义特征的类别通常被视为是相互独立的。</span></p><h4 id='321-label-encoding标签编码）'><span>3.2.1 Label Encoding（标签编码）</span></h4><p><img src="https://www.statology.org/wp-content/uploads/2022/08/labelencode2-1.jpg" alt="How to Perform Label Encoding in R (With Examples) - Statology" style="zoom:50%;" /></p><p><span>标签编码是一种将类别型特征转换为整数标签的编码方法。标签编码的过程很简单，就是将每个类别按照它们在数据中出现的顺序赋予一个整数编码。例如，如果一个特征包含了三个类别：&#39;A&#39;、&#39;B&#39;、&#39;C&#39;，则可以用0、1、2分别代表它们。这样，原始的类别型特征就被转换为了整数编码。</span></p><p><span>优点包括：</span></p><ol start='' ><li><p><strong><span>简单快捷：</span></strong><span> 标签编码的实现非常简单，可以直接使用许多机器学习库提供的函数来完成。</span></p></li><li><p><strong><span>保留类别信息：</span></strong><span> 虽然将类别转换为整数编码，但是整数之间的顺序没有实际意义，因此它仍然保留了原始特征中的类别信息。</span></p></li></ol><p><span>然而，标签编码也存在一些缺点：</span></p><ol start='' ><li><p><strong><span>可能误导模型：</span></strong><span> 对于一些机器学习算法，如决策树和随机森林，它们可能会错误地将整数编码解释为</span><mark><span>有序</span></mark><span>的特征，从而影响模型的性能。</span></p></li></ol><p><span>因此，在使用标签编码时需要注意一些问题：</span></p><p><mark><span>如果类别之间不存在顺序关系，应该谨慎使用标签编码，或者在使用之前仔细检查数据是否具有顺序性。</span></mark></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>18</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">sklearn</span>.<span class="cm-property">preprocessing</span> <span class="cm-keyword">import</span> <span class="cm-variable">LabelEncoder</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 假设有一个类别型特征</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">categories</span> <span class="cm-operator">=</span> [<span class="cm-string">'cat'</span>, <span class="cm-string">'dog'</span>, <span class="cm-string">'mouse'</span>, <span class="cm-string">'cat'</span>, <span class="cm-string">'dog'</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 创建 LabelEncoder 对象</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">label_encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">LabelEncoder</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 对类别进行标签编码</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoded_categories</span> <span class="cm-operator">=</span> <span class="cm-variable">label_encoder</span>.<span class="cm-property">fit_transform</span>(<span class="cm-variable">categories</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 输出编码结果</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">"原始类别:"</span>, <span class="cm-variable">categories</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">"标签编码结果:"</span>, <span class="cm-variable">encoded_categories</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 可以使用 inverse_transform 方法将编码结果逆转回原始类别</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">decoded_categories</span> <span class="cm-operator">=</span> <span class="cm-variable">label_encoder</span>.<span class="cm-property">inverse_transform</span>(<span class="cm-variable">encoded_categories</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">"逆转后的类别:"</span>, <span class="cm-variable">decoded_categories</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 411px;"></div><div class="CodeMirror-gutters" style="height: 411px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><h4 id='322-one-hot-encoding独热编码）'><span>3.2.2 One-Hot Encoding（独热编码）</span></h4><p><span>用于将类别型特征转换为二进制编码。在独热编码中，每个类别都由一个长度等于类别总数的向量表示，其中只有一个元素为1（表示类别存在），其他元素为0。</span></p><p><img src="https://miro.medium.com/v2/resize:fit:1358/1*ggtP4a5YaRx6l09KQaYOnw.png" alt="Building a One Hot Encoding Layer with TensorFlow | by George Novack |  Towards Data Science" style="zoom:50%;" /></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>16</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">sklearn</span>.<span class="cm-property">preprocessing</span> <span class="cm-keyword">import</span> <span class="cm-variable">OneHotEncoder</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">numpy</span> <span class="cm-keyword">as</span> <span class="cm-variable">np</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 假设有一个包含三个类别的特征数据</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">categories</span> <span class="cm-operator">=</span> <span class="cm-variable">np</span>.<span class="cm-property">array</span>([<span class="cm-string">'red'</span>, <span class="cm-string">'blue'</span>, <span class="cm-string">'green'</span>]).<span class="cm-property">reshape</span>(<span class="cm-operator">-</span><span class="cm-number">1</span>, <span class="cm-number">1</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 创建并拟合OneHotEncoder对象</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">OneHotEncoder</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span>.<span class="cm-property">fit</span>(<span class="cm-variable">categories</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 对类别进行独热编码</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">one_hot_encoded</span> <span class="cm-operator">=</span> <span class="cm-variable">encoder</span>.<span class="cm-property">transform</span>(<span class="cm-variable">categories</span>).<span class="cm-property">toarray</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 打印独热编码后的结果</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">"独热编码后的结果："</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">one_hot_encoded</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 366px;"></div><div class="CodeMirror-gutters" style="height: 366px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><p>&nbsp;</p><p><span>优点：</span></p><ol start='' ><li><p><span>保留了类别之间的无序性：独热编码将每个类别表示为一个独立的向量，这样可以确保不同类别之间没有顺序关系，适用于无序类别的特征。</span></p></li><li><p><span>避免了类别之间的顺序关系：由于每个类别都用独立的向量表示，因此独热编码不会引入类别之间的顺序关系，避免了模型对类别之间的顺序进行错误的假设。</span></p></li></ol><p><span>缺点：</span></p><ol start='' ><li><p><span>维度灾难：如果类别数量较多，独热编码会导致特征空间的维度急剧增加，从而增加了模型的复杂度和训练时间。这在处理大规模数据时可能会成为一个问题。</span></p></li><li><p><span>冗余性：独热编码会生成多个特征，其中大多数特征都是稀疏的（大部分值为0），这可能会导致数据集中存在大量冗余信息，增加了计算和存储的成本。</span></p></li><li><p><span>不适用于高基数特征：对于具有高基数（大量不同取值）的特征，独热编码会生成过多的特征，导致维度爆炸和稀疏性问题。这种情况下，通常需要使用其他编码方法或特征选择技术来处理。</span></p></li></ol><h4 id='322-target-encoding目标编码）'><span>3.2.2 Target Encoding（目标编码）</span></h4><p><img src="https://www.elastic.co/guide/en/machine-learning/7.17/images/target-mean-encoding.jpg" alt="Data frame analytics feature processors | Machine Learning in the Elastic  Stack [7.17] | Elastic" style="zoom: 33%;" /></p><p><span>也称为Mean Encoding或Probability Encoding，是一种用于处理分类特征的编码方法。它将每个类别映射到目标变量（通常是二元分类问题中的目标类别的概率或均值），从而将分类特征转换为数值特征。</span></p><p><span>目标编码的基本思想是利用</span><mark><span>目标变量在不同类别下的分布情况</span></mark><span>来编码分类特征，以反映不同类别对目标变量的影响程度。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">df</span>[<span class="cm-string">"feature_te"</span>] <span class="cm-operator">=</span> <span class="cm-variable">df</span>.<span class="cm-property">groupby</span>(<span class="cm-string">"feature"</span>)[<span class="cm-string">"target"</span>].<span class="cm-property">transform</span>(<span class="cm-string">"mean"</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="height: 23px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>3.2.3 其他</span></p><p><a href='https://contrib.scikit-learn.org/category_encoders/index.html'><span>链接</span></a></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>27</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># pip install category_encoders</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">category_encoders</span> <span class="cm-keyword">as</span> <span class="cm-variable">ce</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">BackwardDifferenceEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">BaseNEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">BinaryEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">CatBoostEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">CountEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">GLMMEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">GrayEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">HashingEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">HelmertEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">JamesSteinEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">LeaveOneOutEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">MEstimateEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">OneHotEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">OrdinalEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">PolynomialEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">QuantileEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">RankHotEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">SumEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">TargetEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span> <span class="cm-operator">=</span> <span class="cm-variable">ce</span>.<span class="cm-property">WOEEncoder</span>(<span class="cm-variable">cols</span><span class="cm-operator">=</span>[<span class="cm-operator">...</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">encoder</span>.<span class="cm-property">fit</span>(<span class="cm-variable">X</span>, <span class="cm-variable">y</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">X_cleaned</span> <span class="cm-operator">=</span> <span class="cm-variable">encoder</span>.<span class="cm-property">transform</span>(<span class="cm-variable">X_dirty</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 617px;"></div><div class="CodeMirror-gutters" style="height: 617px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><ol start='' ><li><p><strong><span>BackwardDifferenceEncoder</span></strong><span>: 使用类别值的差异来编码特征。每个编码的特征表示为该类别与其后续类别的差异。这种编码通常用于处理有序分类变量。</span></p></li><li><p><strong><span>BaseNEncoder</span></strong><span>: 将类别值转换为基数N的数字。例如，对于类别A、B、C，可能会转换为0、1、2（如果N=3），或者转换为10、11、12（如果N=13）等。</span></p></li><li><p><strong><span>BinaryEncoder</span></strong><span>: 将类别值转换为二进制编码。每个类别值被表示为一串二进制数字。</span></p></li><li><p><strong><span>CatBoostEncoder</span></strong><span>: CatBoost是一种梯度提升算法，该编码器使用CatBoost模型来对类别特征进行编码。</span></p></li><li><p><strong><span>CountEncoder</span></strong><span>: 将每个类别值替换为其在整个数据集中出现的次数。</span></p></li><li><p><strong><span>GLMMEncoder</span></strong><span>: 使用广义线性混合模型（Generalized Linear Mixed Model）来编码类别特征。</span></p></li><li><p><strong><span>GrayEncoder</span></strong><span>: 使用格雷编码（Gray Code）来对类别特征进行编码。格雷编码是一种二进制编码，相邻的两个数之间只有一个比特位不同。</span></p></li><li><p><strong><span>HashingEncoder</span></strong><span>: 将类别值哈希成固定数量的特征列。这种编码通常用于处理高基数的类别特征。</span></p></li><li><p><strong><span>HelmertEncoder</span></strong><span>: 使用Helmert转换来编码类别特征。Helmert转换是一种多重比较方法，用于比较每个类别与其后续类别的差异。</span></p></li><li><p><strong><span>JamesSteinEncoder</span></strong><span>: 使用James-Stein估计来编码类别特征。</span></p></li><li><p><strong><span>LeaveOneOutEncoder</span></strong><span>: 将每个类别值替换为在该类别上目标变量的平均值，但排除了当前样本。</span></p></li><li><p><strong><span>MEstimateEncoder</span></strong><span>: 使用M估计来编码类别特征。</span></p></li><li><p><strong><span>OneHotEncoder</span></strong><span>: 将类别特征转换为独热编码形式，即每个类别值被表示为一个只有一个元素为1，其他元素为0的向量。</span></p></li><li><p><strong><span>OrdinalEncoder</span></strong><span>: 将类别特征转换为顺序编码，即将类别值映射到整数值。</span></p></li><li><p><strong><span>PolynomialEncoder</span></strong><span>: 使用多项式基函数来编码类别特征。</span></p></li><li><p><strong><span>QuantileEncoder</span></strong><span>: 将类别值替换为其在整个数据集中的分位数。</span></p></li><li><p><strong><span>RankHotEncoder</span></strong><span>: 将类别值转换为其在整个数据集中的排名。</span></p></li><li><p><strong><span>SumEncoder</span></strong><span>: 使用和编码来编码类别特征，即每个类别值与其他类别值的和。</span></p></li><li><p><strong><span>TargetEncoder</span></strong><span>: 将每个类别值替换为目标变量在该类别上的平均值。</span></p></li><li><p><strong><span>WOEEncoder</span></strong><span>: 使用权重的编码来编码类别特征，其中权重是目标变量的对数几率比。</span></p></li></ol><h2 id='4-波峰波谷特征'><span>4. 波峰波谷特征</span></h2><p><span>波峰和波谷是非常重要的特征，它们反映了数据的局部极值点，通常用于分析周期性、震荡性等特征。</span></p><h3 id='41-全局特征'><span>4.1 全局特征</span></h3><p><img src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20240325205338714.png" alt="image-20240325205338714" style="zoom:50%;" /></p><h3 id='42-窗口局部特征'><span>4.2 窗口局部特征</span></h3><ul><li><p><span>窗口大小：10天</span></p></li></ul><p><img src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20240325210821606.png" alt="image-20240325210821606" style="zoom:50%;" /></p><ul><li><p><span>窗口大小：30天</span></p></li></ul><p><img src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20240325211317187.png" alt="image-20240325211317187" style="zoom:50%;" /></p><h3 id='43-其他'><span>4.3 其他</span></h3><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波峰数量: 16</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波谷数量: 15</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波峰位置: [ 4 16 22 24 28 36 43 47 64 67 72 74 79 81 85 97]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波谷位置: [ 5 20 23 25 33 42 46 63 66 68 73 76 80 83 88]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波峰值: [ 0.43544569  0.99373583  1.06873087  1.22500219  1.13556517  0.89354231</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  0.62085683  0.26513035 -0.75277063 -0.83002845 -0.86834718 -0.95779256</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> -0.96296663 -0.83969384 -0.61942808 -0.00879427]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波谷值: [ 0.21128921  0.69575753  0.9178982 &nbsp; 0.85456343  0.67822703  0.31112666</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  0.12341035 -0.90159689 -1.00734776 -0.99555689 -1.11559728 -1.08510644</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> -1.0675715  -1.02993105 -0.79162237]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波峰间隔: [12  6  2  4  8  7  4 17  3  5  2  5  2  4 12]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">波谷间隔: [15  3  2  8  9  4 17  3  2  5  3  4  3  5]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 274px;"></div><div class="CodeMirror-gutters" style="height: 274px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><p>&nbsp;</p><h2 id='5-周期特征'><span>5. 周期特征</span></h2><p><span>支付数据、客流量数据、交通数据等时间序列，通常都具有比较明显的周期性，我们可以利用数据的周期性的变化，总结出简单的规则进行预测。</span></p><blockquote><p><span>其基本的步骤为：</span></p><ul><li><p><span>选择特征</span></p><p><span>可以用简单的统计量来作为特征，从中提取出有用的信息。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1）中位数：居于中间位置的数，较为稳健</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">2）均值：当分布符合正态分布时，可以代表整体特征</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">3）临近数据：离待测数据越近的数据对其影响越大Copy</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="height: 69px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre></li></ul></blockquote><ul><li><p><span>确定组成一个周期的元素(1号~31号),一周或者一个月；</span></p></li><li><p><span>结合STL分解观察周期的变化；</span></p><blockquote><p><span>STL（Seasonal and Trend decomposition using Loess）分解是一种常用的时间序列分解方法，用于将时间序列分解为季节性、趋势性和残差三个部分。</span></p><ol start='' ><li><p><strong><span>季节性分解（Seasonal decomposition）：</span></strong><span> 使用 Loess 方法拟合原始序列的季节性部分，得到季节性趋势。Loess 方法是一种非参数的局部回归平滑方法，它通过对每个数据点周围的近邻数据进行加权平均来拟合局部的回归模型。</span></p></li><li><p><strong><span>趋势性分解（Trend decomposition）：</span></strong><span> 对于去除了季节性的序列，再次使用 Loess 方法拟合趋势性部分，得到趋势性趋势。</span></p></li><li><p><strong><span>残差计算（Residual calculation）：</span></strong><span> 将原始序列减去季节性趋势和趋势性趋势，得到残差序列，即原始序列中除了季节性和趋势性以外的部分。</span></p></li></ol></blockquote></li><li><p><span>基于周期因子的缺点是</span><mark><span>没有办法考虑到节假日与突发事件的影响</span></mark></p></li></ul><p>&nbsp;</p><figure class='table-figure'><table><thead><tr><th><span>星期</span></th><th><span>周一</span></th><th><span>周二</span></th><th><span>周三</span></th><th><span>周四</span></th><th><span>周五</span></th><th><span>周六</span></th><th><span>周日</span></th><th><span>周均值</span></th></tr></thead><tbody><tr><td><span>week 1</span></td><td><span>20</span></td><td><span>10</span></td><td><span>70</span></td><td><span>50</span></td><td><span>250</span></td><td><span>200</span></td><td><span>100</span></td><td><span>100</span></td></tr><tr><td><span>week 2</span></td><td><span>26</span></td><td><span>18</span></td><td><span>66</span></td><td><span>50</span></td><td><span>180</span></td><td><span>140</span></td><td><span>80</span></td><td><span>80</span></td></tr><tr><td><span>week 3</span></td><td><span>15</span></td><td><span>8</span></td><td><span>67</span></td><td><span>60</span></td><td><span>270</span></td><td><span>160</span></td><td><span>120</span></td><td><span>100</span></td></tr></tbody></table></figure><p><span>通过给定前3周的数据，目标是预测第四周每天的客流量。可以发现，从周一到周日，数据存在明显的周期性波动，预测的主要目的就是尽量准确的将这种周期的波动提取出来。</span></p><h3 id='51-周期因子特征'><span>5.1 周期因子特征</span></h3><h4 id='511-方法1'><span>5.1.1 方法1</span></h4><p><mark><span>除以周均值，之后按列取中位数</span></mark></p><figure class='table-figure'><table><thead><tr><th><span>星期</span></th><th><span>周一</span></th><th><span>周二</span></th><th><span>周三</span></th><th><span>周四</span></th><th><span>周五</span></th><th><span>周六</span></th><th><span>周日</span></th></tr></thead><tbody><tr><td><span>第一周</span></td><td><span>0.2</span></td><td><span>0.1</span></td><td><span>0.7</span></td><td><span>0.5</span></td><td><span>2.5</span></td><td><span>2</span></td><td><span>1</span></td></tr><tr><td><span>第二周</span></td><td><span>0.325</span></td><td><span>0.225</span></td><td><span>0.825</span></td><td><span>0.625</span></td><td><span>2.25</span></td><td><span>1.75</span></td><td><span>1</span></td></tr><tr><td><span>第三周</span></td><td><span>0.15</span></td><td><span>0.08</span></td><td><span>0.67</span></td><td><span>0.6</span></td><td><span>2.7</span></td><td><span>1.6</span></td><td><span>1.2</span></td></tr><tr><td><span>中位数</span></td><td><span>0.2</span></td><td><span>0.1</span></td><td><span>0.7</span></td><td><span>0.6</span></td><td><span>2.5</span></td><td><span>1.75</span></td><td><span>1</span></td></tr></tbody></table></figure><blockquote><ol start='' ><li><p><strong><span>除以周均值：</span></strong><span> 首先，对于每个星期中的每一天，计算该天的数据除以该星期的均值。例如，对于第一周的周一，将周一的数据除以第一周的均值；对于第二周的周一，将周一的数据除以第二周的均值，依此类推。</span></p></li><li><p><strong><span>按列取中位数：</span></strong><span> 然后，对于每一列（即每个星期中的每一天），取所有星期中该天的数据的中位数作为该天的季节性指数。即在每个星期内，对于同一天的数据取中位数。</span></p></li></ol><p><span>以表格中的数据为例，计算季节性指数的步骤如下：</span></p><ul><li><p><span>对于周一，计算第一周周一、第二周周一和第三周周一的数据除以对应周的均值，得到0.2、0.325、0.15。</span></p></li><li><p><span>依此类推，计算每一天的数据除以对应周的均值。</span></p></li><li><p><span>最后，对于每一列（每一天），取所有星期中该天的数据的中位数。例如，对于周一，取0.2、0.325和0.15的中位数，得到0.2。</span></p></li><li><p><span>得到季节性指数表格，其中每一行代表一个星期，每一列代表一个星期中的一天，表格中的数值就是相应天的季节性指数。</span></p></li></ul></blockquote><h4 id='512-方法2'><span>5.1.2 方法2</span></h4><p><mark><span>季节指数的计算方式，获得每日的均值，再除以整体均值</span></mark></p><figure class='table-figure'><table><thead><tr><th><span>星期</span></th><th><span>周一</span></th><th><span>周二</span></th><th><span>周三</span></th><th><span>周四</span></th><th><span>周五</span></th><th><span>周六</span></th><th><span>周日</span></th><th><span>周均值</span></th></tr></thead><tbody><tr><td><span>week 1</span></td><td><span>20</span></td><td><span>10</span></td><td><span>70</span></td><td><span>50</span></td><td><span>250</span></td><td><span>200</span></td><td><span>100</span></td><td><span>100</span></td></tr><tr><td><span>week 2</span></td><td><span>26</span></td><td><span>18</span></td><td><span>66</span></td><td><span>50</span></td><td><span>180</span></td><td><span>140</span></td><td><span>80</span></td><td><span>80</span></td></tr><tr><td><span>week 3</span></td><td><span>15</span></td><td><span>8</span></td><td><span>67</span></td><td><span>60</span></td><td><span>270</span></td><td><span>160</span></td><td><span>120</span></td><td><span>100</span></td></tr><tr><td><span>均值</span></td><td><span>20.33</span></td><td><span>12</span></td><td><span>67.67</span></td><td><span>53.33</span></td><td><span>233.33</span></td><td><span>166.67</span></td><td><span>100</span></td><td><span>93.33</span></td></tr><tr><td><span>因子</span></td><td><span>0.22</span></td><td><span>0.13</span></td><td><span>0.73</span></td><td><span>0.57</span></td><td><span>2.50</span></td><td><span>1.79</span></td><td><span>1.07</span></td><td><span>1</span></td></tr></tbody></table></figure><p><span>此外，由于中位数可能会丢失掉一定的信息，想要对周期因子进行优化，还可以通过提取均值与中位数，并按照一定的比例进行融合。</span></p><blockquote><ol start='' ><li><p><strong><span>计算每日均值（Daily Mean）：</span></strong><span> 对于每一天，将该天的所有数据取平均值。例如，对于周一，将所有周一的数据取平均值；对于周二，将所有周二的数据取平均值，依此类推。</span></p></li><li><p><strong><span>计算整体均值（Overall Mean）：</span></strong><span> 将所有数据的均值计算出来，得到整体的均值。</span></p></li><li><p><strong><span>计算季节性指数（Seasonal Index）：</span></strong><span> 对于每个星期中的每一天，计算该天的日均值除以整体均值，即：</span></p><p><span>季节性指数 = 该天的日均值 / 整体均值</span></p><p><span>以表格中的数据为例，计算季节性指数的步骤如下：</span></p><ul><li><p><span>对于周一，日均值为20.33，整体均值为93.33，所以季节性指数为20.33 / 93.33 ≈ 0.218。</span></p></li><li><p><span>对于周二，日均值为12，整体均值为93.33，所以季节性指数为12 / 93.33 ≈ 0.129。</span></p></li><li><p><span>依此类推，计算每一天的季节性指数。</span></p></li></ul></li><li><p><strong><span>解释季节性指数（Interpretation of Seasonal Index）：</span></strong><span> 季节性指数大于1表示在该天的数据通常高于整体均值，季节性指数小于1表示在该天的数据通常低于整体均值，季节性指数等于1表示在该天的数据与整体均值相当。</span></p></li></ol></blockquote><p><span>由于中位数可能会丢失掉一定的信息，想要对周期因子进行优化，可以通过将均值和中位数按照一定的比例进行加权融合，以得到更加平衡的季节性指数。具体而言，可以定义一个权重参数，将均值和中位数按照权重进行加权求和，从而得到最终的季节性指数。</span></p><p><span>例如，假设权重参数为</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.448ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 640 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-8-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D6FC" xlink:href="#MJX-8-TEX-I-1D6FC"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">\alpha</script><span>，则加权融合的公式可以表示为：</span></p><p><mark><span>季节性指数 = α × 均值 + (1 - α) × 中位数</span></mark></p><p><span>可以使用 Sigmoid 函数来构造 </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.448ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 640 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-8-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D6FC" xlink:href="#MJX-8-TEX-I-1D6FC"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">\alpha</script><span>，其公式如下：</span></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="13.568ex" height="3.037ex" role="img" focusable="false" viewBox="0 -864.9 5996.9 1342.3" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.08ex;"><defs><path id="MJX-9-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path><path id="MJX-9-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-9-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-9-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-9-TEX-I-1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path id="MJX-9-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-9-TEX-I-1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path id="MJX-9-TEX-N-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path id="MJX-9-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-9-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path id="MJX-9-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-9-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D6FC" xlink:href="#MJX-9-TEX-I-1D6FC"></use></g><g data-mml-node="mo" transform="translate(917.8,0)"><use data-c="3D" xlink:href="#MJX-9-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(1973.6,0)"><g data-mml-node="mn" transform="translate(1834.9,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-9-TEX-N-31"></use></g><g data-mml-node="mrow" transform="translate(220,-419.4) scale(0.707)"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-9-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="2B" xlink:href="#MJX-9-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(1278,0)"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-9-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,289) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2212" xlink:href="#MJX-9-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(778,0)"><use data-c="1D458" xlink:href="#MJX-9-TEX-I-1D458"></use></g><g data-mml-node="mo" transform="translate(1299,0)"><use data-c="22C5" xlink:href="#MJX-9-TEX-N-22C5"></use></g><g data-mml-node="mo" transform="translate(1577,0)"><use data-c="28" xlink:href="#MJX-9-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(1966,0)"><use data-c="1D465" xlink:href="#MJX-9-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2538,0)"><use data-c="2212" xlink:href="#MJX-9-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(3316,0)"><use data-c="1D45A" xlink:href="#MJX-9-TEX-I-1D45A"></use></g><g data-mml-node="mo" transform="translate(4194,0)"><use data-c="29" xlink:href="#MJX-9-TEX-N-29"></use></g></g></g></g><rect width="3783.4" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mi>k</mi><mo>⋅</mo><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\alpha = \frac{1}{1 + e^{-k \cdot (x - m)}}</script></p><p><span>其中：</span></p><ul><li><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.294ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 572 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-10-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-10-TEX-I-1D465"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">x</script><span> 表示异常值的比例（例如，异常值的数量占总样本数量的比例）</span></p></li><li><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.986ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 878 453" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-11-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D45A" xlink:href="#MJX-11-TEX-I-1D45A"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">m</script><span> 表示 Sigmoid 函数的中点，通常取为异常值比例的中位数</span></p></li><li><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="1.179ex" height="1.595ex" role="img" focusable="false" viewBox="0 -694 521 705" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-12-TEX-I-1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D458" xlink:href="#MJX-12-TEX-I-1D458"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">k</script><span> 控制 Sigmoid 函数的曲率，影响异常值对权重的影响程度。值越大，曲线越陡峭，异常值对权重的影响越大。</span></p></li></ul><h2 id='6-其他变换'><span>6. 其他变换</span></h2><h3 id='61-正余弦变换'><span>6.1 正余弦变换</span></h3><p><span>使用正弦和余弦变换来对每个周期特征进行编码，其捕捉到周期性的变化</span></p><p><span>使用两个变换器函数</span><code>sin_transformer</code><span>和</span><code>cos_transformer</code><span>，用于将特征转换为对应的正弦和余弦值。</span></p><p><span>正弦和余弦函数是周期性函数，它们的周期性与特征的周期相匹配。例如，对于小时特征，其周期是24小时，而正弦和余弦函数的周期也可以相应进行配置，能够有效地编码时间特征的周期性变化。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">cyclic_cossin_transformer</span> <span class="cm-operator">=</span> <span class="cm-variable">ColumnTransformer</span>(</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">transformers</span><span class="cm-operator">=</span>[</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"categorical"</span>, <span class="cm-variable">one_hot_encoder</span>, <span class="cm-variable">categorical_columns</span>),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"month_sin"</span>, <span class="cm-variable">sin_transformer</span>(<span class="cm-number">12</span>), [<span class="cm-string">"month"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"month_cos"</span>, <span class="cm-variable">cos_transformer</span>(<span class="cm-number">12</span>), [<span class="cm-string">"month"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"weekday_sin"</span>, <span class="cm-variable">sin_transformer</span>(<span class="cm-number">7</span>), [<span class="cm-string">"weekday"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"weekday_cos"</span>, <span class="cm-variable">cos_transformer</span>(<span class="cm-number">7</span>), [<span class="cm-string">"weekday"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"hour_sin"</span>, <span class="cm-variable">sin_transformer</span>(<span class="cm-number">24</span>), [<span class="cm-string">"hour"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"hour_cos"</span>, <span class="cm-variable">cos_transformer</span>(<span class="cm-number">24</span>), [<span class="cm-string">"hour"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ],</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">remainder</span><span class="cm-operator">=</span><span class="cm-variable">MinMaxScaler</span>(),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 274px;"></div><div class="CodeMirror-gutters" style="height: 274px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><h3 id='62-样条转换'><span>6.2 样条转换</span></h3><p><span>使用样条转换来编码周期性时间相关特征相对于使用正弦/余弦转换具有更大的灵活性</span></p><ul><li><p><span>样条方法允许拟合更复杂的曲线，因为它们不限于简单的正弦/余弦函数形式。</span></p></li></ul><ul><li><p><span>样条方法具有更多可调参数的优势，例如样条的数量和阶数，以便更好地适应数据的特性。相比之下，正弦/余弦转换的参数（例如周期和相位）可能不够灵活。</span></p></li></ul><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">cyclic_spline_transformer</span> <span class="cm-operator">=</span> <span class="cm-variable">ColumnTransformer</span>(</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">transformers</span><span class="cm-operator">=</span>[</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"categorical"</span>, <span class="cm-variable">one_hot_encoder</span>, <span class="cm-variable">categorical_columns</span>),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"cyclic_month"</span>, <span class="cm-variable">periodic_spline_transformer</span>(<span class="cm-number">12</span>, <span class="cm-variable">n_splines</span><span class="cm-operator">=</span><span class="cm-number">6</span>), [<span class="cm-string">"month"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"cyclic_weekday"</span>, <span class="cm-variable">periodic_spline_transformer</span>(<span class="cm-number">7</span>, <span class="cm-variable">n_splines</span><span class="cm-operator">=</span><span class="cm-number">3</span>), [<span class="cm-string">"weekday"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  (<span class="cm-string">"cyclic_hour"</span>, <span class="cm-variable">periodic_spline_transformer</span>(<span class="cm-number">24</span>, <span class="cm-variable">n_splines</span><span class="cm-operator">=</span><span class="cm-number">12</span>), [<span class="cm-string">"hour"</span>]),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ],</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">remainder</span><span class="cm-operator">=</span><span class="cm-variable">MinMaxScaler</span>(),</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 206px;"></div><div class="CodeMirror-gutters" style="height: 206px; left: 3.05e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><code>n_splines</code><span> 参数用于确定每个周期性特征的样条数量。这个参数的选择通常是基于数据的周期性和复杂性进行的。每个周期性特征都有一个固定的周期长度（例如，月份有 12 个月，星期有 7 天，小时有 24 小时）。然后，通过设置 </span><code>n_splines</code><span> 参数，您可以决定用多少个样条来拟合这个周期。</span></p><p><span>通常，样条数量越多，模型的拟合能力就越强，但也可能会导致过拟合。因此，需要进行一些试验来确定合适的样条数量。一种常见的做法是尝试一系列不同的样条数量，然后通过交叉验证或其他评估指标来选择最佳的样条数量，以在模型性能和泛化能力之间取得平衡。</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
