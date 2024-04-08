@@ -35,7 +35,7 @@ navbar-links:
 #     - 中等: "sql_medium"
 
 
-  👉鲸析小班课🐋: "http://mp.weixin.qq.com/s?__biz=Mzg2OTU4NzI3NQ==&mid=2247486717&idx=1&sn=bbf13792633308c73ed6606281e58ea2&chksm=ce9b8cd9f9ec05cfe4515fd0c9ac7b62b8c71144ac3f316d972f0ef594cc4008256d2428a44b&mpshare=1&scene=1&srcid=0105rl52iV25MoDLbRAM9u1x&sharer_shareinfo=5c4bc6cc54b026806836c2eec761372d&sharer_shareinfo_first=5c4bc6cc54b026806836c2eec761372d#rd"
+  👉鲸析小班课🐋: "https://mp.weixin.qq.com/s/gbkarhiECJb2fHAmpvofGA"
 
 # 👉鲸鲸小班课🐋: 
 #   - 数据科学项目背景提升课: "https://www.offerrealize.com/plan#dsproject"
@@ -43,16 +43,16 @@ navbar-links:
 
 #   👉实战项目🐋:
 #       - 车险预测: "projects/safe_driver_prediction"
-#   👉SQL面经💯:
-#     - 窗口函数: "SQL/window"
-#     - CTE: "SQL/cte"
-#     - 子查询: "SQL/subquery"
-#     - 条件判断: "SQL/casewhen"
-#     - 表格连接: "SQL/join"
-#     - 自连接: "SQL/selfjoin"
-#     - 分组聚合: "SQL/groupby"
-#     - 缺失值处理: "SQL/null"
-#     - 时间处理: "SQL/time"
+  👉SQL面经💯:
+    - 窗口函数: "SQL/window"
+    - CTE: "SQL/cte"
+    - 子查询: "SQL/subquery"
+    - 条件判断: "SQL/casewhen"
+    - 表格连接: "SQL/join"
+    - 自连接: "SQL/selfjoin"
+    - 分组聚合: "SQL/groupby"
+    - 缺失值处理: "SQL/null"
+    - 时间处理: "SQL/time"
     
 #   👉机器学习👨‍💻: 
 #     - 最大似然估计: "ML/MLE"
