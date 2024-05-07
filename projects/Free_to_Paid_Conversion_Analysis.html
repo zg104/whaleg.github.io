@@ -1,0 +1,1195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying disabled!');
+        });
+    });
+</script>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+
+.cm-s-inner.CodeMirror {
+    background-color: #003444;
+    color: #EEFFFF;
+    padding: 0.75rem 0.15rem 0.75rem 0.15rem;
+    border-radius: 6px;
+}
+
+#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid #f0f0f0;
+}
+
+.cm-s-inner .cm-header, .cm-s-inner.cm-header {
+    color: #A77DF4;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    background: #003444;
+    color: #546E7A;
+    border: none;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+    color: #fff;
+    background: #003444;
+    border-radius: 6px;
+}
+
+.cm-s-inner .CodeMirror-guttermarker,
+.cm-s-inner .CodeMirror-guttermarker-subtle,
+.cm-s-inner .CodeMirror-linenumber {
+    color: #546E7A;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: 1px solid #FFCC00;
+}
+
+.cm-s-inner.cm-fat-cursor .CodeMirror-cursor {
+    background-color: #5d6d5c80 !important;
+}
+.cm-s-inner .cm-animate-fat-cursor {
+    background-color: #5d6d5c80 !important;
+}
+
+.cm-s-inner div.CodeMirror-selected {
+    background: rgba(128, 203, 196, 0.2);
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+    background: rgba(128, 203, 196, 0.2);
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::selection {
+    background:  rgba(0,178,123,0.2);
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background: rgba(0,178,123,0.2);
+}
+.cm-s-inner .CodeMirror-selected {
+    background: rgba(0,178,123,0.2) !important;
+}
+.cm-s-inner .CodeMirror-selectedtext {
+    background: transparent !important;
+}
+
+.cm-s-inner .CodeMirror-activeline-background {
+    background: #003444;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C792EA;
+}
+
+.cm-s-inner .cm-operator {
+    color: #E9EDED;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+    color: #82B1FF;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #DECB6B;
+}
+
+.cm-s-inner .cm-atom {
+    color: #F77669;
+}
+
+.cm-s-inner .cm-number {
+    color: #F77669;
+}
+
+.cm-s-inner .cm-def {
+    color: #00AEC4;
+}
+
+.cm-s-inner .cm-string {
+    color: #C3E88D;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-comment {
+    color: #AEBBC2;
+}
+
+.cm-s-inner .cm-variable {
+    color: #82B1FF;
+}
+
+.cm-s-inner .cm-tag {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-meta {
+    color: #80CBC4;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #FFCB6B;
+}
+
+.cm-s-inner .cm-property {
+    color: #80CBAE;
+}
+
+.cm-s-inner .cm-qualifier {
+    color: #DECB6B;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+    color: #DECB6B;
+}
+
+.cm-s-inner .cm-error {
+    color: #FFFFFF;
+    background-color: #FF5370;
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+@import url('file:///C://Users//Admin//AppData//Roaming//Typora/themes/');
+@import url('file:///C://Users//Admin//AppData//Roaming//Typora/themes/');
+
+/** color vars **/
+:root {
+  /* system vars*/
+  --primary-color: #f0f0f0; /* color of primary buttons */
+  --side-bar-bg-color: #003444;
+  --active-file-bg-color: #004144; /* sidebar active & hover */
+  --active-file-text-color: #ffffff;
+  --active-file-border-color: #757575;
+  --item-hover-text-color: #fff;
+  --item-hover-bg-color: #005C44;  /* sidebar footer item hover*/
+  --control-text-color: #ddd;
+  --control-text-hover-color: #fff;
+  --monospace: 'SourceHanSansSC','JetBrains Mono', -apple-system, sans-serif;
+
+  /* custom vars */
+  --theme-primary-color: #00997B; /* rgb(0, 153, 123) */
+  --white-color: #fff;
+
+  /* head */
+  --head-text-color: #333444;
+  --h1-text-color: rgba(0, 52, 68, 0.9);
+  --h5-text-color: var(--theme-primary-color);
+  --h6-text-color: rgba(0, 153, 123, 0.838);
+  --head-prefix-color: #D0D0D0;
+
+  /* text */
+  --text-color: #363C42;
+  --text-search-hit-color: rosybrown;
+
+  /* highlight */
+  --highlight-bg-color: #FFF3F3;
+  --highlight-text-color: #FF2F2F;
+
+  /* a link */
+  --a-text-color: var(--theme-primary-color);
+
+  /* annotate */
+  --annotate-text-color: #8CAA16;
+
+  /* inline code */
+  --inline-code-bg-color: #f3f3f3;
+  --inline-code-text-color: #00769A;
+
+  /* selection */
+  --selection-text-color: rgba(0, 153, 123, 0.2);
+
+  /* check-box */
+  --checked-text-color: #ADB5BD;
+  --line-through-color: #CFD4DA;
+  --border-color: #868E96;
+
+  /* table */
+  --table-border-color: #DADCDE;
+  --table-cell-bg-color:rgba(0, 153, 123, 0.03);
+
+  /* quote */
+  --quote-bg-color: rgba(0, 153, 123, 0.05);
+  --quote-text-color: #81888D ;
+
+  /* sidebar */
+  --sidebar-footer-dropdown-menu-border-color: #212529;
+  --sidebar-footer-dropdown-menu-item-border-color: #ADB5BD;
+  --sidebar-footer-item-hover-bg-color: #004544;
+  --siderbar-dropdown-menu-text-color: #fff;
+
+  /* sidebar resizer */
+  --sidebar-resizer: #6eace2;
+
+  /*--window-border: #e5e5e5;*/
+  --window-border: #1F6F57; /*sidebar layout border*/
+}
+
+
+/* global && write area */
+#write {
+  position: static;
+  width: 90%;
+  max-width: 900px;
+  line-height: 1.6;
+  padding: 36px 0 70px;
+}
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+  width: auto;
+}
+html, body, #write {
+  background: var(--white-color);
+  font-family: 'SourceHanSansSC','JetBrains Mono', -apple-system, sans-serif;
+}
+p {
+  font-size: 1em;
+  font-family: 'SourceHanSansSC', 'JetBrains Mono', -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+
+/* search match active*/
+.md-search-hit.md-search-select{
+  background-color: var(--text-search-hit-color);
+}
+
+
+/* heading */
+h1, h2, h3, h4, h5, h6 {
+  width: auto;
+  line-height: 2;
+  font-style: normal;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+h2, h3, h4 {
+  color: var(--head-text-color);
+}
+h2::before, h3::before, h4::before, h5::before, h6::before,
+h2.md-focus::before, h3.md-focus::before, h4.md-focus::before, h5.md-focus::before, h6.md-focus::before {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--head-prefix-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-variant: 'small-caps';
+  line-height: 2;
+  padding: 0;
+  border: 0;
+}
+
+#write h1 {
+  font-size: 2.1rem;
+  font-weight: 900;
+  text-align: center;
+  color: var(--h1-text-color);
+}
+#write h1>span{
+  position: relative;
+  display: inline-block;
+}
+#write h1>span:after{
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 3px double var(--h1-text-color);
+  height: 3px;
+  width: 15rem;
+  max-width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#write h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+#write>h2::before {
+  content: 'H2';
+}
+
+#write h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+#write>h3::before {
+  content: 'H3';
+}
+
+#write h4, #write h5, #write h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#write h5 {
+  color: var(--h5-text-color);
+}
+#write h6 {
+  color: var(--h6-text-color);
+}
+#write>h4::before {
+  content: 'H4';
+}
+#write>h5::before {
+  content: 'H5';
+}
+#write>h6::before {
+  content: 'H6';
+}
+
+
+/* inline element */
+#write a {
+  color: var(--a-text-color);
+  cursor: pointer;
+  padding: 0 3px 0 3px;
+  text-decoration: none;
+}
+#write a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+#write .md-link a>span:after {
+  content: '';
+  display: inline-block;
+  background-image: url("file:///C://Users//Admin//AppData//Roaming//Typora/themes/forest/link-icon.svg");
+  background-repeat: no-repeat;
+  width: 0.8em;
+  height: 0.8em;
+  vertical-align: middle;
+  margin-left: 3px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+mark {
+  background: var(--highlight-bg-color);
+  color: var(--highlight-text-color);
+  font-weight: 500;
+  padding: 0 2px 0 2px;
+  margin: 0 2px 0 2px;
+  border-radius: 2px;
+}
+
+span.md-comment {
+  color: var(--annotate-text-color);
+}
+
+/* footnote */
+sup.md-footnote {
+  color: var(--a-text-color);
+  background-color: var(--white-color);
+}
+.footnotes .md-def-name {
+  padding-right: 4ch;
+}
+
+/* inline code */
+#write code{
+  margin: 0 2px;
+  padding: 0px 4px;
+  font-size: 0.95rem;
+  background: var(--inline-code-bg-color);
+  display: inline;
+  vertical-align: top;
+  line-height: 1.6;
+  border-radius: 6px;
+  font-weight: 700;
+  color: var(--inline-code-text-color);
+}
+.md-hover-tip .code-tooltip-content, .md-hover-tip .md-arrow:after {
+  background: var(--side-bar-bg-color);
+}
+#write *[mdtype="heading"] code{
+  font-size: inherit!important;
+  vertical-align: baseline;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+p>.md-image:only-child:not(.md-img-error) img, p>img:only-child {
+  display: block;
+  margin: unset;
+}
+/* operation img tip dialog */
+#user-context-menu>li>a, .dropdown-menu>li>a {
+  color: var(--theme-primary-color);
+  font-weight: 500;
+}
+#user-context-menu>li>a:hover, #user-context-menu>li.active>a {
+  background: var(--theme-primary-color);
+  color: #fff;
+}
+#zoom-img-menu.context-menu.dropdown-menu>li>a:hover,
+#zoom-img-menu.context-menu.dropdown-menu>li.active>a {
+  background: var(--theme-primary-color);
+  color: #fff;
+}
+#zoom-img-menu.dropdown-menu .divider {
+  background: var(--theme-primary-color);
+}
+
+/* underline */
+#write u {
+  text-decoration: none;
+}
+#write u>span {
+  border-bottom: 1px solid;
+}
+
+/* selection */
+span::selection, *::selection {
+  background: var(--selection-text-color);
+}
+
+
+/* block element */
+/* YAML front */
+pre.md-meta-block {
+  font-size: .85rem;
+  color: var(--quote-text-color);
+  background: var(--quote-bg-color);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* toc */
+#write .md-toc {
+  font-size: 1rem;
+}
+#write a.md-toc-inner {
+  color: var(--theme-primary-color);
+}
+#write a.md-toc-inner:hover {
+  text-decoration: underline;
+  border-bottom: none;
+}
+p.md-toc-content {
+  line-height: 1.8;
+  font-weight: 500;
+}
+.md-toc-h2 .md-toc-inner {
+  margin-left: 1em;
+}
+.md-toc-h3 .md-toc-inner {
+  margin-left: 2em;
+}
+.md-toc-h4 .md-toc-inner {
+  margin-left: 3em;
+}
+.md-toc-h5 .md-toc-inner {
+  margin-left: 4em;
+}
+.md-toc-h6 .md-toc-inner {
+  margin-left: 5em;
+}
+
+/* quote */
+blockquote {
+  position: relative;
+  padding: 1rem;
+  background-color: var(--quote-bg-color);
+  border-radius: 6px;
+  line-height: 1;
+}
+blockquote p {
+  color: var(--quote-text-color);
+  margin: 0 ;
+}
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  height: 100%;
+  width: .30rem;
+  background: var(--theme-primary-color);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+/* hr */
+div[mdtype='hr'] {
+  text-align: center;
+}
+hr {
+  border-top: 1px dashed var(--theme-primary-color);
+  transform: scaleY(0.5);
+  width: 90%;
+}
+
+/* ul, ol */
+ul>li>ul>li {
+  list-style-type: circle;
+}
+ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+ul>li>ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+
+ol ul li {
+  list-style-type: circle;
+}
+ol ul>li>ul>li {
+  list-style-type: disc;
+}
+ol ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+ol ul>li>ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+ol ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+ol ul>li>ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+
+ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+ol>li>ol>li>ol>li {
+  list-style-type: decimal;
+}
+ol>li>ol>li>ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+ol>li>ol>li>ol>li>ol>li>ol>li {
+  list-style-type: decimal;
+}
+ol>li>ol>li>ol>li>ol>li>ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+ol>li>ol>li>ol>li>ol>li>ol>li>ol>li>ol>li {
+  list-style-type: decimal;
+}
+
+/* task list */
+.task-list-item.md-task-list-item {
+  list-style-type: none;
+}
+.md-task-list-item>input, #write .md-task-list-item>input[type=checkbox] {
+  margin-left: -1.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.md-task-list-item>input:before {
+  border: 2px solid var(--border-color);
+  width: 1rem;
+  height: 1rem;
+  background:  var(--white-color);
+  content: ' ';
+  transition: background-color 200ms ease-in-out;
+  display: block;
+}
+.md-task-list-item>input:checked:before,
+.md-task-list-item>input[checked]:before {
+  background: var(--theme-primary-color);
+  border-width: 1px;
+  transition: background-color 200ms ease-in-out;
+  border: 2px solid var(--theme-primary-color);
+}
+.md-task-list-item>input[checked]+p {
+  color: var(--checked-text-color);
+  text-decoration: line-through;
+  text-decoration-color: var(--line-through-color);
+}
+
+.md-task-list-item>input:checked:after,
+.md-task-list-item>input[checked]:after {
+  opacity: 1;
+}
+.md-task-list-item>input:after {
+  opacity: 1;
+  -webkit-transition: opacity 0.05s ease-in-out;
+  -moz-transition: opacity 0.05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0.25rem;
+  left: 0.19rem;
+  width: 0.6rem;
+  height: 0.375rem;
+  border: 2px solid var(--white-color);
+  border-top: 0;
+  border-right: 0;
+  content: ' ';
+  opacity: 0;
+}
+
+/* table */
+.md-table-edit .btn-default {
+  color: inherit;
+}
+table.md-table {
+  width: auto;
+  min-width: 80%;
+}
+table tr:nth-child(2n), table thead  {
+  background-color: var(--table-cell-bg-color);
+}
+table thead {
+  font-weight: 900;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--table-border-color);
+}
+table tr:first-of-type {
+  border-top: 1px solid var(--table-border-color);
+}
+table tr th, table tr td {
+  border-left: 1px solid var(--table-border-color);
+  padding: 6px 13px;
+}
+table tr th:last-of-type, table tr td:last-of-type {
+  border-right: 1px solid var(--table-border-color);
+}
+
+/* code */
+.auto-suggest-container {
+  border: 1px solid var(--theme-primary-color);
+}
+.auto-suggest-container li:hover, .auto-suggest-container li.active {
+  color: #fff;
+  background: var(--theme-primary-color);
+}
+
+
+/* outline */
+#toc-dropmenu {
+  width: 400px;
+}
+#toc-dropmenu.open {
+  background: var(--side-bar-bg-color);
+  color: var(--white-color);
+}
+#toc-dropmenu .outline-title-wrapper .outline-title {
+  font-weight: 900;
+}
+#toc-dropmenu .outline-title-wrapper {
+  height: 2.5rem;
+}
+.outline-title-wrapper .btn {
+  color: var(--white-color);
+  line-height: 2.5rem;
+  vertical-align: middle;
+}
+
+.dropdown-menu .divider {
+  background: var(--white-color);
+}
+.outline-item:hover {
+  background: var(--active-file-bg-color);
+}
+.outline-expander {
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+.outline-label {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 1.5rem);
+}
+.outline-label:hover {
+  text-decoration: none;
+}
+
+
+/* notification */
+#md-notification:before {
+  top: 18px;
+}
+#md-notification p {
+  color: var(--theme-primary-color);
+  font-weight: 500;
+}
+.btn-default {
+  background: var(--theme-primary-color);
+  color: var(--white-color);
+}
+.btn-default.active, .btn-default.focus, .btn-default:active,
+.btn-default:focus, .btn-default:hover,
+.open>.dropdown-toggle.btn-default {
+  color: var(--theme-primary-color);
+  border: 1px solid var(--theme-primary-color);
+  background: var(--white-color);
+}
+
+
+/* sidebar */
+.sidebar-menu {
+  color: var(--siderbar-dropdown-menu-text-color);
+}
+.sidebar-menu .sidebar-content  .sidebar-content-content {
+  font-weight: 500;
+}
+
+#file-library-tree .file-tree-node {
+  padding-left: 1.5em;
+  color: var(--control-text-color);
+  padding-top: 6px;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.file-tree-node .file-node-content:hover {
+  cursor: pointer;
+}
+#file-library-tree .file-node-expanded>.file-node-content>.fa-folder:before {
+  content: '\f07c';
+}
+#file-library-tree .fa-file-text-o:before {
+  content: '\f1ce'
+}
+
+.file-tree-node.active>.file-node-background {
+  border-left: 4px solid var(--theme-primary-color);
+}
+#typora-sidebar .file-list-item.file-library-node:not(.active):hover {
+  background: var(--active-file-bg-color);
+}
+#typora-sidebar .file-tree-node.file-library-file-node:not(.active):hover .file-node-background {
+  background: var(--active-file-bg-color);
+  height: 2.2rem;
+}
+
+/* siderbar footer*/
+.sidebar-footer-main-item #sidebar-files-menu {
+  border: 1px solid var(--sidebar-footer-dropdown-menu-border-color);
+}
+.sidebar-menu  .dropdown-menu>li>a, .sidebar-menu .dropdown-menu>li>a:focus, .sidebar-menu .dropdown-menu>li>a:hover {
+  color: var(--siderbar-dropdown-menu-text-color);
+}
+.dropdown-menu>li>a:hover {
+  background: var(--active-file-bg-color);
+}
+.sidebar-footer-main-item .dropdown-menu .menuitem-group-label {
+  font-weight: 500;
+}
+.dropdown-menu .selected-folder-menu-item a:after {
+  color: var(--theme-primary-color);
+}
+.file-sort-item .ty-side-sort-btn {
+  cursor: pointer;
+}
+#sidebar-files-menu>.show+.menuitem-group-label.show {
+  border-top: 1px solid var(--sidebar-footer-dropdown-menu-item-border-color);
+}
+.footer-item:hover, .sidebar-footer-item:hover {
+  background: var(--sidebar-footer-item-hover-bg-color);
+}
+
+/* sidebar search*/
+.sidebar-menu .ty-sidebar-search-panel #file-library-search-input {
+  color: var(--white-color);
+  background: transparent;
+}
+/* sidebar tab for windows */
+.info-panel-tab:hover {
+  color: var(--white-color)!important;
+}
+.active-tab-files #info-panel-tab-file .info-panel-tab-border,
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
+  background-color: var(--white-color) !important;
+}
+
+/* resizer */
+#typora-sidebar-resizer.dragging{
+  color: var(--sidebar-resizer);
+}
+
+
+/* print style */
+@media print {
+  .typora-export * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  #write>h1::before, #write>h2::before, #write>h3::before, #write>h4::before, #write>h5::before, #write>h6::before {
+    content: '';
+    bottom: 1rem;
+  }
+
+  #write u {
+    text-decoration: none;
+  }
+  #write u>span {
+    border-bottom: 1px solid;
+  }
+}
+
+
+/* source code */
+#typora-source {
+  font-family: 'SourceHanSansSC','JetBrains Mono', -apple-system, sans-serif;
+  line-height: 1.6;
+}
+#typora-source .cm-header {
+  color: var(--theme-primary-color);
+}
+
+/* quick open bar */
+.ty-quick-open-category {
+  color: var(--white-color);
+}
+.ty-quick-open-category .typora-quick-open-item {
+  opacity: 0.5;
+}
+.ty-quick-open-category .typora-quick-open-item.active {
+  opacity: 1;
+}
+
+.CodeMirror.cm-s-inner.cm-s-null-scroll.CodeMirror-wrap {
+  padding: 8px;
+}
+
+
+
+
+</style><title>实现用户订阅转化率跟踪和数据分析</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#用户订阅转化率跟踪与数据分析实战案例解析">《用户订阅转化率跟踪与数据分析：实战案例解析》</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#案例描述">案例描述</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#项目要求">项目要求</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#项目目标">项目目标</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第一步子查询">第一步：子查询</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第二步主查询">第二步：主查询</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第三步数据洞察">第三步：数据洞察</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#免费转付费转化率指标">免费转付费转化率指标</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#注册后首次参与的平均持续时间">注册后首次参与的平均持续时间</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#首次参与后首次购买的平均持续时间">首次参与后首次购买的平均持续时间</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#其他分析视角">其他分析视角</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1）注册人数最多的前3个月份以及对应的注册数">（1）注册人数最多的前3个月份以及对应的注册数</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2）每周的每一天星期一到星期日）的注册人数分布">（2）每周的每一天（星期一到星期日）的注册人数分布</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3）每个月的注册累积数和增长速率">（3）每个月的注册累积数和增长速率</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4）创建一个透视表来分析每个月份">（4）创建一个透视表来分析每个月份</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5）计算注册后当天1-7天7-30天和30天以上的观看比例">（5）计算注册后当天、1-7天、7-30天和30天以上的观看比例</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#6）计算观看后当天1-7天7-30天和30天以上的付费转化比例">（6）计算观看后当天、1-7天、7-30天和30天以上的付费转化比例</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h4"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#7）每个月转化的累积数和增长速率">（7）每个月转化的累积数和增长速率</a></div><ul class="outline-children"></ul></li></ul></li></ul></li></ul></li></div></div><div id='write'  class=''><figure class='table-figure'><table><thead><tr><th><mark><span>《用户订阅转化率跟踪与数据分析：实战案例解析》</span></mark></th><th><span>难度：</span><img src="https://cdn-icons-png.flaticon.com/512/5625/5625642.png" alt="Easy - Free communications icons" style="zoom:10%;" /></th><th><span>语言：</span><img src="https://cdn-icons-png.flaticon.com/512/274/274439.png" alt="Mysql - Free computer icons" style="zoom:12%;" /></th><th><span>预计用时：2小时</span></th></tr></thead><tbody></tbody></table></figure><h1 id='用户订阅转化率跟踪与数据分析实战案例解析'><span>《用户订阅转化率跟踪与数据分析：实战案例解析》</span></h1><p><img src="https://img.pikbest.com/wp/202408/marketing-analysis-isolated-3d-conversion-funnel-for-on-white-background_9750974.jpg!sw800" alt="Marketing Analysis Isolated 3d Conversion Funnel For On White Background  Backgrounds | JPG Free Download - Pikbest" style="zoom:25%;" /></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n7"><a class="md-toc-inner" href="#用户订阅转化率跟踪与数据分析实战案例解析">《用户订阅转化率跟踪与数据分析：实战案例解析》</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n10"><a class="md-toc-inner" href="#案例描述">案例描述</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n14"><a class="md-toc-inner" href="#项目要求">项目要求</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n20"><a class="md-toc-inner" href="#项目目标">项目目标</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n31"><a class="md-toc-inner" href="#第一步子查询">第一步：子查询</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n98"><a class="md-toc-inner" href="#第二步主查询">第二步：主查询</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n149"><a class="md-toc-inner" href="#第三步数据洞察">第三步：数据洞察</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n164"><a class="md-toc-inner" href="#免费转付费转化率指标">免费转付费转化率指标</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n180"><a class="md-toc-inner" href="#注册后首次参与的平均持续时间">注册后首次参与的平均持续时间</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n214"><a class="md-toc-inner" href="#首次参与后首次购买的平均持续时间">首次参与后首次购买的平均持续时间</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n237"><a class="md-toc-inner" href="#其他分析视角">其他分析视角</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n239"><a class="md-toc-inner" href="#1）注册人数最多的前3个月份以及对应的注册数">（1）注册人数最多的前3个月份以及对应的注册数</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n242"><a class="md-toc-inner" href="#2）每周的每一天星期一到星期日）的注册人数分布">（2）每周的每一天（星期一到星期日）的注册人数分布</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n245"><a class="md-toc-inner" href="#3）每个月的注册累积数和增长速率">（3）每个月的注册累积数和增长速率</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n248"><a class="md-toc-inner" href="#4）创建一个透视表来分析每个月份">（4）创建一个透视表来分析每个月份</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n256"><a class="md-toc-inner" href="#5）计算注册后当天1-7天7-30天和30天以上的观看比例">（5）计算注册后当天、1-7天、7-30天和30天以上的观看比例</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n259"><a class="md-toc-inner" href="#6）计算观看后当天1-7天7-30天和30天以上的付费转化比例">（6）计算观看后当天、1-7天、7-30天和30天以上的付费转化比例</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n264"><a class="md-toc-inner" href="#7）每个月转化的累积数和增长速率">（7）每个月转化的累积数和增长速率</a></span></p></div><h2 id='案例描述'><span>案例描述</span></h2><p><span>通过分析平台上观看视频的学生中，有多少人在开始观看课程后最终购买了订阅，即免费转付费的转化率。</span></p><p><span>数据包括学生注册日期、参与日期以及购买订阅的日期。</span></p><p><span>通过这个项目，你将深入了解学生行为模式，并为公司提供有价值的洞察和建议。</span></p><h2 id='项目要求'><span>项目要求</span></h2><ul><li><p><span>MySQL Workbench 8.0</span></p></li><li><p><span>Python </span></p></li></ul><h2 id='项目目标'><span>项目目标</span></h2><p><img src="https://i.mji.rip/2024/05/08/7d170147ac38fb3892c7cb65038af9c9.png" alt="7d170147ac38fb3892c7cb65038af9c9.png" style="zoom:50%;" /></p><ol start='' ><li><p><span>在平台上观看了讲座的学生的免费转付费</span><mark><span>转化率</span></mark><span>是多少？</span></p></li><li><p><span>注册日期和学生首次观看讲座的日期（首次参与日期）之间的</span><mark><span>平均间隔时间</span></mark><span>是多少？</span></p></li><li><p><span>首次观看讲座的日期和学生首次购买订阅的日期之间的</span><mark><span>平均间隔时间</span></mark><span>是多少？</span></p></li><li><p><span>我们如何解释这些结果，它们的含义是什么？</span></p></li></ol><h2 id='第一步子查询'><span>第一步：子查询</span></h2><p><span>导入</span><code>db_course_conversions</code><span>数据库</span></p><p><span>然后，创建一个新的结果数据集，包括以下列：</span></p><ul><li><p><code>student_id</code><span> – (int) 学生的唯一标识</span></p></li><li><p><code>date_registered</code><span> – (date) 学生在平台上注册的日期</span></p></li><li><p><code>first_date_watched</code><span> – (date) 首次参与日期</span></p></li><li><p><code>first_date_purchased</code><span> – (date) 首次购买日期（如果没有购买则为NULL）</span></p></li><li><p><code>date_diff_reg_watch</code><span> – (int) 注册日期和首次参与日期之间的天数差</span></p></li><li><p><code>date_diff_watch_purch</code><span> – (int) 首次参与日期和首次购买日期之间的天数差（如果没有购买则为NULL）</span></p></li></ul><blockquote><p><span>提示：研究MySQL中的</span><code>DATEDIFF</code><span>函数。</span></p></blockquote><p><span>注意以下的Venn图</span></p><p><img src="https://i.mji.rip/2024/05/08/e2d1384152d2c3f48a095bcb06bfbe76.png" alt="e2d1384152d2c3f48a095bcb06bfbe76.png" style="zoom:50%;" /></p><p><span>你检索到的结果集应该包括进入图中阴影区域的学生ID。此外，你的目标是确定已观看过讲座的学生的转化率。</span></p><p><span>因此，过滤你的结果集，使得</span><mark><span>首次参与讲座日期早于（或等于）首次购买日期</span></mark><span>。</span></p><p><span>检查：结果集中的记录数应为20,255。</span></p><p><span>首先，记得导入</span><code>db_course_conversions</code><span>数据库，并刷新。使用</span><code>USE</code><span>关键字将命名数据库用作默认（当前）数据库。 </span></p><ol start='' ><li><p><span>使用</span><code>MIN</code><span>聚合函数找到首次参与和购买日期。</span></p></li><li><p><span>应用</span><code>DATEDIFF</code><span>函数查看各自天数的差异。</span></p></li></ol><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16.0759px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ???<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ???<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">MIN</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> first_date_watched<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">MIN</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> first_date_purchased<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  DATEDIFF<span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> days_diff_reg_watch<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  DATEDIFF<span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> days_diff_watch_purch</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 141px;"></div><div class="CodeMirror-gutters" style="height: 141px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><ol start='3' ><li><p><span>考虑如何将三个表格连接起来，检索出Venn图中突出显示的记录</span></p></li></ol><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16.0759px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>6</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">FROM</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_engagement e</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_info i <span class="cm-keyword">ON</span> ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_purchases p <span class="cm-keyword">ON</span> ??<span class="cm-variable-3">?</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 121px;"></div><div class="CodeMirror-gutters" style="height: 121px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><ol start='4' ><li><p><span>应用MIN聚合函数需要适当地对结果进行分组</span></p></li></ol><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16.0759px; left: 45px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>14</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ???<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ???<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">MIN</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> first_date_watched<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">MIN</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> first_date_purchased<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  DATEDIFF<span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> days_diff_reg_watch<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  DATEDIFF<span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> days_diff_watch_purch</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">FROM</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_engagement e</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_info i <span class="cm-keyword">ON</span> ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_purchases p <span class="cm-keyword">ON</span> ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">GROUP</span> <span class="cm-keyword">BY</span> ??<span class="cm-variable-3">?;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 282px;"></div><div class="CodeMirror-gutters" style="height: 282px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><ol start='5' ><li><p><span>过滤数据(having)</span></p><blockquote><ol start='' ><li><p><span>记得保留从未购买过的学生</span></p></li><li><p><span>排除首次参与日期晚于首次购买日期的记录</span></p></li></ol></blockquote></li></ol><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16.0759px; left: 45px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>15</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ???<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ???<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">MIN</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> first_date_watched<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">MIN</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> first_date_purchased<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  DATEDIFF<span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> days_diff_reg_watch<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  DATEDIFF<span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> days_diff_watch_purch</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">FROM</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_engagement e</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_info i <span class="cm-keyword">ON</span> ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  student_purchases p <span class="cm-keyword">ON</span> ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">GROUP</span> <span class="cm-keyword">BY</span> ??<span class="cm-variable-3">?</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">HAVING</span> ??<span class="cm-variable-3">?;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 302px;"></div><div class="CodeMirror-gutters" style="height: 302px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><p><mark><span>总结</span></mark></p><ul><li><p><span>导入db_course_conversions数据库并刷新模式面板</span></p></li><li><p><span>使用USE关键字选择命名数据库作为默认数据库</span></p></li><li><p><span>逐一检索任务中列出的列</span></p></li><li><p><span>使用MIN聚合函数找到首次参与和购买日期</span></p></li><li><p><span>应用DATEDIFF函数查看日期之间的差异</span></p></li><li><p><span>考虑如何连接三个表以检索Venn图中突出显示的记录</span></p></li><li><p><span>在应用MIN聚合函数时适当地对结果进行分组</span></p></li><li><p><span>过滤数据，排除首次参与日期晚于首次购买日期的记录，但保留从未购买过的学生</span></p></li></ul><hr /><h2 id='第二步主查询'><span>第二步：主查询</span></h2><p><span>应该使用你创建的子查询，计算以下三个指标：</span></p><ol start='' ><li><p><span>免费转付费转化率：计算已观看过讲座的学生中购买了订阅的比例。</span></p></li><li><p><span>平均注册后首次观看时间：计算学生注册后首次观看讲座的平均时间。</span></p></li><li><p><span>平均观看后首次购买时间：计算学生首次观看讲座后首次购买订阅的平均时间。</span></p></li><li><p><mark><strong><span>免费转付费转化率</span></strong><span>：</span></mark></p><ul><li><p><span>这个指标衡量了在平台上观看讲座的学生中，选择购买订阅以获得完整课程访问权限的比例。它通过以下比率计算：</span></p><ul><li><p><span>购买订阅日期与观看讲座日期相同或之后的学生人数。</span></p></li><li><p><span>所有观看讲座的学生人数。</span></p></li></ul></li><li><p><span>将结果转换为百分比，并将字段命名为</span><code>conversion_rate</code><span>。</span></p></li></ul></li><li><p><mark><strong><span>注册后首次参与的平均持续时间</span></strong><span>：</span></mark></p><ul><li><p><span>这个指标衡量了注册日期和首次参与日期之间的平均持续时间。它告诉我们学生注册后平均多长时间才会观看讲座。该指标通过以下比率计算：</span></p><ul><li><p><span>所有这些持续时间的总和。</span></p></li><li><p><span>这些持续时间的数量，或者更简单地说，观看了讲座的学生数量。</span></p></li></ul></li><li><p><span>将字段命名为</span><code>av_reg_watch</code><span>。</span></p></li></ul></li><li><p><mark><strong><span>首次参与后首次购买的平均持续时间</span></strong><span>：</span></mark></p><ul><li><p><span>这个指标衡量了个人在观看讲座后订阅平台的平均时间。它通过以下比率计算：</span></p><ul><li><p><span>所有这些持续时间的总和。</span></p></li><li><p><span>这些持续时间的数量，或者更简单地说，已经购买了订阅的学生数量。</span></p></li></ul></li><li><p><span>将字段命名为</span><code>av_watch_purch</code><span>。</span></p></li></ul></li></ol><p><span>这些指标帮助我们了解学生在平台上的行为模式，并可以指导我们在吸引学生、提高转化率以及改善用户体验方面采取何种措施。</span></p><p><mark><span>任务：</span></mark><span>将你在前一部分（创建子查询）中创建的子查询用括号括起来，并给它一个别名，比如a。 （当然你可以使用cte）</span></p><p><span>计算刚刚描述的三个指标。结果四舍五入到两位小数，不要忘记将conversion_rate指标转换为</span><mark><span>百分比</span></mark><span>。</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16.0759px; left: 45px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>11</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ROUND<span class="cm-bracket">(</span><span class="cm-keyword">COUNT</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> / <span class="cm-keyword">COUNT</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span><span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-number">2</span><span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> conversion_rate<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ROUND<span class="cm-bracket">(</span><span class="cm-keyword">SUM</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> / <span class="cm-keyword">COUNT</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span><span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-number">2</span><span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> av_reg_watch<span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ROUND<span class="cm-bracket">(</span><span class="cm-keyword">SUM</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span> / <span class="cm-keyword">COUNT</span><span class="cm-bracket">(</span>???<span class="cm-bracket">)</span><span class="cm-punctuation">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-number">2</span><span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> av_watch_purch</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">FROM</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-bracket">(</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">-- Subquery</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-bracket">)</span> a<span class="cm-punctuation">;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 222px;"></div><div class="CodeMirror-gutters" style="height: 222px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><hr /><p><span>你现在应该已经检索到了已开始观看讲座的学生的免费转付费转化率，注册日期和首次参与日期之间的平均持续时间，以及首次参与日期和首次购买日期之间的平均持续时间~</span></p><h2 id='第三步数据洞察'><span>第三步：数据洞察</span></h2><p><span>当我们谈论免费转付费转化率时，我们其实是在说有多少人在观看了课程后决定花钱购买订阅。这个比例告诉我们有多少人愿意为全面课程访问付费。我们可以把这个数字拿去跟行业标准或历史数据做比较，看看我们的表现如何。</span></p><p><span>然后，我们看到了注册后多久学生第一次观看课程。</span></p><ul><li><p><span>如果这段时间很短——比如在注册后的同一天或第二天观看——这可能意味着注册过程和课程体验很好，所以学生很快就开始了学习。</span></p></li><li><p><span>但如果这段时间很长，可能意味着学生对开始学习感到犹豫或遇到了一些问题。</span></p></li></ul><p><span>最后，我们观察到学生在观看了课程后多久才决定购买订阅。</span></p><ul><li><p><span>如果这个时间很短，可能是因为课程内容很吸引人，或者有一些有效的销售策略。</span></p></li><li><p><span>但如果这段时间很长，可能是因为学生在等待产品以折扣价格提供。</span></p></li></ul><p><span>我们可以使用Python等工具计算了一些额外的指标，比如中位数和众数，帮助我们更好地理解数据的分布情况，以及其中可能存在的模式或异常值。</span></p><h3 id='免费转付费转化率指标'><span>免费转付费转化率指标</span></h3><figure class='table-figure'><table><thead><tr><th><span>免费转付费转化率</span></th><th><span>注册后首次参与的平均持续时间</span></th><th><span>首次参与后首次购买的平均持续时间</span></th></tr></thead><tbody><tr><td><mark><span>11.29%</span></mark></td><td><span>3.42</span></td><td><span>26.25</span></td></tr></tbody></table></figure><p><span>从观看讲座的学生中购买月度、季度或年度订阅的比例约为</span><mark><span>11%</span></mark></p><p><span>也就是说，对于每100个来到平台的学生，大约有11个会购买订阅。乍一看，这个数字似乎相对较低，但让我们深入挖掘一下。</span></p><p><span>很多人只是出于好奇而注册了我们的平台，但大部分人却没有真正利用我们的计划。其中一个原因可能是我们的目标用户群比较广泛，而不是专门针对那些渴望开始数据科学之旅的人。</span></p><p><span>其次，因为我们的平台是为初学者设计的，所以学生可能不清楚应该从哪里开始学习。他们可能会纠结于应该先学习哪种编程语言，比如Python，还是应该学习查询语言，比如SQL，或者是学习数据可视化软件，比如Tableau？</span></p><p><span>而且每种工具学起来是否存在前置依赖呢？我们应该通过一个合理的学习顺序来简化学生的学习路径，为每个学生创建一个个性化的学习计划，这样他们就可以清楚地知道从哪里开始学习以及如何继续学习。尽管如此，一些用户可能需要更多的时间才能开始他们的数据科学之旅。他们可能是刚开始考试的大学生，或者是不能花太多时间在学习上的职场人士。</span></p><p><span>最后，我们必须考虑到一些用户可能不喜欢我们的平台，而选择在其他地方开始他们的数据科学学习之旅。无论原因是什么，与用户沟通是非常重要的，找出任何问题并努力改进我们的产品。</span></p><h3 id='注册后首次参与的平均持续时间'><span>注册后首次参与的平均持续时间</span></h3><figure class='table-figure'><table><thead><tr><th><span>免费转付费转化率</span></th><th><span>注册后首次参与的平均持续时间</span></th><th><span>首次参与后首次购买的平均持续时间</span></th></tr></thead><tbody><tr><td><span>11.29%</span></td><td><mark><span>3.42</span></mark></td><td><span>26.25</span></td></tr></tbody></table></figure><p><span>第二个指标的结果显示，平均而言，学生在注册平台后大约需要</span><mark><span>三到四天</span></mark><span>才开始观看课程。</span></p><p><span>理想情况下，一个新学生应该在第一天就开始观看课程。平台提供的其他内容（考试、项目、职业发展路径）需要更多关注，而课程却是很容易了解的。因此，值得进一步深入分析这个结果。</span></p><p><span>但是平均值很有可能受到异常值影响，这是因为平均值是所有数据点的总和除以数据点的数量，而异常值通常是远离数据集其他值的极端值。当存在异常值时，它们的值会显著影响总和，从而导致平均值偏离数据集的大部分。</span></p><blockquote><p><span>举例来说，考虑一个小班级的学生年龄数据集：</span></p><p><span>学生年龄：</span><mark><span>18,19,20,21,22,23,24,25,45</span></mark></p><p><span>在这个数据集中，大多数学生的年龄都集中在18到25岁之间，除了一个异常值45岁。如果计算这个数据集的平均年龄，将所有年龄相加并除以学生人数：</span></p><p><span>平均年龄</span><mark><span>=(18+19+20+21+22+23+24+25+45)/9=23</span></mark></p><p><span>但是，由于异常值45岁的存在，平均年龄被推高到了23岁，而这并不代表大多数学生的真实年龄。因此，异常值会使平均值失真，不再反映数据集的中心趋势。</span></p><p><span>这就是为什么在分析数据时，除了平均值，还要考虑中位数和众数等指标，以更全面地理解数据的分布情况。</span></p></blockquote><p><span>中位数告诉我们数据集中间的数字是什么——假设它是有序的，而众数是数据集中出现频率最高的数字。在SQL中计算这些并不像直观，所以可以用Python</span></p><p><span>当然用MySQL计算也不是不行</span><mark><span>（咱们刷题里面有这个计算中位数的题）</span></mark></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16.038px; left: 45px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 33px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>15</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33px; width: 33px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> <span class="cm-keyword">AVG</span><span class="cm-bracket">(</span>days_diff_reg_watch<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> median_reg_watch <span class="cm-comment">-- 选择结果的平均值作为中位数</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">FROM</span> <span class="cm-bracket">(</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">SELECT</span> days_diff_reg_watch <span class="cm-comment">-- 选择数据表中的 days_diff_reg_watch 列作为子查询的结果</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">FROM</span> <span class="cm-bracket">(</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">SELECT</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  days_diff_reg_watch<span class="cm-punctuation">,</span> <span class="cm-comment">-- 选择数据表中的 days_diff_reg_watch 列</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">@rownum</span><span class="cm-punctuation">:</span><span class="cm-operator">=</span><span class="cm-variable-2">@rownum</span><span class="cm-operator">+</span><span class="cm-number">1</span> <span class="cm-keyword">AS</span> row_num<span class="cm-punctuation">,</span> <span class="cm-comment">-- 为数据表中的每一行添加一个序号，@rownum 用于记录序号，每次递增1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-bracket">(</span><span class="cm-keyword">SELECT</span> <span class="cm-keyword">COUNT</span><span class="cm-bracket">(</span><span class="cm-operator">*</span><span class="cm-bracket">)</span> <span class="cm-keyword">FROM</span> tmp<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> total_rows <span class="cm-comment">-- 计算数据表中的总行数，并将其存储为 total_rows</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">FROM</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-bracket">(</span><span class="cm-keyword">SELECT</span> <span class="cm-variable-2">@rownum</span><span class="cm-punctuation">:</span><span class="cm-operator">=</span><span class="cm-number">0</span><span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> init<span class="cm-punctuation">,</span> <span class="cm-comment">-- 初始化变量 @rownum 为 0，用于记录行号</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-bracket">(</span><span class="cm-keyword">SELECT</span> days_diff_reg_watch <span class="cm-keyword">FROM</span> tmp <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> days_diff_reg_watch<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> sorted_data <span class="cm-comment">-- 从数据表中选择 days_diff_reg_watch 列，并按照该列的值进行排序</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> numbered_rows <span class="cm-comment">-- 将上述结果命名为 numbered_rows</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">WHERE</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  row_num <span class="cm-keyword">IN</span> <span class="cm-bracket">(</span>total_rows/2<span class="cm-punctuation">,</span> <span class="cm-bracket">(</span>total_rows<span class="cm-operator">+</span><span class="cm-number">1</span><span class="cm-bracket">)</span>/2<span class="cm-bracket">)</span> <span class="cm-comment">-- 选取 numbered_rows 中行号为 total_rows/2 或 (total_rows+1)/2 的行，即中位数所在的行或其前后的行</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-bracket">)</span> <span class="cm-keyword">AS</span> median_subquery<span class="cm-punctuation">;</span> <span class="cm-comment">-- 将上述结果命名为 median_subquery</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 484px;"></div><div class="CodeMirror-gutters" style="height: 484px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><p><span>结果如下：</span></p><ul><li><p><span>众数：0 </span></p></li><li><p><span>中位数：0 </span></p></li><li><p><span>平均数：3.42 </span></p></li></ul><p><span>数据中重复出现最多的数字是0。此外，数据集中位数也是0。这样的指标值表明数据呈右偏态——即，我们可以在数据分布的右侧找到异常值，朝着更高的值。这意味着数据集中一些学生注册了平台，但是很晚才开始观看课程。为了更深入地了解情况，让我们也直观地研究一下数字的分布。</span></p><p><img src="https://i.mji.rip/2024/05/08/c7f919ae16952c14f3e9afcaefb77b3b.png" alt="c7f919ae16952c14f3e9afcaefb77b3b.png" style="zoom: 67%;" /></p><p><span>几乎所有的学生都在注册后立即观看了一堂讲座。很少有人在注册后几天甚至一年后才返回平台开始课程。返回的原因可能是因为营销活动、免费试用活动等。</span></p><h3 id='首次参与后首次购买的平均持续时间'><span>首次参与后首次购买的平均持续时间</span></h3><figure class='table-figure'><table><thead><tr><th><span>免费转付费转化率</span></th><th><span>注册后首次参与的平均持续时间</span></th><th><span>首次参与后首次购买的平均持续时间</span></th></tr></thead><tbody><tr><td><span>11.29%</span></td><td><span>3.42</span></td><td><mark><span>26.25</span></mark></td></tr></tbody></table></figure><p><span>平均而言，学生在熟悉产品后大约需要26天才能购买订阅。再次强调，我们应该对这个结果持保留态度，并研究其他相关的指标：中位数和众数。例如，使用Python，我们可以计算出这三个指标，结果如下：</span></p><ul><li><p><span>众数：0</span></p></li><li><p><span>中位数：1</span></p></li><li><p><span>平均值：26</span></p></li></ul><p><span>平均值明显高于其他两个指标。这表明在这个数据集中存在更极端的异常值</span></p><p><span>最常出现的值再次是0，因此购买订阅的学生往往在同一天购买。而在数据集的中位数是1，这意味着在第一次购买的所有用户中，购买当天的人数不到一半。更具体地说，大约有49%的人在第一次观看讲座后的当天购买~</span></p><p><img src="https://i.mji.rip/2024/05/08/c0842fbd6a0d3b2c7794d4340e82ca5b.png" alt="c0842fbd6a0d3b2c7794d4340e82ca5b.png" style="zoom:67%;" /></p><p><span>再次观察到数据向右倾斜，这一点我们可以从众数小于中位数，而中位数又小于平均数这个事实推断出来。</span></p><p><span>大多数用户在观看讲座后的一两天内购买了订阅。然而，也有一些人几个月后才购买。一个可能的原因是，他们喜欢平台上的内容，但一直在等待价格下调。</span></p><h3 id='其他分析视角'><span>其他分析视角</span></h3><p><span>我们可以继续研究数据集中的其他方面，以深入了解用户行为和平台表现。比如，可以进行用户留存分析、内容参与度分析、订阅计划分析、用户分群分析、漏斗分析、预测建模和A/B测试等。</span></p><h4 id='1）注册人数最多的前3个月份以及对应的注册数'><span>（1）注册人数最多的前3个月份以及对应的注册数</span></h4><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/c3ba166043b73e8f62b1ce50c823499d.png" alt="c3ba166043b73e8f62b1ce50c823499d.png" style="zoom:50%;" /></p><h4 id='2）每周的每一天星期一到星期日）的注册人数分布'><span>（2）每周的每一天（星期一到星期日）的注册人数分布</span></h4><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/7aef8f27c30901e507aae25020d5f654.png" alt="7aef8f27c30901e507aae25020d5f654.png" style="zoom:50%;" /></p><h4 id='3）每个月的注册累积数和增长速率'><span>（3）每个月的注册累积数和增长速率</span></h4><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/cff09bb4b8690d158a6eb672630a50e9.png" alt="cff09bb4b8690d158a6eb672630a50e9.png" style="zoom:50%;" /></p><h4 id='4）创建一个透视表来分析每个月份'><span>（4）创建一个透视表来分析每个月份</span></h4><ul><li><p><span>注册的学生中参与讲座和未参与讲座的人数分布</span></p></li><li><p><span>参与讲座的学生中购买和未购买的人数分布</span></p></li></ul><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/3c50ec35b8ea0dd74e50eef1082f9135.png" alt="3c50ec35b8ea0dd74e50eef1082f9135.png" style="zoom:50%;" /></p><h4 id='5）计算注册后当天1-7天7-30天和30天以上的观看比例'><span>（5）计算注册后当天、1-7天、7-30天和30天以上的观看比例</span></h4><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/11e54c817c19007ac22e8fc26e303d6a.png" referrerpolicy="no-referrer" alt="11e54c817c19007ac22e8fc26e303d6a.png"></p><h4 id='6）计算观看后当天1-7天7-30天和30天以上的付费转化比例'><span>（6）计算观看后当天、1-7天、7-30天和30天以上的付费转化比例</span></h4><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/aa3298622f23cd742a095b37d35906d2.png" referrerpolicy="no-referrer" alt="aa3298622f23cd742a095b37d35906d2.png"></p><blockquote><p><span>更具体地说，大约有49%的人在第一次观看讲座后的当天购买~ </span><mark><span>跟前面的分析结果一致</span></mark></p></blockquote><h4 id='7）每个月转化的累积数和增长速率'><span>（7）每个月转化的累积数和增长速率</span></h4><p><mark><span>答案：</span></mark></p><p><img src="https://i.mji.rip/2024/05/08/8ead724e71ad6deebd5dfb0feea633c5.png" alt="8ead724e71ad6deebd5dfb0feea633c5.png" style="zoom:50%;" /></p><p>&nbsp;</p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
