@@ -1,0 +1,557 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying disabled!');
+        });
+    });
+</script>
+
+<link href='https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+/*
+fonts initalization
+*/
+@import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap);
+@page {
+	size: A4;
+	margin: 8mm 0mm;
+}
+
+/*
+root variables including colors, font-familys and a shadow style
+*/
+:root {
+	--h-border-color: rgb(255, 191, 191);
+	--h-bg-color: rgb(255, 232, 232);
+	--table-border-color: rgb(255, 235, 211);
+	--th-bg-color: rgb(255, 243, 228);
+	--tr-bg-color: rgb(255, 249, 242);
+	--tr-hover-bg-color: rgb(254, 255, 230);
+	--code-bg-color: rgb(247, 247, 247);
+	--del-color: rgb(151, 151, 151);
+	--selection-bg-color: rgb(235, 227, 255);
+	--block-shadow: 0.15rem 0.15rem 0.5rem rgb(150, 150, 150);
+	--sans-serif-font: "Noto Sans SC Medium", "Noto Sans SC", sans-serif;
+	--monospace-font: "Source Code Pro Regular", "Source Code Pro", monospace;
+}
+
+html {
+	font-size: 16px;
+}
+
+
+#write {
+	font-family: var(--sans-serif-font);
+	max-width: 60rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+/*
+yaml header settings
+*/
+#write pre.md-meta-block {
+	font-family: var(--monospace-font);
+	font-size: 1rem;
+	text-align: left;
+	padding: 0.6rem;
+	color: rgb(134, 134, 134);
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+}
+
+/*
+headers settings
+*/
+#write h1 {
+	font-size: 2.2rem;
+	text-align: center;
+	text-shadow: 0.15rem 0.15rem 0.3rem rgb(187, 187, 187);
+}
+#write h2 {
+	font-size: 1.8rem;
+	margin-top: 1.8rem;
+	margin-left: -1.5rem;
+	margin-right: -1.5rem;
+	background-color: var(--h-bg-color);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border-left: 0.5rem solid var(--h-border-color);
+	border-radius: 0.4rem;
+}
+#write h3 {
+	font-size: 1.6rem;
+	text-decoration: underline double var(--h-border-color) 0.15rem;
+}
+#write h4 {
+	text-decoration: underline dotted var(--h-border-color) 0.2rem;
+}
+
+/*
+tables settings
+*/
+#write table {
+	border-collapse: collapse;
+	border: 0.25rem solid var(--table-border-color);
+}
+#write table th {
+	background-color: var(--th-bg-color);
+}
+#write table th, td {
+	text-align: center;
+	border: 0.13rem dashed var(--table-border-color);
+	padding: 0.5rem;
+}
+#write table tr:nth-child(even) {
+	background-color: var(--tr-bg-color);
+}
+#write table tr:hover {
+	background-color: var(--tr-hover-bg-color);
+}
+
+/*
+checkboxes settings
+*/
+#write .task-list-item input[type = "checkbox"] {
+	width: 0;
+	height: 0;
+}
+#write .task-list-item input[type = "checkbox"]::before, #write input[type = "checkbox"]:checked::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	left: -0.15rem;
+	top: -0.41rem;
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 0.08rem solid var(--del-color);
+	border-radius: 50%;
+	transition: all 0.2s;
+}
+#write .task-list-item input[type = "checkbox"]:checked::before {
+	padding: 0.12rem;
+	background-clip: content-box;
+	background-color: black;
+}
+#write .task-list-item input[type = "checkbox"]:checked + p {
+	text-decoration: line-through;
+	color: var(--del-color);
+}
+#write input[type='checkbox']:hover::before {
+	transition: all 0.2s;
+	background-color: rgb(228, 228, 228);
+}
+
+/*
+blockquotes settings
+*/
+#write blockquote {
+	color:rgb(102, 102, 102);
+	border-left: 0.25rem solid rgb(169, 202, 255);
+	padding: 0.5rem 1rem 0.6rem 1rem;
+}
+#write blockquote::before {
+	display: block;
+	height: 2rem;
+	width: 1.5rem;
+	content: "🌈";
+	font-size: 1.2rem;
+}
+
+/*
+horizontal rules settings
+*/
+#write hr {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	background-color: rgb(226, 226, 226);
+	height: 0.13rem;
+	border: 0;
+}
+
+#write p {
+	font-size: 1rem;
+	line-height: 1.6rem;
+}
+
+/*
+code blocks settings
+*/
+#write .md-fences {
+	font-family: var(--monospace-font);
+	font-size: 1rem;
+	padding: 0.6rem;
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+	box-shadow: var(--block-shadow);
+}
+#write .cm-s-inner .CodeMirror-gutters {
+	border: none;
+}
+#write .cm-s-inner .CodeMirror-linenumber {
+	color: rgb(212, 212, 212);
+}
+#write .cm-s-inner .cm-keyword {
+	color: rgb(204, 35, 35);
+}
+#write .cm-s-inner .cm-number {
+	color: rgb(27, 57, 226);
+}
+#write .cm-s-inner .cm-def {
+	color: rgb(146, 50, 255);
+}
+#write .cm-s-inner .cm-operator {
+	color: rgb(204, 35, 35);
+}
+#write .cm-s-inner .cm-variable2 {
+	color: rgb(38, 129, 219);
+}
+#write .cm-s-inner .cm-variable3 {
+	color: rgb(204, 35, 35);
+}
+#write .cm-s-inner .cm-comment {
+	color: rgb(18, 129, 18);
+}
+#write .cm-s-inner .cm-string {
+	color: rgb(18, 129, 18);
+}
+#write .cm-s-inner .cm-builtin {
+	color: rgb(218, 135, 12);
+}
+#write .cm-tag {
+	color: rgb(139, 10, 10);
+}
+
+/*
+formulas settings
+*/
+#write mjx-container {
+	font-size: 1.1rem;
+}
+
+/*
+tooltips settings
+*/
+#write .code-tooltip {
+	box-shadow: 0.1rem 0.1rem 0.2rem rgb(150, 150, 150);
+	border-radius: 0.2rem;
+	margin-top: 0.3rem;
+}
+
+/*
+selected texts in code blocks settings
+*/
+#write .CodeMirror-selected, #write .CodeMirror-selectedtext, #write .in-text-selection {
+	background-color: var(--selection-bg-color) !important;
+}
+
+/*
+diagrams settings
+*/
+#write pre[lang=’sequence’], #write pre[lang=’flow’], #write pre[lang=’mermaid’] {
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+	box-shadow: var(--block-shadow);
+}
+
+/*
+inline codes settings
+*/
+#write code {
+	font-family: var(--monospace-font);
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	padding: 0.05rem 0.3rem;
+	background-color: var(--code-bg-color);
+	border-radius: 0.4rem;
+	box-shadow: 0.13rem 0.13rem 0.26rem rgb(197, 197, 197);
+}
+
+/*
+urls settings
+*/
+#write a {
+	color: rgb(31, 117, 255);
+}
+#write a:hover {
+	color: rgb(108, 164, 255);
+}
+
+/*
+images settings
+*/
+#write img {
+	display: block;
+	margin: 0 auto;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: var(--block-shadow);
+}
+
+/*
+highlights settings
+*/
+#write mark {
+  background: rgb(144, 238, 144); /* 浅绿色背景 */
+  color: rgb(64, 64, 64); /* 深灰色文字 */
+  font-weight: 500;
+  padding: 0 2px 0 2px;
+  margin: 0 2px 0 2px;
+  border-radius: 2px;
+}
+
+/*
+deletes settings
+*/
+#write del {
+	color: var(--del-color);
+}
+
+/*
+selected texts settings
+*/
+#write ::selection {
+	background-color: var(--selection-bg-color);
+}
+
+
+</style><title>《基于Python的客户回购洞察分析与推荐系统建模》</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#基于python的客户回购洞察分析与推荐系统建模">《基于Python的客户回购洞察分析与推荐系统建模》</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#项目背景需求">项目背景&amp;需求</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#项目目标">项目目标</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#项目步骤">项目步骤</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#数据清理和整合">数据清理和整合</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#探索性数据分析eda）">探索性数据分析（EDA）</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#模型建立和预测">模型建立和预测</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#风险和挑战">风险和挑战</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#数据内容">数据内容</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#关于车主">关于车主</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#关于车辆">关于车辆</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#关于工单">关于工单</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#数据处理分析">数据处理&amp;分析</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#推荐系统">推荐系统</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='基于python的客户回购洞察分析与推荐系统建模'><span>《基于Python的客户回购洞察分析与推荐系统建模》</span></h1><p><img src="https://i.mji.rip/2024/05/08/6658e01052dc81a5991993c5107b783e.png" alt="6658e01052dc81a5991993c5107b783e.png" style="zoom:67%;" /></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#基于python的客户回购洞察分析与推荐系统建模">《基于Python的客户回购洞察分析与推荐系统建模》</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n6"><a class="md-toc-inner" href="#项目背景需求">项目背景&amp;需求</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n10"><a class="md-toc-inner" href="#项目目标">项目目标</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n19"><a class="md-toc-inner" href="#项目步骤">项目步骤</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n20"><a class="md-toc-inner" href="#数据清理和整合">数据清理和整合</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n26"><a class="md-toc-inner" href="#探索性数据分析eda）">探索性数据分析（EDA）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n34"><a class="md-toc-inner" href="#模型建立和预测">模型建立和预测</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n42"><a class="md-toc-inner" href="#风险和挑战">风险和挑战</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n48"><a class="md-toc-inner" href="#数据内容">数据内容</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n50"><a class="md-toc-inner" href="#关于车主">关于车主</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n129"><a class="md-toc-inner" href="#关于车辆">关于车辆</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n171"><a class="md-toc-inner" href="#关于工单">关于工单</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n324"><a class="md-toc-inner" href="#数据处理分析">数据处理&amp;分析</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n382"><a class="md-toc-inner" href="#推荐系统">推荐系统</a></span></p></div><h2 id='项目背景需求'><span>项目背景&amp;需求</span></h2><p><span>基于客户回购数据的数据科学洞察分析；我们有三个表格，分别对应于关键客户的基本信息、这些客户重新购买的汽车信息以及来自呼叫中心的服务请求。这个项目的目标是通过分析这些数据，获得有关客户回购行为的数据科学洞察，以便制定更有效的市场策略和提高客户满意度。</span></p><h2 id='项目目标'><span>项目目标</span></h2><p><span>通过对关键客户的基本信息、重新购买汽车的记录以及服务请求的分析，我们的目标是：</span></p><ul><li><p><span>综合使用 Python 各个数据分析模块，发现客户回购的趋势和模式。</span></p></li><li><p><span>利用机器学习模型识别影响客户回购的关键因素，并对客户可能复购的车型进行推荐</span></p></li></ul><h2 id='项目步骤'><span>项目步骤</span></h2><h3 id='数据清理和整合'><span>数据清理和整合</span></h3><ul><li><p><span>对三个表格进行数据清理，处理任何缺失值和异常值。</span></p></li><li><p><span>整合三个表格，以建立全面的客户数据集。</span></p></li></ul><h3 id='探索性数据分析eda）'><span>探索性数据分析（EDA）</span></h3><ul><li><p><span>分析关键客户的基本信息，包括年龄、性别、地理位置等。</span></p></li><li><p><span>研究重新购买汽车的模式，例如品牌偏好、购车间隔等。</span></p></li><li><p><span>制作可视化图表，总结数据科学洞察和对策建议。</span></p></li></ul><h3 id='模型建立和预测'><span>模型建立和预测</span></h3><ul><li><p><span>识别影响客户回购的关键因素</span></p></li><li><p><span>建立客户回购的预测模型，以识别潜在的回购趋势。</span></p></li></ul><h3 id='风险和挑战'><span>风险和挑战</span></h3><ul><li><p><span>数据质量问题可能影响洞察的准确性。</span></p></li><li><p><span>数据隐私和合规性问题需要得到妥善处理。</span></p></li></ul><h2 id='数据内容'><span>数据内容</span></h2><p><img src="https://i.mji.rip/2024/05/08/af6ffc6a90b64ecd73732d4b00543342.png" alt="af6ffc6a90b64ecd73732d4b00543342.png" style="zoom:67%;" /></p><h3 id='关于车主'><span>关于车主</span></h3><p><span>该数据集包含 3955 条记录，共 27 个字段，每一条记录代表一个车主的基本信息。以下是对每个字段的简要介绍：</span></p><ol><li><p><strong><span>车主 id （车主 ID）:</span></strong><span> 车主的唯一标识符，数据类型为字符串。</span></p></li><li><p><strong><span>姓名 （姓名）:</span></strong><span> 车主的姓名，数据类型为字符串。</span></p></li><li><p><strong><span>姓名拼音 （姓名拼音）:</span></strong><span> 车主姓名的拼音表示，数据类型为字符串。</span></p></li><li><p><strong><span>英文名称 （英文名称）:</span></strong><span> 车主的英文名称，数据类型为字符串。</span></p></li><li><p><strong><span>性别 （性别）:</span></strong><span> 车主的性别，数据类型为字符串。</span></p></li><li><p><strong><span>生日 （生日）:</span></strong><span> 车主的生日，数据类型为日期时间。</span></p></li><li><p><strong><span>婚姻状态 （婚姻状态）:</span></strong><span> 车主的婚姻状况，数据类型为浮点数，无非空值。</span></p></li><li><p><strong><span>教育程度 （教育程度）:</span></strong><span> 车主的教育水平，数据类型为字符串。</span></p></li><li><p><strong><span>职业大类 （职业大类）:</span></strong><span> 车主的职业大类，数据类型为浮点数，无非空值。</span></p></li><li><p><strong><span>职业小类 （职业小类）:</span></strong><span> 车主的职业小类，数据类型为浮点数，无非空值。</span></p></li><li><p><strong><span>职位 （职位）:</span></strong><span> 车主的职位，数据类型为字符串。</span></p></li><li><p><strong><span>行业 （行业）:</span></strong><span> 车主所在行业，数据类型为字符串。</span></p></li><li><p><strong><span>兴趣爱好 （兴趣爱好）:</span></strong><span> 车主的兴趣爱好，数据类型为字符串，只有 3 个非空值。</span></p></li><li><p><strong><span>家庭年收入 （家庭年收入）:</span></strong><span> 车主家庭的年收入，数据类型为字符串。</span></p></li><li><p><strong><span>家庭成员人数 （家庭成员人数）:</span></strong><span> 车主家庭成员的人数，数据类型为字符串。</span></p></li><li><p><strong><span>计划考驾照的时间 （计划考驾照的时间）:</span></strong><span> 计划考取驾照的时间，数据类型为浮点数，无非空值。</span></p></li><li><p><strong><span>是否拥有驾照 （是否拥有驾照）:</span></strong><span> 车主是否拥有驾照，数据类型为字符串。</span></p></li><li><p><strong><span>取得驾照年月 （取得驾照年月）:</span></strong><span> 取得驾照的年月，数据类型为日期时间，只有 2 个非空值。</span></p></li><li><p><strong><span>是否大客户 （是否大客户）:</span></strong><span> 车主是否为大客户，数据类型为字符串，只有 30 个非空值。</span></p></li><li><p><strong><span>是否 VIP 客户 （是否 VIP 客户）:</span></strong><span> 是否为 VIP 客户，数据类型为浮点数，无非空值。</span></p></li><li><p><strong><span>手机 （手机）:</span></strong><span> 车主的手机号码，数据类型为浮点数。</span></p></li><li><p><strong><span>区号 （区号）:</span></strong><span> 车主的区号，数据类型为浮点数，只有 205 个非空值。</span></p></li><li><p><strong><span>分机 （分机）:</span></strong><span> 车主的分机号，数据类型为浮点数，只有 2 个非空值。</span></p></li><li><p><strong><span>省份 （省份）:</span></strong><span> 车主所在省份，数据类型为字符串。</span></p></li><li><p><strong><span>城市 （城市）:</span></strong><span> 车主所在城市，数据类型为字符串。</span></p></li><li><p><strong><span>地址区 （地址区）:</span></strong><span> 车主所在地区，数据类型为字符串。</span></p></li><li><p><strong><span>邮编 （邮编）:</span></strong><span> 车主的邮政编码，数据类型为字符串。</span></p></li></ol><p><strong><span>数据类型概要：</span></strong></p><ul><li><p><span>字符串 （object）: 17 个字段</span></p></li><li><p><span>日期时间 （datetime64）: 2 个字段</span></p></li><li><p><span>浮点数 （float64）: 8 个字段</span></p></li></ul><p><strong><span>数据缺失情况：</span></strong></p><ul><li><p><span>生日字段有一半的数据是缺失的。</span></p></li><li><p><span>婚姻状态、职业大类、职业小类等字段全部为缺失。</span></p></li><li><p><span>有些字段只有极少量的非空值，如兴趣爱好、是否大客户等。</span></p></li></ul><p><strong><span>数据质量问题：</span></strong></p><ul><li><p><span>数据中存在一些异常的浮点数值。</span></p></li><li><p><span>手机号、区号、分机等字段应为字符串类型，但当前为浮点数。</span></p></li></ul><h3 id='关于车辆'><span>关于车辆</span></h3><p><span>该数据集包含 7978 条记录，共 11 个字段，每一条记录代表一个车主重新购买汽车的相关信息。以下是对每个字段的简要介绍：</span></p><ol><li><p><strong><span>车主 ID （车主 ID）:</span></strong><span> 车主的唯一标识符，数据类型为字符串。</span></p></li><li><p><strong><span>VVIN （VVIN）:</span></strong><span> 车辆识别号码，数据类型为字符串。</span></p></li><li><p><strong><span>市场车型 （市场车型）:</span></strong><span> 车型在市场上的类型，数据类型为字符串。</span></p></li><li><p><strong><span>车型 （车型）:</span></strong><span> 车主重新购买的汽车型号，数据类型为字符串。</span></p></li><li><p><strong><span>购买日期 （购买日期）:</span></strong><span> 车主重新购买汽车的日期，数据类型为日期时间。</span></p></li><li><p><strong><span>开票价格 （开票价格）:</span></strong><span> 车主重新购买汽车时的开票价格，数据类型为浮点数。</span></p></li><li><p><strong><span>ASSET_REF_EXPR （ASSET_REF_EXPR）:</span></strong><span> 资产参考表达式，数据类型为字符串。</span></p></li><li><p><strong><span>OU_NAME （OU_NAME）:</span></strong><span> 购买汽车的组织单位名称，数据类型为字符串。</span></p></li><li><p><strong><span>OU_ABREV （OU_ABREV）:</span></strong><span> 购买汽车的组织单位简称，数据类型为字符串。</span></p></li><li><p><strong><span>OU_CITY （OU_CITY）:</span></strong><span> 购买汽车的组织单位所在城市，数据类型为字符串。</span></p></li><li><p><strong><span>OU_COUNTY （OU_COUNTY）:</span></strong><span> 购买汽车的组织单位所在县区，数据类型为字符串。</span></p></li></ol><p><strong><span>数据类型概要：</span></strong></p><ul><li><p><span>字符串 （object）: 9 个字段</span></p></li><li><p><span>日期时间 （datetime64）: 1 个字段</span></p></li><li><p><span>浮点数 （float64）: 1 个字段</span></p></li></ul><p><strong><span>数据缺失情况：</span></strong></p><ul><li><p><span>VVIN、市场车型、车型、购买日期等字段存在一些缺失值。</span></p></li></ul><p><strong><span>数据质量问题：</span></strong></p><ul><li><p><span>开票价格字段为浮点数，可能需要进行数据清理和异常值处理。</span></p></li></ul><p><span>以上是对重新购买汽车数据集的初步介绍，进一步的分析将有助于深入理解客户的重新购车行为和市场趋势。</span></p><h3 id='关于工单'><span>关于工单</span></h3><p><span>该数据集包含 1447 条记录，共 57 个字段，每一条记录代表一个关键客户从呼叫中心获得的服务请求信息。以下是对每个字段的简要介绍：</span></p><ol><li><p><strong><span>车主 ID （车主 ID）:</span></strong><span> 车主的唯一标识符，数据类型为字符串。</span></p></li><li><p><strong><span>服务品牌 （服务品牌）:</span></strong><span> 服务请求所涉及的汽车品牌，数据类型为字符串。</span></p></li><li><p><strong><span>服务工单编号 （服务工单编号）:</span></strong><span> 服务工单的唯一标识符，数据类型为字符串。</span></p></li><li><p><strong><span>关联工单号 （关联工单号）:</span></strong><span> 关联的其他工单编号，数据类型为字符串，有 55 个非空值。</span></p></li><li><p><strong><span>工单状态 （工单状态）:</span></strong><span> 服务工单的状态，数据类型为字符串。</span></p></li><li><p><strong><span>性质分类 （性质分类）:</span></strong><span> 服务请求的性质分类，数据类型为字符串。</span></p></li><li><p><strong><span>业务分类 （业务分类）:</span></strong><span> 服务请求的业务分类，数据类型为字符串。</span></p></li><li><p><strong><span>工单产生类型 （工单产生类型）:</span></strong><span> 服务工单产生的类型，数据类型为字符串。</span></p></li><li><p><strong><span>工单一级分类 （工单一级分类）:</span></strong><span> 服务工单的一级分类，数据类型为字符串，有 1438 个非空值。</span></p></li><li><p><strong><span>工单二级分类 （工单二级分类）:</span></strong><span> 服务工单的二级分类，数据类型为字符串，有 290 个非空值。</span></p></li><li><p><strong><span>工单三级分类 （工单三级分类）:</span></strong><span> 服务工单的三级分类，数据类型为字符串，有 119 个非空值。</span></p></li><li><p><strong><span>工单来源 （工单来源）:</span></strong><span> 服务工单的来源，数据类型为字符串。</span></p></li><li><p><strong><span>工单创建日期 （工单创建日期）:</span></strong><span> 服务工单的创建日期，数据类型为日期时间。</span></p></li><li><p><strong><span>年 （年）:</span></strong><span> 服务工单创建的年份，数据类型为整数。</span></p></li><li><p><strong><span>月 （月）:</span></strong><span> 服务工单创建的月份，数据类型为整数。</span></p></li><li><p><strong><span>工单来电描述 （工单来电描述）:</span></strong><span> 客户来电时提供的服务工单描述，数据类型为字符串，有 1446 个非空值。</span></p></li><li><p><strong><span>工单处理层面 （工单处理层面）:</span></strong><span> 服务工单处理的层面，数据类型为字符串，有 286 个非空值。</span></p></li><li><p><strong><span>处理部门 （处理部门）:</span></strong><span> 处理服务工单的部门，数据类型为字符串，有 287 个非空值。</span></p></li><li><p><strong><span>省份 （省份）:</span></strong><span> 服务工单所在省份，数据类型为字符串，有 1364 个非空值。</span></p></li><li><p><strong><span>车型大类 （车型大类）:</span></strong><span> 服务工单所涉及汽车的大类别，数据类型为字符串，有 1282 个非空值。</span></p></li><li><p><strong><span>车型 （车型）:</span></strong><span> 服务工单所涉及汽车的具体型号，数据类型为字符串，有 1285 个非空值。</span></p></li><li><p><strong><span>车型 6 位码 （车型 6 位码）:</span></strong><span> 服务工单所涉及汽车的 6 位编码，数据类型为字符串，有 1285 个非空值。</span></p></li><li><p><strong><span>车色 （车色）:</span></strong><span> 服务工单所涉及汽车的颜色，数据类型为字符串，有 241 个非空值。</span></p></li><li><p><strong><span>购车时间 （购车时间）:</span></strong><span> 购车的时间，数据类型为日期时间，有 1285 个非空值。</span></p></li><li><p><strong><span>车辆 VIN 码 （车辆 VIN 码）:</span></strong><span> 汽车的 VIN 码，数据类型为字符串，有 1262 个非空值。</span></p></li><li><p><strong><span>行驶里程 （行驶里程）:</span></strong><span> 汽车的行驶里程，数据类型为浮点数，有 851 个非空值。</span></p></li><li><p><strong><span>涉及机构类型 （涉及机构类型）:</span></strong><span> 涉及的机构类型，数据类型为字符串，有 289 个非空值。</span></p></li><li><p><strong><span>涉及机构代码 （涉及机构代码）:</span></strong><span> 涉及的机构代码，数据类型为浮点数，有 289 个非空值。</span></p></li><li><p><strong><span>涉及机构名称 （涉及机构名称）:</span></strong><span> 涉及的机构名称，数据类型为字符串，有 289 个非空值。</span></p></li><li><p><strong><span>所属分销中心 （所属分销中心）:</span></strong><span> 服务工单所属的分销中心，数据类型为字符串，有 288 个非空值。</span></p></li><li><p><strong><span>当前处理人 （当前处理人）:</span></strong><span> 当前处理服务工单的人员，数据类型为字符串，有 1060 个非空值。</span></p></li><li><p><strong><span>当前处理机构 （当前处理机构）:</span></strong><span> 当前处理服务工单的机构，数据类型为字符串，有 287 个非空值。</span></p></li><li><p><strong><span>当前处理经销商 （当前处理经销商）:</span></strong><span> 当前处理服务工单的经销商，数据类型为字符串，有 264 个非空值。</span></p></li><li><p><strong><span>上次处理人工号 （上次处理人工号）:</span></strong><span> 上次处理服务工单的人员工号，数据类型为字符串，有 286 个非空值。</span></p></li><li><p><strong><span>当前处理人工号 （当前处理人工号）:</span></strong><span> 当前处理服务工单的人员工号，数据类型为字符串，有 1060 个非空值。</span></p></li><li><p><strong><span>故障产品分类 （故障产品分类）:</span></strong><span> 服务工单的故障产品分类，数据类型为字符串，有 96 个非空值。</span></p></li><li><p><strong><span>工单实际响应时间 （工单实际响应时间）:</span></strong><span> 服务工单的实际响应时间，数据类型为日期时间，有 294 个非空值。</span></p></li><li><p><strong><span>工单实际完成时间 （工单实际完成时间）:</span></strong><span> 服务工单的实际完成时间，数据类型为日期时间，有 1417 个非空值。</span></p></li><li><p><strong><span>是否及时响应 （是否及时响应）:</span></strong><span> 服务工单是否及时响应，数据类型为字符串。</span></p></li><li><p><strong><span>是否及时完成 （是否及时完成）:</span></strong><span> 服务工单是否及时完成，数据类型为字符串。</span></p></li><li><p><strong><span>是否一次解决 （是否一次解决）:</span></strong><span> 服务工单是否一次解决，数据类型为字符串。</span></p></li><li><p><strong><span>是否记录投诉次数 （是否记录投诉次数）:</span></strong><span> 是否记录投诉次数，数据类型为字符串。</span></p></li><li><p><strong><span>是否重大事故 （是否重大事故）:</span></strong><span> 服务工单是否涉及重大事故，数据类型为字符串。</span></p></li><li><p><strong><span>操作历史当前操作部门 （操作历史当前操作部门）:</span></strong><span> 操作历史记录中当前操作的部门，数据类型为字符串，有 1444 个非空值。</span></p></li><li><p><strong><span>操作历史当前操作人 （操作历史当前操作人）:</span></strong><span> 操作历史记录中当前操作的人员，数据类型为字符串，有 1447 个非空值。</span></p></li><li><p><strong><span>操作历史当前操作时间 （操作历史当前操作时间）:</span></strong><span> 操作历史记录中当前操作的时间，数据类型为日期时间，有 1447 个非空值。</span></p></li><li><p><strong><span>操作历史操作类型 （操作历史操作类型）:</span></strong><span> 操作历史记录中的操作类型，数据类型为字符串，有 885 个非空值。</span></p></li><li><p><strong><span>系统登陆用户名 （系统登陆用户名）:</span></strong><span> 系统登陆的用户名，数据类型为字符串。</span></p></li><li><p><strong><span>姓名 （姓名）:</span></strong><span> 车主姓名，数据类型为字符串。</span></p></li><li><p><strong><span>是否媒体工单 （是否媒体工单）:</span></strong><span> 服务工单是否属于媒体工单，数据类型为字符串。</span></p></li><li><p><strong><span>媒体类别一级 （媒体类别一级）:</span></strong><span> 媒体工单的一级类别，数据类型为字符串，有 12 个非空值。</span></p></li><li><p><strong><span>媒体类别二级 （媒体类别二级）:</span></strong><span> 媒体工单的二级类别，数据类型为字符串，有 12 个非空值。</span></p></li><li><p><strong><span>媒体名称 （媒体名称）:</span></strong><span> 媒体工单的名称，数据类型为字符串，有 12 个非空值。</span></p></li><li><p><strong><span>是否与召回有关 （是否与召回有关）:</span></strong><span> 服务工单是否与汽车召回有关，数据类型为字符串。</span></p></li><li><p><strong><span>是否普遍问题 （是否普遍问题）:</span></strong><span> 服务工单是否属于普遍问题，数据类型为字符串。</span></p></li><li><p><strong><span>最后一次操作内容 （最后一次操作内容）:</span></strong><span> 最后一次操作的具体内容，数据类型为字符串，有 398 个非空值。</span></p></li><li><p><strong><span>用户咨询内容 （用户咨询内容）:</span></strong><span> 用户咨询的具体内容，数据类型为字符串，有 48 个非空值。</span></p></li></ol><p><strong><span>数据类型概要：</span></strong></p><ul><li><p><span>字符串 （object）: 48 个字段</span></p></li><li><p><span>日期时间 （datetime64）: 5 个字段</span></p></li><li><p><span>浮点数 （float64）: 2 个字段</span></p></li><li><p><span>整数 （int64）: 2 个字段</span></p></li></ul><p><strong><span>数据缺失情况：</span></strong></p><ul><li><p><span>多个字段存在缺失值，如关联工单号、工单二级分类、工单三级分类、车色、行驶里程等。</span></p></li></ul><p><strong><span>数据质量问题：</span></strong></p><ul><li><p><span>数据中存在一些异常的浮点数值。</span></p></li><li><p><span>字符串字段中可能需要进行异常值处理。</span></p></li></ul><h2 id='数据处理分析'><span>数据处理&amp;分析</span></h2><div style="display: flex;">     <img src="https://i.mji.rip/2024/05/08/312c320a04a2c708270a1fcc9ec0e77c.png" style="width: 33%;">     <img src="https://i.mji.rip/2024/05/08/89bf8807d15b3f918ed8a0581f581e02.png" style="width: 33%;"> 
+<img src="https://i.mji.rip/2024/05/08/403fc049c546b62eba618178ce4bf4ae.png" style="width: 33%;">
+</div><p>&nbsp;</p><div style="display: flex;">     
+    <img src="https://i.mji.rip/2024/05/08/056b4b333c6aad5b4a1ffbdda3c740a6.gif" style="width: 52%;">     <img src="https://i.mji.rip/2024/05/08/d8c180fe568c0658ec2e85f7bad8067b.gif" style="width: 46%;"> 
+</div><p>&nbsp;</p><div style="display: flex;">     
+    <img src="https://i.mji.rip/2024/05/08/bf1677ee7364148569d99d1761b6fec3.png" style="width: 48%;">     <img src="https://i.mji.rip/2024/05/08/88bc0562b92d4a970b7be19d07178197.gif" style="width: 48%;"> 
+</div><p>&nbsp;</p><p><img src="https://i.mji.rip/2024/05/08/b016f7e144ff2c05a381f1578eacff99.gif" referrerpolicy="no-referrer" alt="b016f7e144ff2c05a381f1578eacff99.gif"></p><h2 id='推荐系统'><span>推荐系统</span></h2><div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.cn&#x2F;design&#x2F;DAF3HnYk_uo&#x2F;sUmbJhfVgUycuJQ2Ph6UFg&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div><p><img src="https://i.mji.rip/2024/05/08/c46bfda5b615c749a73958129a04b241.png" referrerpolicy="no-referrer" alt="c46bfda5b615c749a73958129a04b241.png"></p><p><img src="https://i.mji.rip/2024/05/08/db380ec6b3af9b6a6628b5e845897d2e.png" referrerpolicy="no-referrer" alt="db380ec6b3af9b6a6628b5e845897d2e.png"></p><p>&nbsp;</p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
