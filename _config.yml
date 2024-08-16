@@ -80,7 +80,7 @@ navbar-links:
     - 数学统计: "https://zg104.github.io/DSCrashCourse#math--stats-%E6%95%B0%E5%AD%A6%E7%BB%9F%E8%AE%A1"
 #    - SQL笔记: "https://docs.qq.com/doc/DRU5Pa0pManNvSXJH"
     - SQL刷题: "https://docs.qq.com/sheet/DRUtTaE5wUHVLcVNN?tab=BB08J2"
-#    - HiveQL: "HiveQLSparQL"
+    - HiveQL: "Hive"
 #    - Python: "https://zg104.github.io/DSCrashCourse#python"
 #    - Numpy: "numpy"
  #   - Pandas训练: "Pandas"
